@@ -1,0 +1,836 @@
+<!doctype html>
+<html class="scroll-smooth" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Tuitionly | Maths Made Simple</title>
+    <meta
+      content="Online maths tuition for Australian students in years 3-8."
+      name="description"
+    />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "earth-beige": "#F9F6F1",
+              "earth-cream": "#FFFDF7",
+              "earth-sage": "#7B8E7E",
+              "earth-terracotta": "#D67D61",
+              "earth-clay": "#4A3E3E",
+              "soft-green": "#E8F1E9",
+              "soft-clay": "#F2E8E4",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      :root {
+        --terracotta: #d67d61;
+        --sage: #7b8e7e;
+        --beige: #f9f6f1;
+      }
+      .editorial-gradient-1 {
+        background: radial-gradient(
+          circle at 10% 20%,
+          rgba(214, 125, 97, 0.08) 0%,
+          rgba(249, 246, 241, 1) 90%
+        );
+      }
+      .editorial-gradient-2 {
+        background: linear-gradient(180deg, #f9f6f1 0%, #e8f1e9 100%);
+      }
+      .full-bleed-spread {
+        grid-column: 1 / -1;
+      }
+      .magazine-dropcap::first-letter {
+        font-size: 4rem;
+        float: left;
+        margin-right: 0.5rem;
+        line-height: 1;
+        font-weight: 800;
+        color: var(--terracotta);
+      }
+      .testimonials-pagination .swiper-pagination-bullet {
+        background: rgba(74, 62, 62, 0.25);
+        opacity: 1;
+      }
+      .testimonials-pagination .swiper-pagination-bullet-active {
+        background: var(--terracotta);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-earth-beige text-earth-clay font-sans antialiased selection:bg-earth-terracotta/30"
+  >
+    <nav
+      class="fixed top-0 w-full z-50 bg-earth-beige/80 backdrop-blur-xl border-b border-earth-clay/5"
+    >
+      <div class="max-w-6xl mx-auto h-20 sm:h-24 px-4 sm:px-6 lg:px-12">
+        <div class="flex justify-between h-20 sm:h-24 items-center">
+          <div class="flex-shrink-0">
+            <a href="#top" class="inline-flex items-center gap-1">
+              <span
+                class="text-earth-clay text-xl sm:text-2xl font-extrabold tracking-tighter"
+                >Tuitionly<span class="text-earth-terracotta">.</span></span
+              >
+            </a>
+          </div>
+          <div class="hidden md:flex space-x-8 lg:space-x-12 items-center">
+            <a
+              class="text-earth-clay/70 hover:text-earth-terracotta transition-colors text-xs lg:text-sm font-medium uppercase tracking-[0.2em]"
+              href="#approach"
+              >Process</a
+            >
+            <a
+              class="text-earth-clay/70 hover:text-earth-terracotta transition-colors text-xs lg:text-sm font-medium uppercase tracking-[0.2em]"
+              href="#pricing"
+              >Tuition</a
+            >
+            <a
+              class="text-earth-clay/70 hover:text-earth-terracotta transition-colors text-xs lg:text-sm font-medium uppercase tracking-[0.2em]"
+              href="#testimonials"
+              >Stories</a
+            >
+            <a
+              class="bg-earth-terracotta text-white px-5 py-2.5 lg:px-8 lg:py-3 rounded-full text-[11px] lg:text-xs font-bold uppercase tracking-[0.25em] hover:brightness-110 transition-all"
+              href="#contact"
+              >Book Free Demo</a
+            >
+          </div>
+          <button
+            id="mobile-menu-toggle"
+            class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-earth-clay/10 bg-white/60 text-earth-clay hover:bg-earth-beige transition"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+          >
+            <span class="material-symbols-outlined text-earth-clay">menu</span>
+          </button>
+        </div>
+        <div
+          id="mobile-menu"
+          class="md:hidden origin-top scale-y-0 opacity-0 bg-earth-beige pointer-events-none transition-all duration-200 ease-out w-full"
+        >
+          <div class="pt-2 pb-6 space-y-1 border-t border-earth-clay/5">
+            <a
+              class="block px-2 py-2 rounded-lg text-earth-clay/80 hover:text-earth-terracotta hover:bg-earth-beige text-sm font-medium tracking-[0.18em] uppercase"
+              href="#approach"
+              >Process</a
+            >
+            <a
+              class="block px-2 py-2 rounded-lg text-earth-clay/80 hover:text-earth-terracotta hover:bg-earth-beige text-sm font-medium tracking-[0.18em] uppercase"
+              href="#pricing"
+              >Tuition</a
+            >
+            <a
+              class="block px-2 py-2 rounded-lg text-earth-clay/80 hover:text-earth-terracotta hover:bg-earth-beige text-sm font-medium tracking-[0.18em] uppercase"
+              href="#testimonials"
+              >Stories</a
+            >
+            <a
+              class="mt-2 inline-flex w-full justify-center items-center px-4 py-3 rounded-full bg-earth-terracotta text-white text-xs font-bold uppercase tracking-[0.25em] hover:brightness-110"
+              href="#contact"
+              >Book Free Demo</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <section
+        class="min-h-screen flex flex-col justify-center pt-24 sm:pt-28 editorial-gradient-1 overflow-hidden"
+      >
+        <div
+          class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center py-10"
+        >
+          <div class="lg:col-span-7 py-10 sm:py-12 lg:py-0">
+            <div class="inline-flex items-center gap-4 mb-8">
+              <span class="h-px w-12 bg-earth-terracotta"></span>
+              <span
+                class="text-earth-terracotta text-xs font-bold uppercase tracking-[0.2em]"
+                >Excellence in Classes 3-8</span
+              >
+            </div>
+            <h1
+              class="text-4xl md:text-6xl font-extrabold text-earth-clay leading-[1.05] tracking-tight mb-6 sm:mb-8"
+            >
+              Maths made
+              <span class="italic font-light text-earth-sage">simple</span> and
+              <span class="relative"
+                >enjoyable<span
+                  class="absolute -bottom-2 left-0 w-full h-1 bg-earth-terracotta/30"
+                ></span
+              ></span>
+            </h1>
+            <p
+              class="text-base sm:text-lg md:text-2xl text-earth-clay/60 max-w-xl font-light leading-relaxed mb-6 sm:mb-8"
+            >
+              An online maths tuition service for Australian students in years
+              3–8. Building confidence and results with personalised learning.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+              <a
+                class="group relative px-5 py-2 bg-earth-clay text-white rounded-full font-bold text-lg overflow-hidden transition-all hover:pr-14"
+                href="#contact"
+              >
+                <span>Book Free Demo</span>
+                <span
+                  class="absolute right-6 opacity-0 group-hover:opacity-100 transition-all material-symbols-outlined"
+                  >arrow_forward</span
+                >
+              </a>
+              <a
+                class="text-earth-clay font-bold text-lg border-b-2 border-earth-terracotta/30 hover:border-earth-terracotta transition-all py-1"
+                href="#approach"
+                >Learn Our Approach</a
+              >
+            </div>
+          </div>
+          <div class="hidden lg:block lg:col-span-5 relative mt-8 lg:mt-0">
+            <div class="relative w-full aspect-[9/10] rounded-xl border border-white/20 overflow-hidden bg-gray-800 pointer-events-none">
+              <video
+                class="w-full h-full object-cover rounded-xl"
+                autoPlay
+                muted
+                loop
+                playsInline
+                poster="/video-poster.png"
+              >
+                <source
+                  src="/tuitorly.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </div>
+            <!-- <div
+              class="bg-soft-clay rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl z-10 max-h-[380px] sm:max-h-[420px] flex items-center justify-center"
+            >
+              <div
+                class="flex items-center justify-center p-10 lg:py-24 text-center"
+              >
+                <div class="space-y-6">
+                  <span
+                    class="text-8xl material-symbols-outlined text-earth-terracotta/20"
+                    >calculate</span
+                  >
+                  <p class="text-earth-clay/40 font-medium italic">
+                    Building the next generation of confident problem solvers.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="pointer-events-none absolute -bottom-10 -right-10 w-40 h-40 sm:w-64 sm:h-64 bg-earth-sage/10 rounded-full blur-3xl"
+            ></div> -->
+          </div>
+        </div>
+      </section>
+      <section class="py-24 sm:py-32 px-4 sm:px-6 lg:px-12 bg-earth-cream" id="approach">
+        <div class="max-w-6xl mx-auto">
+          <div class="grid lg:grid-cols-2 gap-24 items-start mb-24">
+            <div class="lg:sticky lg:top-32">
+              <span
+                class="text-earth-terracotta font-black text-xs uppercase tracking-widest mb-6 block"
+                >Our Approach</span
+              >
+              <h2
+                class="text-2xl sm:text-3xl md:text-5xl font-extrabold text-earth-clay leading-tight mb-6 sm:mb-8"
+              >
+                How we simplify mathematics
+              </h2>
+              <p
+                class="text-lg text-earth-clay/70 leading-relaxed magazine-dropcap"
+              >
+                We believe that every child has the potential to master
+                mathematics. Our approach moves beyond rote learning to foster
+                deep conceptual understanding through empathy and structure.
+              </p>
+            </div>
+            <div class="space-y-12">
+              <div class="group border-b border-earth-clay/10 pb-12">
+                <div class="flex gap-8 items-start">
+                  <span
+                    class="text-4xl font-light text-earth-terracotta/30 group-hover:text-earth-terracotta transition-colors duration-500"
+                    >01</span
+                  >
+                  <div>
+                    <h3 class="text-2xl font-bold mb-4">
+                      Personalised learning
+                    </h3>
+                    <p class="text-earth-clay/60 mb-6 leading-relaxed">
+                      Personalised lesson plans tailored to Australian
+                      curriculum standards. We meet your child where they are.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                      <span
+                        class="px-4 py-2 bg-soft-green rounded-full text-xs font-bold text-earth-sage"
+                        >Short, targeted sessions to build confidence and speed</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group border-b border-earth-clay/10 pb-12">
+                <div class="flex gap-8 items-start">
+                  <span
+                    class="text-4xl font-light text-earth-terracotta/30 group-hover:text-earth-terracotta transition-colors duration-500"
+                    >02</span
+                  >
+                  <div>
+                    <h3 class="text-2xl font-bold mb-4">Math Skills Boost</h3>
+                    <p class="text-earth-clay/60 mb-6 leading-relaxed">
+                      Interactive activities and visual aids for better
+                      conceptual understanding.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                      <span
+                        class="px-4 py-2 bg-soft-clay rounded-full text-xs font-bold text-earth-terracotta"
+                        >Progress tracking</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group border-b border-earth-clay/10 pb-12">
+                <div class="flex gap-8 items-start">
+                  <span
+                    class="text-4xl font-light text-earth-terracotta/30 group-hover:text-earth-terracotta transition-colors duration-500"
+                    >03</span
+                  >
+                  <div>
+                    <h3 class="text-2xl font-bold mb-4">Concept Mastery</h3>
+                    <p class="text-earth-clay/60 mb-6 leading-relaxed">
+                      Flexible session times with real-time feedback. We're here to help you every step of the way.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                      <span
+                        class="px-4 py-2 bg-earth-beige rounded-full text-xs font-bold text-earth-clay/70"
+                        >Homework support</span
+                      >
+                      <span
+                        class="px-4 py-2 bg-earth-beige rounded-full text-xs font-bold text-earth-clay/70"
+                        >Phone and email support</span
+                      >
+                      <span
+                        class="px-4 py-2 bg-earth-beige rounded-full text-xs font-bold text-earth-clay/70"
+                        >Support during term breaks</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-0 overflow-hidden" id="testimonials">
+        <div class="bg-earth-sage/10 py-24 sm:py-32">
+          <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12">
+            <div class="text-center mb-16 sm:mb-24">
+              <span
+                class="text-earth-terracotta font-black text-xs uppercase tracking-[0.3em] mb-4 block"
+                >Voices of Experience</span
+              >
+              <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-earth-clay">
+                Trusted by families nationwide
+              </h2>
+            </div>
+            <div class="swiper testimonials-swiper">
+              <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                  <div class="bg-earth-cream p-6 md:p-12 rounded-lg h-full flex flex-col justify-center">
+                    <span class="text-8xl text-earth-terracotta/20 leading-none mb-4 italic">“</span>
+                    <p class="text-2xl md:text-3xl text-earth-clay font-medium italic leading-relaxed mb-12">
+                      "My child now enjoys maths and consistently improves each week."
+                    </p>
+                    <div class="flex items-center">
+                      <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-earth-terracotta/20 mr-6">
+                        <img
+                          alt="Aya Nakamura"
+                          class="w-full h-full object-cover"
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVyH_9dvVOfBNgGNtDPn9_NfcMVwHdFQ79n-2rx3rS7d6IHEklP4O61hkLWwaAE3-kVf2vsZ31-OU4sILJWsE7AufG76OEOKTfbVhYKdggwgP2-McSBhDSECqKHJM2AGDo5q2WUoqs3hFLJFhG7frZe8RS8CAQUHh1X6ODF-302uWmHwbGj67MHMyuiBDFAbo2tIePhuG7jMbUnOP2r1s7D-gCQDb0zOv9FFR_4vefb0D5dOCUayXbS2deiW1cEOUf7ylTvn5LAvc"
+                        />
+                      </div>
+                      <div>
+                        <p class="font-bold text-lg tracking-tight">Aya Nakamura</p>
+                        <p class="text-sm text-earth-clay/40 uppercase tracking-widest font-bold">Parent</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                  <div class="bg-earth-cream p-6 md:p-12 rounded-lg h-full flex flex-col justify-center">
+                    <span class="text-8xl text-earth-terracotta/20 leading-none mb-4 italic">“</span>
+                    <p class="text-2xl md:text-3xl text-earth-clay font-medium italic leading-relaxed mb-12">
+                      "The tutor explained concepts clearly and built our confidence."
+                    </p>
+                    <div class="flex items-center">
+                      <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-earth-terracotta/20 mr-6">
+                        <img
+                          alt="Mateo Garcia"
+                          class="w-full h-full object-cover"
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgqXKJ9mhR_HO-H3Nz_9QzEn5wcfJEHfvOeUYzT7zuehkFU6yexDsaLpcjnU88lAEzvlhvjRbmt3atU5pQ45AVRvU1NSSpfpYilKZ-ahudRpwpEmKDPG2zTWFZR8g7ye1z7VC53Q3TJehDcJ8QEQgIgz2e1uCG_cGi-pKm2PLBLM9c7TY9r6ccHIrlPsgvNDmrTadVhoIYonGfGE8Q-2yOwgsi0fRh3-Msw222oeBz5ur3vJHUtU1-qipgKezphZT39jfrUi2_SF4"
+                        />
+                      </div>
+                      <div>
+                        <p class="font-bold text-lg tracking-tight">Mateo Garcia</p>
+                        <p class="text-sm text-earth-clay/40 uppercase tracking-widest font-bold">Parent</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                  <div class="bg-earth-cream p-6 md:p-12 rounded-lg h-full flex flex-col justify-center">
+                    <span class="text-8xl text-earth-terracotta/20 leading-none mb-4 italic">“</span>
+                    <p class="text-2xl md:text-3xl text-earth-clay font-medium italic leading-relaxed mb-12">
+                      "My child now enjoys maths and consistently improves each week."
+                    </p>
+                    <div class="flex items-center">
+                      <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-earth-terracotta/20 mr-6">
+                        <img
+                          alt="Aya Nakamura"
+                          class="w-full h-full object-cover"
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVyH_9dvVOfBNgGNtDPn9_NfcMVwHdFQ79n-2rx3rS7d6IHEklP4O61hkLWwaAE3-kVf2vsZ31-OU4sILJWsE7AufG76OEOKTfbVhYKdggwgP2-McSBhDSECqKHJM2AGDo5q2WUoqs3hFLJFhG7frZe8RS8CAQUHh1X6ODF-302uWmHwbGj67MHMyuiBDFAbo2tIePhuG7jMbUnOP2r1s7D-gCQDb0zOv9FFR_4vefb0D5dOCUayXbS2deiW1cEOUf7ylTvn5LAvc"
+                        />
+                      </div>
+                      <div>
+                        <p class="font-bold text-lg tracking-tight">Aya Nakamura</p>
+                        <p class="text-sm text-earth-clay/40 uppercase tracking-widest font-bold">Parent</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="swiper-slide">
+                  <div class="bg-earth-cream p-6 md:p-12 rounded-lg h-full flex flex-col justify-center">
+                    <span class="text-8xl text-earth-terracotta/20 leading-none mb-4 italic">“</span>
+                    <p class="text-2xl md:text-3xl text-earth-clay font-medium italic leading-relaxed mb-12">
+                      "The tutor explained concepts clearly and built our confidence."
+                    </p>
+                    <div class="flex items-center">
+                      <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-earth-terracotta/20 mr-6">
+                        <img
+                          alt="Mateo Garcia"
+                          class="w-full h-full object-cover"
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgqXKJ9mhR_HO-H3Nz_9QzEn5wcfJEHfvOeUYzT7zuehkFU6yexDsaLpcjnU88lAEzvlhvjRbmt3atU5pQ45AVRvU1NSSpfpYilKZ-ahudRpwpEmKDPG2zTWFZR8g7ye1z7VC53Q3TJehDcJ8QEQgIgz2e1uCG_cGi-pKm2PLBLM9c7TY9r6ccHIrlPsgvNDmrTadVhoIYonGfGE8Q-2yOwgsi0fRh3-Msw222oeBz5ur3vJHUtU1-qipgKezphZT39jfrUi2_SF4"
+                        />
+                      </div>
+                      <div>
+                        <p class="font-bold text-lg tracking-tight">Mateo Garcia</p>
+                        <p class="text-sm text-earth-clay/40 uppercase tracking-widest font-bold">Parent</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonials-pagination mt-8 flex justify-center"></div>
+          </div>
+        </div>
+      </section>
+      <section class="py-32 px-6 sm:px-12 bg-earth-beige" id="pricing">
+        <div class="max-w-5xl mx-auto">
+          <div class="text-center mb-24">
+            <span
+              class="text-earth-terracotta font-black text-xs uppercase tracking-widest mb-6 block"
+              >Pricing</span
+            >
+            <h2 class="text-3xl md:text-5xl font-extrabold text-earth-clay">
+              Invest in their future
+            </h2>
+          </div>
+          <div class="grid md:grid-cols-2 gap-16">
+            <div class="relative group">
+              <div class="border-t-2 border-earth-clay/20 pt-10">
+                <h3 class="text-3xl font-bold mb-2">Maths Tutoring Plan</h3>
+                <div class="flex items-baseline mb-8">
+                  <span class="text-4xl font-extrabold">$99</span>
+                </div>
+                <p class="text-earth-clay/60 mb-10 leading-relaxed italic">
+                  Includes 2 weekly group of three sessions with progress tracking
+                </p>
+                <ul class="space-y-4 mb-12">
+                  <li class="flex items-center text-sm font-medium">
+                    <span
+                      class="material-symbols-outlined text-earth-terracotta mr-3 text-lg"
+                      >check_circle</span
+                    >
+                    Flexible scheduling to fit school days
+                  </li>
+                  <li class="flex items-center text-sm font-medium">
+                    <span
+                      class="material-symbols-outlined text-earth-terracotta mr-3 text-lg"
+                      >check_circle</span
+                    >
+                    Personalised worksheets and practice
+                  </li>
+                  <li class="flex items-center text-sm font-medium">
+                    <span
+                      class="material-symbols-outlined text-earth-terracotta mr-3 text-lg"
+                      >check_circle</span
+                    >
+                    Email support &amp; progress reports
+                  </li>
+                </ul>
+                <button
+                  class="w-full py-5 rounded-full border-2 border-earth-clay text-earth-clay font-bold uppercase tracking-widest text-xs hover:bg-earth-clay hover:text-white transition-all"
+                >
+                  Select Plan
+                </button>
+              </div>
+            </div>
+            <div class="relative group">
+              <div class="border-t-2 border-earth-terracotta pt-10">
+                <div
+                  class="absolute -top-3 right-0 bg-earth-terracotta text-white px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest"
+                >
+                  Most Popular
+                </div>
+                <h3 class="text-3xl font-bold mb-2">Pro Maths Plan</h3>
+                <div class="flex items-baseline mb-8">
+                  <span class="text-4xl font-extrabold">$149</span>
+                </div>
+                <p class="text-earth-clay/60 mb-10 leading-relaxed italic">
+                  Two weekly one-on-one sessions for maximum attention and
+                  growth
+                </p>
+                <ul class="space-y-4 mb-12">
+                  <li class="flex items-center text-sm font-medium">
+                    <span
+                      class="material-symbols-outlined text-earth-sage mr-3 text-lg"
+                      >check_circle</span
+                    >
+                    Direct feedback from tutors
+                  </li>
+                  <li class="flex items-center text-sm font-medium">
+                    <span
+                      class="material-symbols-outlined text-earth-sage mr-3 text-lg"
+                      >check_circle</span
+                    >
+                    Phone support during weekdays
+                  </li>
+                  <li class="flex items-center text-sm font-medium">
+                    <span
+                      class="material-symbols-outlined text-earth-sage mr-3 text-lg"
+                      >check_circle</span
+                    >
+                    Dedicated mentor allocation
+                  </li>
+                </ul>
+                <button
+                  class="w-full py-5 rounded-full bg-earth-terracotta text-white font-bold uppercase tracking-widest text-xs hover:brightness-110 shadow-xl shadow-earth-terracotta/20 transition-all"
+                >
+                  Get Started Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-32 bg-earth-cream overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 sm:px-12">
+          <div class="flex flex-col lg:flex-row gap-24">
+            <div class="lg:w-1/3">
+              <span
+                class="text-earth-sage font-black text-xs uppercase tracking-widest mb-6 block"
+                >Our Ethos</span
+              >
+              <h2
+                class="text-5xl font-extrabold text-earth-clay leading-tight mb-10"
+              >
+                How are we different?
+              </h2>
+              <div class="h-1 w-24 bg-earth-terracotta/20 mb-10"></div>
+              <p class="text-lg text-earth-clay/50 leading-relaxed italic">
+                "Education is not the learning of facts, but the training of the
+                mind to think."
+              </p>
+            </div>
+            <div class="lg:w-2/3 grid sm:grid-cols-2 gap-x-12 gap-y-20">
+              <div class="relative">
+                <span
+                  class="absolute -left-8 -top-4 text-7xl font-black text-earth-terracotta/15"
+                  >01</span
+                >
+                <h4 class="font-bold text-xl mb-4 relative">
+                  Concept-first teaching
+                </h4>
+                <p class="text-earth-clay/60 leading-relaxed">
+                  We explain the "why" before the "how" to ensure deep
+                  understanding. Building a foundation that lasts a lifetime.
+                </p>
+              </div>
+              <div class="relative">
+                <span
+                  class="absolute -left-8 -top-4 text-7xl font-black text-earth-terracotta/15"
+                  >02</span
+                >
+                <h4 class="font-bold text-xl mb-4 relative">
+                  Curriculum-aligned
+                </h4>
+                <p class="text-earth-clay/60 leading-relaxed">
+                  Aligned exactly to what your child learns in school. No confusion, just perfect synergy with schoolwork.
+                </p>
+              </div>
+              <div class="relative">
+                <span
+                  class="absolute -left-8 -top-4 text-7xl font-black text-earth-terracotta/15"
+                  >03</span
+                >
+                <h4 class="font-bold text-xl mb-4 relative">
+                  Small, focused batches
+                </h4>
+                <p class="text-earth-clay/60 leading-relaxed">
+                  Max 3 students in a class. Every student gets the attention
+                  they deserve in a safe, collaborative environment.
+                </p>
+              </div>
+              <div class="relative">
+                <span
+                  class="absolute -left-8 -top-4 text-7xl font-black text-earth-terracotta/15"
+                  >04</span
+                >
+                <h4 class="font-bold text-xl mb-4 relative">
+                  Confidence-building
+                </h4>
+                <p class="text-earth-clay/60 leading-relaxed">
+                  No rushing, no fear of asking questions. A safe space for
+                  growth where mistakes are celebrated as learning steps.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-24 sm:py-32 px-4 sm:px-6 lg:px-12 editorial-gradient-2" id="contact">
+        <div class="max-w-6xl mx-auto">
+          <div
+            class="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-earth-clay/5"
+          >
+            <div class="grid lg:grid-cols-12">
+              <div
+                class="lg:col-span-5 bg-earth-clay p-12 md:p-20 text-white flex flex-col justify-between"
+              >
+                <div>
+                  <span
+                    class="text-earth-terracotta font-black text-xs uppercase tracking-widest mb-10 block"
+                    >Contact Us</span
+                  >
+                  <h2 class="text-4xl font-extrabold mb-8">
+                    Let's start the conversation.
+                  </h2>
+
+                  <p class="text-white/60 text-lg leading-relaxed mb-4">
+                    Have questions about our maths tuition or want to discuss
+                    your child's needs? Send us a message and we’ll get back within one business day.
+                  </p>
+                </div>
+                <div class="space-y-8">
+                  <div class="flex items-center gap-6 group cursor-pointer">
+                    <div
+                      class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center group-hover:bg-earth-terracotta transition-colors"
+                    >
+                      <span class="material-symbols-outlined text-white"
+                        >mail</span
+                      >
+                    </div>
+                    <div>
+                      <p
+                        class="text-xs uppercase font-bold tracking-widest text-white/40"
+                      >
+                        Email
+                      </p>
+                      <a
+                        class="text-white font-medium hover:text-earth-terracotta transition-colors"
+                        href="mailto:hello@tuitionly.org"
+                        >hello@tuitionly.org</a
+                      >
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-6 group cursor-pointer">
+                    <div
+                      class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center group-hover:bg-earth-terracotta transition-colors"
+                    >
+                      <span class="material-symbols-outlined text-white"
+                        >call</span
+                      >
+                    </div>
+                    <div>
+                      <p
+                        class="text-xs uppercase font-bold tracking-widest text-white/40"
+                      >
+                        Phone
+                      </p>
+                      <a
+                        class="text-white font-medium hover:text-earth-terracotta transition-colors"
+                        href="tel:+61000000000"
+                        >+61 00 000 0000</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="lg:col-span-7 p-12 md:p-20">
+                <form action="#" class="space-y-8">
+                  <p class="text-earth-clay/60 text-lg leading-relaxed mb-12">We’re happy to answer questions about schedules, pricing, or how Tuitionly works.</p>
+                  <div class="grid md:grid-cols-2 gap-8">
+                    <div class="relative">
+                      <label
+                        class="text-[10px] uppercase font-black text-earth-clay/40 tracking-widest absolute left-0 -top-6"
+                        >Your name</label
+                      >
+                      <input
+                        class="w-full border-b-2 border-earth-beige focus:border-earth-terracotta bg-transparent py-4 px-2 outline-none transition-all placeholder:text-earth-clay/20 font-medium"
+                        placeholder="Parent or guardian name"
+                        type="text"
+                      />
+                    </div>
+                    <div class="relative">
+                      <label
+                        class="text-[10px] uppercase font-black text-earth-clay/40 tracking-widest absolute left-0 -top-6"
+                        >Email Address</label
+                      >
+                      <input
+                        class="w-full border-b-2 border-earth-beige focus:border-earth-terracotta bg-transparent py-4 px-2 outline-none transition-all placeholder:text-earth-clay/20 font-medium"
+                        placeholder="you@example.com"
+                        type="email"
+                      />
+                    </div>
+                  </div>
+                  <div class="relative">
+                    <label
+                      class="text-[10px] uppercase font-black text-earth-clay/40 tracking-widest absolute left-0 -top-6"
+                      >Child's year level</label
+                    >
+                    <select
+                      class="w-full border-b-2 border-earth-beige focus:border-earth-terracotta bg-transparent py-4 px-2 outline-none transition-all appearance-none cursor-pointer font-medium"
+                    >
+                      <option>Select year</option>
+                      <option>Year 3</option>
+                      <option>Year 4</option>
+                      <option>Year 5</option>
+                      <option>Year 6</option>
+                      <option>Year 7</option>
+                      <option>Year 8</option>
+                    </select>
+                  </div>
+                  <div class="relative">
+                    <label
+                      class="text-[10px] uppercase font-black text-earth-clay/40 tracking-widest absolute left-0 -top-6"
+                      >How can we help?</label
+                    >
+                    <textarea
+                      class="w-full border-b-2 border-earth-beige focus:border-earth-terracotta bg-transparent py-4 px-2 outline-none transition-all placeholder:text-earth-clay/20 resize-none font-medium"
+                      placeholder="Share a bit about what you're looking for..."
+                      rows="4"
+                    ></textarea>
+                  </div>
+                  <button
+                    class="w-full md:w-auto px-5 py-2.5 bg-earth-terracotta text-white font-bold rounded-full hover:shadow-2xl hover:shadow-earth-terracotta/40 transition-all uppercase tracking-widest text-xs"
+                    type="submit"
+                  >
+                    Submit Enquiry
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="bg-earth-clay py-20 px-6 sm:px-12 text-white/50">
+      <div
+        class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12"
+      >
+        <div class="text-white font-extrabold text-2xl tracking-tighter">
+          Tuitionly<span class="text-earth-terracotta">.</span>
+        </div>
+        <p
+          class="text-xs font-bold uppercase tracking-widest text-center md:text-left"
+        >
+          © 2024 Tuitionly. Maths made simple for Classes 3–8.
+        </p>
+        <div class="flex space-x-8">
+          <a class="hover:text-earth-terracotta transition-colors" href="#"
+            ><span class="material-symbols-outlined text-xl"
+              >brand_family</span
+            ></a
+          >
+          <a class="hover:text-earth-terracotta transition-colors" href="#"
+            ><span class="material-symbols-outlined text-xl">camera</span></a
+          >
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script>
+      const mobileToggle = document.getElementById("mobile-menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      if (mobileToggle && mobileMenu) {
+        mobileToggle.addEventListener("click", () => {
+          const isOpen = mobileToggle.getAttribute("aria-expanded") === "true";
+
+          mobileToggle.setAttribute("aria-expanded", String(!isOpen));
+          mobileMenu.classList.toggle("scale-y-0");
+          mobileMenu.classList.toggle("opacity-0");
+          mobileMenu.classList.toggle("pointer-events-none");
+        });
+
+        // Close menu when a link is clicked (better UX on mobile)
+        mobileMenu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            mobileToggle.setAttribute("aria-expanded", "false");
+            mobileMenu.classList.add("scale-y-0", "opacity-0", "pointer-events-none");
+          });
+        });
+      }
+
+      const testimonialsEl = document.querySelector(".testimonials-swiper");
+      if (window.Swiper && testimonialsEl) {
+        new Swiper(testimonialsEl, {
+          slidesPerView: 1,
+          spaceBetween: 12,
+          grabCursor: true,
+          watchOverflow: true,
+          pagination: {
+            el: ".testimonials-pagination",
+            clickable: true,
+          },
+          breakpoints: {
+            1024: {
+              slidesPerView: 2,
+              spaceBetween: 24,
+            },
+          },
+        });
+      }
+    </script>
+  </body>
+</html>
