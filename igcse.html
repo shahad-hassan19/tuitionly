@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>IB Tuition | Tuitionly</title>
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
+        <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+        />
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <!-- Calendly CSS -->
+        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+        <script>
+            tailwind.config = {
+                theme: {
+                extend: {
+                    colors: {
+                    "earth-beige": "#F9F6F1",
+                    "earth-cream": "#FFFDF7",
+                    "earth-sage": "#7B8E7E",
+                    "earth-terracotta": "#D67D61",
+                    "earth-clay": "#4A3E3E",
+                    "soft-green": "#E8F1E9",
+                    "soft-clay": "#F2E8E4",
+                    },
+                    fontFamily: {
+                    sans: ["Inter", "sans-serif"],
+                    },
+                },
+                },
+            };
+        </script>
+        <style type="text/tailwindcss">
+            :root {
+                --terracotta: #d67d61;
+                --sage: #7b8e7e;
+                --beige: #f9f6f1;
+            }
+            .editorial-gradient-1 {
+                background: radial-gradient(
+                circle at 10% 20%,
+                rgba(214, 125, 97, 0.08) 0%,
+                rgba(249, 246, 241, 1) 90%
+                );
+            }
+            .editorial-gradient-2 {
+                background: linear-gradient(180deg, #f9f6f1 0%, #e8f1e9 100%);
+            }
+            .full-bleed-spread {
+                grid-column: 1 / -1;
+            }
+            .magazine-dropcap::first-letter {
+                font-size: 4rem;
+                float: left;
+                margin-right: 0.5rem;
+                line-height: 1;
+                font-weight: 800;
+                color: var(--terracotta);
+            }
+            .testimonials-pagination .swiper-pagination-bullet {
+                background: rgba(74, 62, 62, 0.25);
+                opacity: 1;
+            }
+            .testimonials-pagination .swiper-pagination-bullet-active {
+                background: var(--terracotta);
+            }
+
+            /* ─── Calendly: fixed height, no internal scroll ─── */
+            .calendly-wrapper {
+                position: relative;
+                height: 772px;
+                overflow: hidden;
+                border-radius: 1rem;
+                background: white;
+            }
+
+            .calendly-inline-widget {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                min-height: unset !important;
+                overflow: hidden !important;
+            }
+
+            .calendly-inline-widget iframe {
+                width: 100% !important;
+                height: 100% !important;
+                border: none;
+                overflow: hidden !important;
+            }
+
+            @media (max-width: 768px) {
+                .calendly-wrapper {
+                height: 620px;
+                }
+            }
+
+            /* ─── Skeleton loader ─── */
+            @keyframes shimmer {
+                0%   { background-position: -700px 0; }
+                100% { background-position:  700px 0; }
+            }
+
+            .skeleton {
+                background: linear-gradient(
+                90deg,
+                rgba(74,62,62,0.07) 25%,
+                rgba(74,62,62,0.13) 50%,
+                rgba(74,62,62,0.07) 75%
+                );
+                background-size: 700px 100%;
+                animation: shimmer 1.6s infinite linear;
+                border-radius: 0.5rem;
+            }
+
+            #calendly-skeleton {
+                position: absolute;
+                inset: 0;
+                padding: 2rem;
+                background: white;
+                border-radius: 1rem;
+                z-index: 10;
+                transition: opacity 0.4s ease;
+                pointer-events: none;
+            }
+
+            #calendly-skeleton.hidden {
+                opacity: 0;
+            }
+        </style>
+    </head>
+
+    <body class="bg-earth-beige text-earth-clay font-sans pt-20 sm:pt-24">
+        <nav
+            class="fixed top-0 w-full z-50 bg-earth-beige/80 backdrop-blur-xl border-b border-earth-clay/5"
+        >
+            <div class="max-w-6xl mx-auto h-20 sm:h-24 px-4 sm:px-6 lg:px-12">
+                <div class="flex justify-between h-20 sm:h-24 items-center">
+                    <div class="flex-shrink-0">
+                        <a href="index.html#top" class="inline-flex items-center gap-1">
+                            <span
+                                class="text-earth-clay text-xl sm:text-2xl font-extrabold tracking-tighter"
+                            >Tuitionly<span class="text-earth-terracotta">.</span>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="hidden md:flex space-x-8 lg:space-x-12 items-center">
+                        <a
+                            class="text-earth-clay/70 hover:text-earth-terracotta transition-colors text-xs lg:text-sm font-medium uppercase tracking-[0.2em]"
+                            href="index.html#approach"
+                        >
+                            Process
+                        </a>
+                        <a
+                            class="text-earth-clay/70 hover:text-earth-terracotta transition-colors text-xs lg:text-sm font-medium uppercase tracking-[0.2em]"
+                            href="index.html#pricing"
+                        >
+                            Tuition
+                        </a>
+                        <a
+                            class="text-earth-clay/70 hover:text-earth-terracotta transition-colors text-xs lg:text-sm font-medium uppercase tracking-[0.2em]"
+                            href="index.html#testimonials"
+                        >
+                            Stories
+                        </a>
+                        <a
+                            class="bg-earth-terracotta text-white px-5 py-2.5 lg:px-8 lg:py-3 rounded-full text-[11px] lg:text-xs font-bold uppercase tracking-[0.25em] hover:brightness-110 transition-all"
+                            href="index.html#contact"
+                        >
+                            Book Free Demo
+                        </a>
+                    </div>
+                    <button
+                        id="mobile-menu-toggle"
+                        class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-earth-clay/10 bg-white/60 text-earth-clay hover:bg-earth-beige transition"
+                        aria-label="Toggle navigation"
+                        aria-expanded="false"
+                    >
+                        <span class="material-symbols-outlined text-earth-clay">menu</span>
+                    </button>
+                </div>
+                <div
+                    id="mobile-menu"
+                    class="md:hidden origin-top scale-y-0 opacity-0 bg-earth-beige pointer-events-none transition-all duration-200 ease-out w-full"
+                >
+                    <div class="pt-2 pb-6 space-y-1 border-t border-earth-clay/5">
+                    <a
+                        class="block px-2 py-2 rounded-lg text-earth-clay/80 hover:text-earth-terracotta hover:bg-earth-beige text-sm font-medium tracking-[0.18em] uppercase"
+                        href="index.html#approach"
+                    >
+                        Process
+                    </a>
+                    <a
+                        class="text-earth-clay/70 hover:text-earth-terracotta transition-colors text-xs lg:text-sm font-medium uppercase tracking-[0.2em]"
+                        href="index.html#pricing"
+                    >
+                        Tuition
+                    </a>
+                    <a
+                        class="text-earth-clay/70 hover:text-earth-terracotta transition-colors text-xs lg:text-sm font-medium uppercase tracking-[0.2em]"
+                        href="index.html#testimonials"
+                    >
+                        Stories
+                    </a>
+                    <a
+                        class="mt-2 inline-flex w-full justify-center items-center px-4 py-3 rounded-full bg-earth-terracotta text-white text-xs font-bold uppercase tracking-[0.25em] hover:brightness-110"
+                        href="index.html#contact"
+                    >
+                        Book Free Demo
+                    </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- HERO -->
+        <section class="relative z-0 h-[70vh] flex items-center justify-center text-center overflow-hidden">
+            <img src="/images/sub-page.jpg" class="absolute inset-0 w-full h-full object-cover z-0"/>
+            <!-- PREMIUM GRADIENT OVERLAY -->
+            <div class="absolute inset-0
+                bg-gradient-to-r
+                from-black/80 via-black/60 to-black/30"
+            >
+            </div>
+
+            <div class="relative z-10 text-white px-4 max-w-3xl mx-auto">
+
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
+                    Tuition for <span class="text-earth-terracotta">IGCSE</span>
+                </h1>
+
+                <p class="text-lg text-white/80 mb-6">
+                    (Cambridge International)
+                </p>
+
+                <a
+                    href="index.html#contact"
+                    class="px-6 py-3 bg-earth-terracotta text-white rounded-full font-bold shadow-lg"
+                >
+                    Book Free Demo
+                </a>
+
+            </div>
+        </section>
+
+        <!-- CURRICULUM TABLE -->
+        <section class="relative z-10 max-w-5xl mx-auto -mt-20 px-6">
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+
+                <div class="flex border-b">
+                    <button class="px-6 py-4 text-sm font-bold border-b-2 border-earth-terracotta">
+                        Grades
+                    </button>
+                    <button class="px-6 py-4 text-sm text-earth-clay/50">
+                        Subjects Offered
+                    </button>
+                </div>
+
+                <div class="divide-y text-sm">
+                    <div class="grid grid-cols-4 p-5">
+                        <div class="font-bold">DP 2</div>
+                        <div class="col-span-3 text-earth-clay/70">
+                            Maths AA/AI (HL & SL), Physics, Chemistry, English
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-4 p-5">
+                        <div class="font-bold">DP 1</div>
+                        <div class="col-span-3 text-earth-clay/70">
+                            Maths, Sciences, English
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-4 p-5">
+                        <div class="font-bold">MYP</div>
+                        <div class="col-span-3 text-earth-clay/70">
+                            Integrated Sciences, Maths, English
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-4 p-5">
+                        <div class="font-bold">PYP</div>
+                        <div class="col-span-3 text-earth-clay/70">
+                            Maths, Science Foundations
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="py-24 px-6">
+            <div class="max-w-6xl mx-auto">
+
+                <h2 class="text-3xl font-bold mb-16">Why Tuitionly?</h2>
+
+                <div class="grid md:grid-cols-3 gap-10">
+
+                <div>
+                    <h4 class="font-bold mb-2">1-on-1 Classes</h4>
+                    <p class="text-earth-clay/60 text-sm">
+                        Personalised attention for better results
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-2">Exam Prep</h4>
+                    <p class="text-earth-clay/60 text-sm">
+                        IB-style questions & timed practice
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-2">Doubt Support</h4>
+                    <p class="text-earth-clay/60 text-sm">
+                        Continuous support outside sessions
+                    </p>
+                </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="px-6">
+            <div class="max-w-5xl mx-auto bg-earth-sage text-white rounded-2xl p-12 text-center">
+                <h3 class="text-2xl font-bold mb-4">Ready to start IB?</h3>
+                <a
+                    href="index.html#contact"
+                    class="bg-earth-terracotta px-6 py-3 rounded-full font-bold"
+                >
+                    Book Free Demo
+                </a>
+            </div>
+        </section>
+
+        <!-- INFO SECTION -->
+        <section class="py-24 px-6">
+            <div class="max-w-4xl mx-auto">
+
+                <h2 class="text-2xl font-bold mb-6">
+                    About the IB Program
+                </h2>
+
+                <p class="text-earth-clay/60 leading-relaxed">
+                    The IB program develops critical thinking, global perspective,
+                    and academic excellence. Our structured approach ensures students
+                    master both concepts and exam techniques.
+                </p>
+
+            </div>
+        </section>
+
+    </body>
+</html>
