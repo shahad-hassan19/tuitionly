@@ -22,8 +22,9 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
     />
-    />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Calendly CSS -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
@@ -77,6 +78,71 @@
       }
       .testimonials-pagination .swiper-pagination-bullet-active {
         background: var(--terracotta);
+      }
+
+      /* ─── Calendly: fixed height, no internal scroll ─── */
+      .calendly-wrapper {
+        position: relative;
+        height: 700px;
+        overflow: hidden;
+        border-radius: 1rem;
+        background: white;
+      }
+
+      .calendly-inline-widget {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        min-height: unset !important;
+        overflow: hidden !important;
+      }
+
+      .calendly-inline-widget iframe {
+        width: 100% !important;
+        height: 100% !important;
+        border: none;
+        overflow: hidden !important;
+      }
+
+      @media (max-width: 768px) {
+        .calendly-wrapper {
+          height: 620px;
+        }
+      }
+
+      /* ─── Skeleton loader ─── */
+      @keyframes shimmer {
+        0%   { background-position: -700px 0; }
+        100% { background-position:  700px 0; }
+      }
+
+      .skeleton {
+        background: linear-gradient(
+          90deg,
+          rgba(74,62,62,0.07) 25%,
+          rgba(74,62,62,0.13) 50%,
+          rgba(74,62,62,0.07) 75%
+        );
+        background-size: 700px 100%;
+        animation: shimmer 1.6s infinite linear;
+        border-radius: 0.5rem;
+      }
+
+      #calendly-skeleton {
+        position: absolute;
+        inset: 0;
+        padding: 2rem;
+        background: white;
+        border-radius: 1rem;
+        z-index: 10;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+      }
+
+      #calendly-skeleton.hidden {
+        opacity: 0;
       }
     </style>
   </head>
@@ -323,7 +389,7 @@
                 <!-- Slide 1 -->
                 <div class="swiper-slide">
                   <div class="bg-earth-cream p-6 md:p-12 rounded-lg h-full flex flex-col justify-center">
-                    <span class="text-8xl text-earth-terracotta/20 leading-none mb-4 italic">“</span>
+                    <span class="text-8xl text-earth-terracotta/20 leading-none mb-4 italic">"</span>
                     <p class="text-2xl md:text-3xl text-earth-clay font-medium italic leading-relaxed mb-12">
                       "My child now enjoys maths and consistently improves each week."
                     </p>
@@ -346,7 +412,7 @@
                 <!-- Slide 2 -->
                 <div class="swiper-slide">
                   <div class="bg-earth-cream p-6 md:p-12 rounded-lg h-full flex flex-col justify-center">
-                    <span class="text-8xl text-earth-terracotta/20 leading-none mb-4 italic">“</span>
+                    <span class="text-8xl text-earth-terracotta/20 leading-none mb-4 italic">"</span>
                     <p class="text-2xl md:text-3xl text-earth-clay font-medium italic leading-relaxed mb-12">
                       "The tutor explained concepts clearly and built our confidence."
                     </p>
@@ -369,7 +435,7 @@
                 <!-- Slide 3 -->
                 <div class="swiper-slide">
                   <div class="bg-earth-cream p-6 md:p-12 rounded-lg h-full flex flex-col justify-center">
-                    <span class="text-8xl text-earth-terracotta/20 leading-none mb-4 italic">“</span>
+                    <span class="text-8xl text-earth-terracotta/20 leading-none mb-4 italic">"</span>
                     <p class="text-2xl md:text-3xl text-earth-clay font-medium italic leading-relaxed mb-12">
                       "My child now enjoys maths and consistently improves each week."
                     </p>
@@ -392,7 +458,7 @@
                 <!-- Slide 4 -->
                 <div class="swiper-slide">
                   <div class="bg-earth-cream p-6 md:p-12 rounded-lg h-full flex flex-col justify-center">
-                    <span class="text-8xl text-earth-terracotta/20 leading-none mb-4 italic">“</span>
+                    <span class="text-8xl text-earth-terracotta/20 leading-none mb-4 italic">"</span>
                     <p class="text-2xl md:text-3xl text-earth-clay font-medium italic leading-relaxed mb-12">
                       "The tutor explained concepts clearly and built our confidence."
                     </p>
@@ -461,11 +527,12 @@
                     Email support &amp; progress reports
                   </li>
                 </ul>
-                <button
-                  class="w-full py-5 rounded-full border-2 border-earth-clay text-earth-clay font-bold uppercase tracking-widest text-xs hover:bg-earth-clay hover:text-white transition-all"
+                <a
+                  href="#contact"
+                  class="block w-full py-5 rounded-full border-2 border-earth-clay text-earth-clay font-bold uppercase tracking-widest text-xs hover:bg-earth-clay hover:text-white transition-all text-center"
                 >
                   Select Plan
-                </button>
+                </a>
               </div>
             </div>
             <div class="relative group">
@@ -506,11 +573,12 @@
                     Dedicated mentor allocation
                   </li>
                 </ul>
-                <button
-                  class="w-full py-5 rounded-full bg-earth-terracotta text-white font-bold uppercase tracking-widest text-xs hover:brightness-110 shadow-xl shadow-earth-terracotta/20 transition-all"
+                <a
+                  href="#contact"
+                  class="block w-full py-5 rounded-full bg-earth-terracotta text-white font-bold uppercase tracking-widest text-xs hover:brightness-110 shadow-xl shadow-earth-terracotta/20 transition-all text-center"
                 >
                   Get Started Now
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -591,67 +659,92 @@
           </div>
         </div>
       </section>
+
+      <!-- CALENDLY BOOKING SECTION -->
       <section class="py-24 sm:py-32 px-4 sm:px-6 lg:px-12 editorial-gradient-2" id="contact">
         <div class="max-w-6xl mx-auto">
           <div
             class="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-earth-clay/5"
           >
             <div class="grid lg:grid-cols-12">
+              <!-- Left Column - Information -->
               <div
-                class="lg:col-span-5 bg-earth-clay p-12 md:p-20 text-white flex flex-col justify-between"
+                class="lg:col-span-5 bg-earth-clay p-8 md:p-12 lg:p-16 text-white flex flex-col justify-between"
               >
                 <div>
                   <span
-                    class="text-earth-terracotta font-black text-xs uppercase tracking-widest mb-10 block"
-                    >Contact Us</span
+                    class="text-earth-terracotta font-black text-xs uppercase tracking-widest mb-6 block"
+                    >Book Your Demo</span
                   >
-                  <h2 class="text-4xl font-extrabold mb-8">
-                    Let's start the conversation.
+                  <h2 class="text-3xl md:text-4xl font-extrabold mb-6 leading-tight">
+                    Let's start your learning journey
                   </h2>
 
-                  <p class="text-white/60 text-lg leading-relaxed mb-4">
-                    Have questions about our maths tuition or want to discuss
-                    your child's needs? Send us a message and we’ll get back within one business day.
+                  <p class="text-white/70 text-base md:text-lg leading-relaxed mb-8">
+                    Schedule a free demo session to experience our teaching approach firsthand. No commitment required.
                   </p>
+
+                  <div class="space-y-6 mb-8">
+                    <div class="flex items-start gap-4">
+                      <div class="w-10 h-10 bg-earth-terracotta/20 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
+                        <span class="material-symbols-outlined text-earth-terracotta text-xl">schedule</span>
+                      </div>
+                      <div>
+                        <h4 class="font-bold text-white mb-1">30-Minute Session</h4>
+                        <p class="text-white/60 text-sm">Experience our personalised approach</p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                      <div class="w-10 h-10 bg-earth-terracotta/20 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
+                        <span class="material-symbols-outlined text-earth-terracotta text-xl">video_call</span>
+                      </div>
+                      <div>
+                        <h4 class="font-bold text-white mb-1">Online Meeting</h4>
+                        <p class="text-white/60 text-sm">Join from anywhere via Zoom</p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                      <div class="w-10 h-10 bg-earth-terracotta/20 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
+                        <span class="material-symbols-outlined text-earth-terracotta text-xl">verified</span>
+                      </div>
+                      <div>
+                        <h4 class="font-bold text-white mb-1">No Obligation</h4>
+                        <p class="text-white/60 text-sm">Free demo with expert tutor</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="space-y-8">
-                  <div class="flex items-center gap-6 group cursor-pointer">
+
+                <!-- Contact Information -->
+                <div class="space-y-6 pt-8 border-t border-white/10">
+                  <p class="text-white/50 text-sm font-medium uppercase tracking-wider">Or reach out directly</p>
+                  <div class="flex items-center gap-4 group cursor-pointer">
                     <div
-                      class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center group-hover:bg-earth-terracotta transition-colors"
+                      class="w-11 h-11 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-earth-terracotta transition-colors"
                     >
-                      <span class="material-symbols-outlined text-white"
-                        >mail</span
-                      >
+                      <span class="material-symbols-outlined text-white text-xl">mail</span>
                     </div>
                     <div>
-                      <p
-                        class="text-xs uppercase font-bold tracking-widest text-white/40"
-                      >
-                        Email
-                      </p>
+                      <p class="text-[10px] uppercase font-bold tracking-widest text-white/40">Email</p>
                       <a
-                        class="text-white font-medium hover:text-earth-terracotta transition-colors"
+                        class="text-white text-sm font-medium hover:text-earth-terracotta transition-colors"
                         href="mailto:hello@tuitionly.org"
                         >hello@tuitionly.org</a
                       >
                     </div>
                   </div>
-                  <div class="flex items-center gap-6 group cursor-pointer">
+                  <div class="flex items-center gap-4 group cursor-pointer">
                     <div
-                      class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center group-hover:bg-earth-terracotta transition-colors"
+                      class="w-11 h-11 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-earth-terracotta transition-colors"
                     >
-                      <span class="material-symbols-outlined text-white"
-                        >call</span
-                      >
+                      <span class="material-symbols-outlined text-white text-xl">call</span>
                     </div>
                     <div>
-                      <p
-                        class="text-xs uppercase font-bold tracking-widest text-white/40"
-                      >
-                        Phone
-                      </p>
+                      <p class="text-[10px] uppercase font-bold tracking-widest text-white/40">Phone</p>
                       <a
-                        class="text-white font-medium hover:text-earth-terracotta transition-colors"
+                        class="text-white text-sm font-medium hover:text-earth-terracotta transition-colors"
                         href="tel:+61000000000"
                         >+61 00 000 0000</a
                       >
@@ -659,68 +752,83 @@
                   </div>
                 </div>
               </div>
-              <div class="lg:col-span-7 p-12 md:p-20">
-                <form action="#" class="space-y-8">
-                  <p class="text-earth-clay/60 text-lg leading-relaxed mb-12">We’re happy to answer questions about schedules, pricing, or how Tuitionly works.</p>
-                  <div class="grid md:grid-cols-2 gap-8">
-                    <div class="relative">
-                      <label
-                        class="text-[10px] uppercase font-black text-earth-clay/40 tracking-widest absolute left-0 -top-6"
-                        >Your name</label
-                      >
-                      <input
-                        class="w-full border-b-2 border-earth-beige focus:border-earth-terracotta bg-transparent py-4 px-2 outline-none transition-all placeholder:text-earth-clay/20 font-medium"
-                        placeholder="Parent or guardian name"
-                        type="text"
-                      />
+
+              <!-- Right Column - Calendly Widget -->
+              <div class="lg:col-span-7 p-6 md:p-8 lg:p-12 bg-earth-beige/30">
+                <!-- Calendly wrapper with fixed height and skeleton loader -->
+                <div class="calendly-wrapper shadow-inner">
+
+                  <!-- Skeleton Loader -->
+                  <div id="calendly-skeleton">
+                    <!-- Header bar -->
+                    <div class="skeleton h-6 w-2/5 mb-8 rounded-lg"></div>
+
+                    <!-- Month navigation row -->
+                    <div class="flex items-center justify-between mb-6">
+                      <div class="skeleton h-5 w-5 rounded-full"></div>
+                      <div class="skeleton h-5 w-32 rounded-lg"></div>
+                      <div class="skeleton h-5 w-5 rounded-full"></div>
                     </div>
-                    <div class="relative">
-                      <label
-                        class="text-[10px] uppercase font-black text-earth-clay/40 tracking-widest absolute left-0 -top-6"
-                        >Email Address</label
-                      >
-                      <input
-                        class="w-full border-b-2 border-earth-beige focus:border-earth-terracotta bg-transparent py-4 px-2 outline-none transition-all placeholder:text-earth-clay/20 font-medium"
-                        placeholder="you@example.com"
-                        type="email"
-                      />
+
+                    <!-- Calendar grid -->
+                    <div class="grid grid-cols-7 gap-2 mb-8">
+                      <!-- Day labels -->
+                      <div class="skeleton h-4 rounded"></div>
+                      <div class="skeleton h-4 rounded"></div>
+                      <div class="skeleton h-4 rounded"></div>
+                      <div class="skeleton h-4 rounded"></div>
+                      <div class="skeleton h-4 rounded"></div>
+                      <div class="skeleton h-4 rounded"></div>
+                      <div class="skeleton h-4 rounded"></div>
+                      <!-- Weeks -->
+                      <div class="skeleton h-9 rounded-full"></div>
+                      <div class="skeleton h-9 rounded-full opacity-30"></div>
+                      <div class="skeleton h-9 rounded-full"></div>
+                      <div class="skeleton h-9 rounded-full"></div>
+                      <div class="skeleton h-9 rounded-full opacity-30"></div>
+                      <div class="skeleton h-9 rounded-full"></div>
+                      <div class="skeleton h-9 rounded-full opacity-30"></div>
+
+                      <div class="skeleton h-9 rounded-full opacity-30"></div>
+                      <div class="skeleton h-9 rounded-full"></div>
+                      <div class="skeleton h-9 rounded-full"></div>
+                      <div class="skeleton h-9 rounded-full opacity-30"></div>
+                      <div class="skeleton h-9 rounded-full"></div>
+                      <div class="skeleton h-9 rounded-full"></div>
+                      <div class="skeleton h-9 rounded-full opacity-30"></div>
+
+                      <div class="skeleton h-9 rounded-full"></div>
+                      <div class="skeleton h-9 rounded-full"></div>
+                      <div class="skeleton h-9 rounded-full opacity-30"></div>
+                      <div class="skeleton h-9 rounded-full"></div>
+                      <div class="skeleton h-9 rounded-full opacity-30"></div>
+                      <div class="skeleton h-9 rounded-full"></div>
+                      <div class="skeleton h-9 rounded-full"></div>
+
+                      <div class="skeleton h-9 rounded-full opacity-30"></div>
+                      <div class="skeleton h-9 rounded-full"></div>
+                      <div class="skeleton h-9 rounded-full"></div>
+                      <div class="skeleton h-9 rounded-full opacity-30"></div>
+                      <div class="skeleton h-9 rounded-full"></div>
+                      <div class="skeleton h-9 rounded-full opacity-30"></div>
+                      <div class="skeleton h-9 rounded-full"></div>
+                    </div>
+
+                    <!-- Timezone row -->
+                    <div class="flex items-center gap-3 mt-4">
+                      <div class="skeleton h-4 w-4 rounded-full"></div>
+                      <div class="skeleton h-4 w-40 rounded-lg"></div>
                     </div>
                   </div>
-                  <div class="relative">
-                    <label
-                      class="text-[10px] uppercase font-black text-earth-clay/40 tracking-widest absolute left-0 -top-6"
-                      >Child's year level</label
-                    >
-                    <select
-                      class="w-full border-b-2 border-earth-beige focus:border-earth-terracotta bg-transparent py-4 px-2 outline-none transition-all appearance-none cursor-pointer font-medium"
-                    >
-                      <option>Select year</option>
-                      <option>Year 3</option>
-                      <option>Year 4</option>
-                      <option>Year 5</option>
-                      <option>Year 6</option>
-                      <option>Year 7</option>
-                      <option>Year 8</option>
-                    </select>
-                  </div>
-                  <div class="relative">
-                    <label
-                      class="text-[10px] uppercase font-black text-earth-clay/40 tracking-widest absolute left-0 -top-6"
-                      >How can we help?</label
-                    >
-                    <textarea
-                      class="w-full border-b-2 border-earth-beige focus:border-earth-terracotta bg-transparent py-4 px-2 outline-none transition-all placeholder:text-earth-clay/20 resize-none font-medium"
-                      placeholder="Share a bit about what you're looking for..."
-                      rows="4"
-                    ></textarea>
-                  </div>
-                  <button
-                    class="w-full md:w-auto px-5 py-2.5 bg-earth-terracotta text-white font-bold rounded-full hover:shadow-2xl hover:shadow-earth-terracotta/40 transition-all uppercase tracking-widest text-xs"
-                    type="submit"
-                  >
-                    Submit Enquiry
-                  </button>
-                </form>
+
+                  <!-- Calendly inline widget begin -->
+                  <div
+                    class="calendly-inline-widget"
+                    data-url="https://calendly.com/contact-tuitionly/30min?hide_gdpr_banner=1&background_color=f9f6f1&text_color=4a3e3e&primary_color=d67d61"
+                  ></div>
+                  <!-- Calendly inline widget end -->
+
+                </div>
               </div>
             </div>
           </div>
@@ -751,22 +859,28 @@
         </div>
       </div>
     </footer>
+
+    <!-- Calendly JS -->
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+    <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+    <!-- Custom Scripts -->
     <script>
+      // Mobile Menu Toggle
       const mobileToggle = document.getElementById("mobile-menu-toggle");
       const mobileMenu = document.getElementById("mobile-menu");
 
       if (mobileToggle && mobileMenu) {
         mobileToggle.addEventListener("click", () => {
           const isOpen = mobileToggle.getAttribute("aria-expanded") === "true";
-
           mobileToggle.setAttribute("aria-expanded", String(!isOpen));
           mobileMenu.classList.toggle("scale-y-0");
           mobileMenu.classList.toggle("opacity-0");
           mobileMenu.classList.toggle("pointer-events-none");
         });
 
-        // Close menu when a link is clicked (better UX on mobile)
         mobileMenu.querySelectorAll("a").forEach((link) => {
           link.addEventListener("click", () => {
             mobileToggle.setAttribute("aria-expanded", "false");
@@ -775,6 +889,7 @@
         });
       }
 
+      // Testimonials Swiper
       const testimonialsEl = document.querySelector(".testimonials-swiper");
       if (window.Swiper && testimonialsEl) {
         new Swiper(testimonialsEl, {
@@ -793,6 +908,48 @@
             },
           },
         });
+      }
+
+      // ── Skeleton loader: hide once Calendly iframe fires load ──
+      function hideSkeleton() {
+        const skeleton = document.getElementById("calendly-skeleton");
+        if (skeleton) {
+          skeleton.classList.add("hidden");
+          // Remove from DOM after fade-out so it doesn't block clicks
+          setTimeout(() => skeleton.remove(), 450);
+        }
+      }
+
+      // Listen for Calendly's own ready event
+      window.addEventListener("message", function (e) {
+        if (e.data && e.data.event && e.data.event === "calendly.event_type_viewed") {
+          hideSkeleton();
+        }
+      });
+
+      // Fallback: watch the iframe inside the widget and hide on load
+      function watchCalendlyIframe() {
+        const widget = document.querySelector(".calendly-inline-widget");
+        if (!widget) return;
+
+        const observer = new MutationObserver(() => {
+          const iframe = widget.querySelector("iframe");
+          if (iframe) {
+            observer.disconnect();
+            iframe.addEventListener("load", hideSkeleton, { once: true });
+            // Safety net: hide after 6s regardless
+            setTimeout(hideSkeleton, 6000);
+          }
+        });
+
+        observer.observe(widget, { childList: true, subtree: true });
+      }
+
+      // Run after Calendly script has had a chance to inject
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", watchCalendlyIframe);
+      } else {
+        watchCalendlyIframe();
       }
     </script>
   </body>
