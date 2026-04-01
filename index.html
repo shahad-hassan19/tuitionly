@@ -843,9 +843,10 @@
           Tuitionly<span class="text-earth-terracotta">.</span>
         </div>
         <p
+          id="footer-year"
           class="text-xs font-bold uppercase tracking-widest text-center md:text-left"
         >
-          © 2024 Tuitionly. Maths made simple for Classes 3–8.
+          © Tuitionly. Learning made simple.
         </p>
         <div class="flex space-x-8">
           <a class="hover:text-earth-terracotta transition-colors" href="#"
@@ -868,6 +869,13 @@
 
     <!-- Custom Scripts -->
     <script>
+      const yearEl = document.getElementById("footer-year");
+
+      if (yearEl) {
+        const year = new Date().getFullYear();
+        yearEl.innerHTML = `© ${year} Tuitionly. Learning made simple.`;
+      }
+
       // Mobile Menu Toggle
       const mobileToggle = document.getElementById("mobile-menu-toggle");
       const mobileMenu = document.getElementById("mobile-menu");
