@@ -4,24 +4,14 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Tuitionly | Learning Made Simple</title>
-    <meta
-      content="Online tuition for students."
-      name="description"
-    />
+    <meta content="Online tuition for students." name="description" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <!-- Calendly CSS -->
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
@@ -51,6 +41,11 @@
         --sage: #7b8e7e;
         --beige: #f9f6f1;
       }
+
+      /* Smooth scroll via Lenis */
+      html.lenis, html.lenis body { height: auto; }
+      .lenis.lenis-smooth { scroll-behavior: auto !important; }
+
       .editorial-gradient-1 {
         background: radial-gradient(
           circle at 10% 20%,
@@ -61,9 +56,7 @@
       .editorial-gradient-2 {
         background: linear-gradient(180deg, #f9f6f1 0%, #e8f1e9 100%);
       }
-      .full-bleed-spread {
-        grid-column: 1 / -1;
-      }
+      .full-bleed-spread { grid-column: 1 / -1; }
       .magazine-dropcap::first-letter {
         font-size: 4rem;
         float: left;
@@ -80,6 +73,63 @@
         background: var(--terracotta);
       }
 
+      /* ─── Nav scroll effect ─── */
+      nav { transition: background-color 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease; }
+      nav.scrolled {
+        background-color: rgba(249, 246, 241, 0.95) !important;
+        box-shadow: 0 4px 30px rgba(74, 62, 62, 0.08);
+        border-color: rgba(74, 62, 62, 0.1) !important;
+      }
+
+      /* ─── Hero animated gradient ─── */
+      .hero-gradient {
+        background: radial-gradient(ellipse at 20% 50%, rgba(214,125,97,0.12) 0%, transparent 50%),
+                    radial-gradient(ellipse at 80% 20%, rgba(123,142,126,0.1) 0%, transparent 50%),
+                    radial-gradient(ellipse at 50% 80%, rgba(214,125,97,0.06) 0%, transparent 50%),
+                    #F9F6F1;
+        background-size: 200% 200%;
+        animation: heroGradientShift 8s ease-in-out infinite;
+      }
+      @keyframes heroGradientShift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
+
+      /* ─── Floating animation ─── */
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-12px); }
+      }
+      .float-slow { animation: float 6s ease-in-out infinite; }
+      .float-medium { animation: float 4s ease-in-out infinite 1s; }
+      .float-fast { animation: float 3s ease-in-out infinite 0.5s; }
+
+      /* ─── Card hover lift ─── */
+      .card-hover {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(74, 62, 62, 0.1);
+      }
+
+      /* ─── Button pulse ─── */
+      .btn-pulse {
+        position: relative;
+        overflow: hidden;
+      }
+      .btn-pulse::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+        transform: translateX(-100%);
+        transition: transform 0.5s ease;
+      }
+      .btn-pulse:hover::after {
+        transform: translateX(100%);
+      }
+
       /* ─── Calendly: fixed height, no internal scroll ─── */
       .calendly-wrapper {
         position: relative;
@@ -88,28 +138,21 @@
         border-radius: 1rem;
         background: white;
       }
-
       .calendly-inline-widget {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
         min-height: unset !important;
         overflow: hidden !important;
       }
-
       .calendly-inline-widget iframe {
         width: 100% !important;
         height: 100% !important;
         border: none;
         overflow: hidden !important;
       }
-
       @media (max-width: 768px) {
-        .calendly-wrapper {
-          height: 620px;
-        }
+        .calendly-wrapper { height: 620px; }
       }
 
       /* ─── Skeleton loader ─── */
@@ -117,19 +160,12 @@
         0%   { background-position: -700px 0; }
         100% { background-position:  700px 0; }
       }
-
       .skeleton {
-        background: linear-gradient(
-          90deg,
-          rgba(74,62,62,0.07) 25%,
-          rgba(74,62,62,0.13) 50%,
-          rgba(74,62,62,0.07) 75%
-        );
+        background: linear-gradient(90deg, rgba(74,62,62,0.07) 25%, rgba(74,62,62,0.13) 50%, rgba(74,62,62,0.07) 75%);
         background-size: 700px 100%;
         animation: shimmer 1.6s infinite linear;
         border-radius: 0.5rem;
       }
-
       #calendly-skeleton {
         position: absolute;
         inset: 0;
@@ -140,250 +176,141 @@
         transition: opacity 0.4s ease;
         pointer-events: none;
       }
+      #calendly-skeleton.hidden { opacity: 0; }
 
-      #calendly-skeleton.hidden {
-        opacity: 0;
+      /* ─── Decorative blob ─── */
+      .blob {
+        border-radius: 50%;
+        filter: blur(60px);
+        opacity: 0.5;
+        pointer-events: none;
       }
     </style>
   </head>
-  <body
-    class="bg-earth-beige text-earth-clay font-sans antialiased selection:bg-earth-terracotta/30"
-  >
-    <nav
-      class="fixed top-0 w-full z-50 bg-earth-beige/80 backdrop-blur-xl border-b border-earth-clay/5"
-    >
+  <body class="bg-earth-beige text-earth-clay font-sans antialiased selection:bg-earth-terracotta/30">
+    <!-- NAV -->
+    <nav id="main-nav" class="fixed top-0 w-full z-50 bg-earth-beige/60 backdrop-blur-xl border-b border-transparent">
       <div class="max-w-6xl mx-auto h-20 sm:h-24 px-4 sm:px-6 lg:px-12">
         <div class="flex justify-between h-20 sm:h-24 items-center">
           <div class="flex-shrink-0">
             <a href="#top" class="inline-flex items-center gap-1">
-              <span
-                class="text-earth-clay text-xl sm:text-2xl font-extrabold tracking-tighter"
-                >Tuitionly<span class="text-earth-terracotta">.</span></span
-              >
+              <span class="text-earth-clay text-xl sm:text-2xl font-extrabold tracking-tighter">Tuitionly<span class="text-earth-terracotta">.</span></span>
             </a>
           </div>
           <div class="hidden md:flex space-x-8 lg:space-x-12 items-center">
-            <a
-              class="text-earth-clay/70 hover:text-earth-terracotta transition-colors text-xs lg:text-sm font-medium uppercase tracking-[0.2em]"
-              href="#approach"
-              >Process</a
-            >
-            <a
-              class="text-earth-clay/70 hover:text-earth-terracotta transition-colors text-xs lg:text-sm font-medium uppercase tracking-[0.2em]"
-              href="#pricing"
-              >Tuition</a
-            >
-            <a
-              class="text-earth-clay/70 hover:text-earth-terracotta transition-colors text-xs lg:text-sm font-medium uppercase tracking-[0.2em]"
-              href="#testimonials"
-              >Stories</a
-            >
-            <a
-              class="bg-earth-terracotta text-white px-5 py-2.5 lg:px-8 lg:py-3 rounded-full text-[11px] lg:text-xs font-bold uppercase tracking-[0.25em] hover:brightness-110 transition-all"
-              href="#contact"
-              >Book Free Demo</a
-            >
+            <a class="text-earth-clay/70 hover:text-earth-terracotta transition-colors text-xs lg:text-sm font-medium uppercase tracking-[0.2em]" href="#approach">Process</a>
+            <a class="text-earth-clay/70 hover:text-earth-terracotta transition-colors text-xs lg:text-sm font-medium uppercase tracking-[0.2em]" href="#pricing">Tuition</a>
+            <a class="text-earth-clay/70 hover:text-earth-terracotta transition-colors text-xs lg:text-sm font-medium uppercase tracking-[0.2em]" href="#testimonials">Stories</a>
+            <a class="bg-earth-terracotta text-white px-5 py-2.5 lg:px-8 lg:py-3 rounded-full text-[11px] lg:text-xs font-bold uppercase tracking-[0.25em] hover:brightness-110 transition-all btn-pulse" href="#contact">Book Free Demo</a>
           </div>
-          <button
-            id="mobile-menu-toggle"
-            class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-earth-clay/10 bg-white/60 text-earth-clay hover:bg-earth-beige transition"
-            aria-label="Toggle navigation"
-            aria-expanded="false"
-          >
+          <button id="mobile-menu-toggle" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-earth-clay/10 bg-white/60 text-earth-clay hover:bg-earth-beige transition" aria-label="Toggle navigation" aria-expanded="false">
             <span class="material-symbols-outlined text-earth-clay">menu</span>
           </button>
         </div>
-        <div
-          id="mobile-menu"
-          class="md:hidden origin-top scale-y-0 opacity-0 bg-earth-beige pointer-events-none transition-all duration-200 ease-out w-full"
-        >
+        <div id="mobile-menu" class="md:hidden origin-top scale-y-0 opacity-0 bg-earth-beige pointer-events-none transition-all duration-200 ease-out w-full">
           <div class="pt-2 pb-6 space-y-1 border-t border-earth-clay/5">
-            <a
-              class="block px-2 py-2 rounded-lg text-earth-clay/80 hover:text-earth-terracotta hover:bg-earth-beige text-sm font-medium tracking-[0.18em] uppercase"
-              href="#approach"
-              >Process</a
-            >
-            <a
-              class="block px-2 py-2 rounded-lg text-earth-clay/80 hover:text-earth-terracotta hover:bg-earth-beige text-sm font-medium tracking-[0.18em] uppercase"
-              href="#pricing"
-              >Tuition</a
-            >
-            <a
-              class="block px-2 py-2 rounded-lg text-earth-clay/80 hover:text-earth-terracotta hover:bg-earth-beige text-sm font-medium tracking-[0.18em] uppercase"
-              href="#testimonials"
-              >Stories</a
-            >
-            <a
-              class="mt-2 inline-flex w-full justify-center items-center px-4 py-3 rounded-full bg-earth-terracotta text-white text-xs font-bold uppercase tracking-[0.25em] hover:brightness-110"
-              href="#contact"
-              >Book Free Demo</a
-            >
+            <a class="block px-2 py-2 rounded-lg text-earth-clay/80 hover:text-earth-terracotta hover:bg-earth-beige text-sm font-medium tracking-[0.18em] uppercase" href="#approach">Process</a>
+            <a class="block px-2 py-2 rounded-lg text-earth-clay/80 hover:text-earth-terracotta hover:bg-earth-beige text-sm font-medium tracking-[0.18em] uppercase" href="#pricing">Tuition</a>
+            <a class="block px-2 py-2 rounded-lg text-earth-clay/80 hover:text-earth-terracotta hover:bg-earth-beige text-sm font-medium tracking-[0.18em] uppercase" href="#testimonials">Stories</a>
+            <a class="mt-2 inline-flex w-full justify-center items-center px-4 py-3 rounded-full bg-earth-terracotta text-white text-xs font-bold uppercase tracking-[0.25em] hover:brightness-110" href="#contact">Book Free Demo</a>
           </div>
         </div>
       </div>
     </nav>
+
     <main>
-      <section
-        class="min-h-screen flex flex-col justify-center pt-8 sm:pt-28 editorial-gradient-1 overflow-hidden"
-      >
-        <div
-          class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 flex flex-col-reverse lg:grid lg:grid-cols-12 gap-1 lg:gap-16 items-center py-10"
-        >
+      <!-- HERO -->
+      <section id="top" class="min-h-screen flex flex-col justify-center pt-8 sm:pt-28 hero-gradient overflow-hidden relative">
+        <!-- Decorative floating elements -->
+        <div class="absolute top-20 right-10 w-64 h-64 bg-earth-terracotta/5 blob float-slow hidden lg:block"></div>
+        <div class="absolute bottom-20 left-10 w-48 h-48 bg-earth-sage/8 blob float-medium hidden lg:block"></div>
+        <div class="absolute top-1/2 right-1/3 w-32 h-32 bg-earth-terracotta/4 blob float-fast hidden lg:block"></div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 flex flex-col-reverse lg:grid lg:grid-cols-12 gap-1 lg:gap-16 items-center py-10 relative z-10">
           <div class="lg:col-span-7 py-10 sm:py-12 lg:py-0">
             <!-- Tabs -->
-            <div class="flex flex-wrap gap-3 mb-5">
-              <a target="_blank" href="/ib.html"
-                class="px-5 py-2 rounded-full border border-earth-clay/20 text-sm font-medium hover:bg-earth-clay hover:text-white transition">
-                IB
-              </a>
-              <a target="_blank" href="/igcse.html"
-                class="px-5 py-2 rounded-full border border-earth-clay/20 text-sm font-medium hover:bg-earth-clay hover:text-white transition">
-                IGCSE
-              </a>
-              <a target="_blank" href="/cbse.html"
-                class="px-5 py-2 rounded-full border border-earth-clay/20 text-sm font-medium hover:bg-earth-clay hover:text-white transition">
-                CBSE
-              </a>
-              <a target="_blank" href="/ap.html"
-                class="px-5 py-2 rounded-full border border-earth-clay/20 text-sm font-medium hover:bg-earth-clay hover:text-white transition">
-                AP
-              </a>
+            <div class="flex flex-wrap gap-3 mb-5" data-aos="fade-up" data-aos-delay="0">
+              <a target="_blank" href="/ib.html" class="px-5 py-2 rounded-full border border-earth-clay/20 text-sm font-medium hover:bg-earth-clay hover:text-white transition-all duration-300 hover:scale-105">IB</a>
+              <a target="_blank" href="/igcse.html" class="px-5 py-2 rounded-full border border-earth-clay/20 text-sm font-medium hover:bg-earth-clay hover:text-white transition-all duration-300 hover:scale-105">IGCSE</a>
+              <a target="_blank" href="/cbse.html" class="px-5 py-2 rounded-full border border-earth-clay/20 text-sm font-medium hover:bg-earth-clay hover:text-white transition-all duration-300 hover:scale-105">CBSE</a>
+              <a target="_blank" href="/ap.html" class="px-5 py-2 rounded-full border border-earth-clay/20 text-sm font-medium hover:bg-earth-clay hover:text-white transition-all duration-300 hover:scale-105">AP</a>
             </div>
 
-            <h1
-              class="text-4xl md:text-6xl font-extrabold text-earth-clay leading-[1.05] tracking-tight mb-6 sm:mb-8"
-            >
+            <h1 class="text-4xl md:text-6xl font-extrabold text-earth-clay leading-[1.05] tracking-tight mb-6 sm:mb-8" data-aos="fade-up" data-aos-delay="100">
               Learning made
               <span class="italic font-light text-earth-sage">simple</span> and
-              <span class="relative"
-                >enjoyable<span
-                  class="absolute -bottom-2 left-0 w-full h-1 bg-earth-terracotta/30"
-                ></span
-              ></span>
+              <span class="relative">enjoyable<span class="absolute -bottom-2 left-0 w-full h-1 bg-earth-terracotta/30"></span></span>
             </h1>
-            <p
-              class="text-base sm:text-lg md:text-2xl text-earth-clay/60 max-w-xl font-light leading-relaxed mb-6 sm:mb-8"
-            >
+            <p class="text-base sm:text-lg md:text-2xl text-earth-clay/60 max-w-xl font-light leading-relaxed mb-6 sm:mb-8" data-aos="fade-up" data-aos-delay="200">
               An online tuition service for students in all age groups. Building confidence and results with personalised learning.
             </p>
-            <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-              <a
-                class="group relative px-5 py-2 bg-earth-clay text-white rounded-full font-bold text-lg overflow-hidden transition-all hover:pr-14"
-                href="#contact"
-              >
+            <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6" data-aos="fade-up" data-aos-delay="300">
+              <a class="group relative px-5 py-2 bg-earth-clay text-white rounded-full font-bold text-lg overflow-hidden transition-all hover:pr-14 btn-pulse" href="#contact">
                 <span>Book Free Demo</span>
-                <span
-                  class="absolute right-6 opacity-0 group-hover:opacity-100 transition-all material-symbols-outlined"
-                  >arrow_forward</span
-                >
+                <span class="absolute right-6 opacity-0 group-hover:opacity-100 transition-all material-symbols-outlined">arrow_forward</span>
               </a>
-              <a
-                class="text-earth-clay font-bold text-lg border-b-2 border-earth-terracotta/30 hover:border-earth-terracotta transition-all py-1"
-                href="#approach"
-                >Learn Our Approach</a
-              >
+              <a class="text-earth-clay font-bold text-lg border-b-2 border-earth-terracotta/30 hover:border-earth-terracotta transition-all py-1" href="#approach">Learn Our Approach</a>
             </div>
           </div>
-          <div class="lg:col-span-5 relative mt-8 lg:mt-0">
+          <div class="lg:col-span-5 relative mt-8 lg:mt-0" data-aos="fade-left" data-aos-delay="200">
             <div class="relative w-full aspect-[5/4] rounded-xl overflow-hidden pointer-events-none">
-              <img
-                src="/images/tuitionly.webp"
-                alt="Tuitionly Image"
-                class="w-full h-full object-cover rounded-xl"
-              />
+              <img src="/images/tuitionly.webp" alt="Tuitionly Image" class="w-full h-full object-cover rounded-xl" />
             </div>
+            <!-- Decorative accent -->
+            <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-earth-terracotta/10 rounded-2xl -z-10 float-slow hidden lg:block"></div>
+            <div class="absolute -top-4 -left-4 w-16 h-16 bg-earth-sage/15 rounded-full -z-10 float-medium hidden lg:block"></div>
           </div>
         </div>
       </section>
+
+      <!-- APPROACH -->
       <section class="py-24 sm:py-32 px-4 sm:px-6 lg:px-12 bg-earth-cream" id="approach">
         <div class="max-w-6xl mx-auto">
           <div class="grid lg:grid-cols-2 gap-24 items-start mb-24">
-            <div class="lg:sticky lg:top-32">
-              <span
-                class="text-earth-terracotta font-black text-xs uppercase tracking-widest mb-6 block"
-                >Our Approach</span
-              >
-              <h2
-                class="text-2xl sm:text-3xl md:text-5xl font-extrabold text-earth-clay leading-tight mb-6 sm:mb-8"
-              >
+            <div class="lg:sticky lg:top-32" data-aos="fade-right">
+              <span class="text-earth-terracotta font-black text-xs uppercase tracking-widest mb-6 block">Our Approach</span>
+              <h2 class="text-2xl sm:text-3xl md:text-5xl font-extrabold text-earth-clay leading-tight mb-6 sm:mb-8">
                 How we simplify learning
               </h2>
-              <p
-                class="text-lg text-earth-clay/70 leading-relaxed magazine-dropcap"
-              >
-                We believe that every child has the potential to master
-                the subject. Our approach moves beyond rote learning to foster
-                deep conceptual understanding through engagement, fun, empathy and structure.
+              <p class="text-lg text-earth-clay/70 leading-relaxed magazine-dropcap">
+                We believe that every child has the potential to master the subject. Our approach moves beyond rote learning to foster deep conceptual understanding through engagement, fun, empathy and structure.
               </p>
             </div>
             <div class="space-y-12">
-              <div class="group border-b border-earth-clay/10 pb-12">
+              <div class="group border-b border-earth-clay/10 pb-12" data-aos="fade-up" data-aos-delay="0">
                 <div class="flex gap-8 items-start">
-                  <span
-                    class="text-4xl font-light text-earth-terracotta/30 group-hover:text-earth-terracotta transition-colors duration-500"
-                    >01</span
-                  >
+                  <span class="text-4xl font-light text-earth-terracotta/30 group-hover:text-earth-terracotta transition-colors duration-500">01</span>
                   <div>
-                    <h3 class="text-2xl font-bold mb-4">
-                      Personalised learning
-                    </h3>
-                    <p class="text-earth-clay/60 mb-6 leading-relaxed">
-                      Personalised lesson plans tailored to school/exam curriculum standards. We meet your child where they are.
-                    </p>
+                    <h3 class="text-2xl font-bold mb-4">Personalised learning</h3>
+                    <p class="text-earth-clay/60 mb-6 leading-relaxed">Personalised lesson plans tailored to school/exam curriculum standards. We meet your child where they are.</p>
                     <div class="flex flex-wrap gap-4">
-                      <span
-                        class="px-4 py-2 bg-soft-green rounded-full text-xs font-bold text-earth-sage"
-                        >Short, targeted sessions to build confidence and speed</span
-                      >
+                      <span class="px-4 py-2 bg-soft-green rounded-full text-xs font-bold text-earth-sage">Short, targeted sessions to build confidence and speed</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="group border-b border-earth-clay/10 pb-12">
+              <div class="group border-b border-earth-clay/10 pb-12" data-aos="fade-up" data-aos-delay="100">
                 <div class="flex gap-8 items-start">
-                  <span
-                    class="text-4xl font-light text-earth-terracotta/30 group-hover:text-earth-terracotta transition-colors duration-500"
-                    >02</span
-                  >
+                  <span class="text-4xl font-light text-earth-terracotta/30 group-hover:text-earth-terracotta transition-colors duration-500">02</span>
                   <div>
                     <h3 class="text-2xl font-bold mb-4">Skills Boost</h3>
-                    <p class="text-earth-clay/60 mb-6 leading-relaxed">
-                      Interactive activities and visual aids for better
-                      conceptual understanding.
-                    </p>
+                    <p class="text-earth-clay/60 mb-6 leading-relaxed">Interactive activities and visual aids for better conceptual understanding.</p>
                     <div class="flex flex-wrap gap-4">
-                      <span
-                        class="px-4 py-2 bg-soft-clay rounded-full text-xs font-bold text-earth-terracotta"
-                        >Progress tracking</span
-                      >
+                      <span class="px-4 py-2 bg-soft-clay rounded-full text-xs font-bold text-earth-terracotta">Progress tracking</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="group border-b border-earth-clay/10 pb-12">
+              <div class="group border-b border-earth-clay/10 pb-12" data-aos="fade-up" data-aos-delay="200">
                 <div class="flex gap-8 items-start">
-                  <span
-                    class="text-4xl font-light text-earth-terracotta/30 group-hover:text-earth-terracotta transition-colors duration-500"
-                    >03</span
-                  >
+                  <span class="text-4xl font-light text-earth-terracotta/30 group-hover:text-earth-terracotta transition-colors duration-500">03</span>
                   <div>
                     <h3 class="text-2xl font-bold mb-4">Concept Mastery</h3>
-                    <p class="text-earth-clay/60 mb-6 leading-relaxed">
-                      Flexible session times with real-time feedback. We're here to help you every step of the way.
-                    </p>
+                    <p class="text-earth-clay/60 mb-6 leading-relaxed">Flexible session times with real-time feedback. We're here to help you every step of the way.</p>
                     <div class="flex flex-wrap gap-4">
-                      <span
-                        class="px-4 py-2 bg-earth-beige rounded-full text-xs font-bold text-earth-clay/70"
-                        >Homework support</span
-                      >
-                      <span
-                        class="px-4 py-2 bg-earth-beige rounded-full text-xs font-bold text-earth-clay/70"
-                        >Phone and email support</span
-                      >
-                      <span
-                        class="px-4 py-2 bg-earth-beige rounded-full text-xs font-bold text-earth-clay/70"
-                        >Support during term breaks</span
-                      >
+                      <span class="px-4 py-2 bg-earth-beige rounded-full text-xs font-bold text-earth-clay/70">Homework support</span>
+                      <span class="px-4 py-2 bg-earth-beige rounded-full text-xs font-bold text-earth-clay/70">Phone and email support</span>
+                      <span class="px-4 py-2 bg-earth-beige rounded-full text-xs font-bold text-earth-clay/70">Support during term breaks</span>
                     </div>
                   </div>
                 </div>
@@ -392,34 +319,24 @@
           </div>
         </div>
       </section>
+
+      <!-- TESTIMONIALS -->
       <section class="py-0 overflow-hidden" id="testimonials">
         <div class="bg-earth-sage/10 py-24 sm:py-32">
           <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12">
-            <div class="text-center mb-16 sm:mb-24">
-              <span
-                class="text-earth-terracotta font-black text-xs uppercase tracking-[0.3em] mb-4 block"
-                >Voices of Experience</span
-              >
-              <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-earth-clay">
-                Trusted by families across the nations
-              </h2>
+            <div class="text-center mb-16 sm:mb-24" data-aos="fade-up">
+              <span class="text-earth-terracotta font-black text-xs uppercase tracking-[0.3em] mb-4 block">Voices of Experience</span>
+              <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-earth-clay">Trusted by families across the nations</h2>
             </div>
-            <div class="swiper testimonials-swiper">
+            <div class="swiper testimonials-swiper" data-aos="fade-up" data-aos-delay="100">
               <div class="swiper-wrapper">
-                <!-- Slide 1 -->
                 <div class="swiper-slide">
-                  <div class="bg-earth-cream p-6 md:p-12 rounded-lg h-full flex flex-col justify-center">
+                  <div class="bg-earth-cream p-6 md:p-12 rounded-lg h-full flex flex-col justify-center card-hover">
                     <span class="text-8xl text-earth-terracotta/20 leading-none mb-4 italic">"</span>
-                    <p class="text-2xl md:text-3xl text-earth-clay font-medium italic leading-relaxed mb-12">
-                      "My child now enjoys maths and consistently improves each week."
-                    </p>
+                    <p class="text-2xl md:text-3xl text-earth-clay font-medium italic leading-relaxed mb-12">"My child now enjoys maths and consistently improves each week."</p>
                     <div class="flex items-center">
                       <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-earth-terracotta/20 mr-6">
-                        <img
-                          alt="Aya Nakamura"
-                          class="w-full h-full object-cover"
-                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVyH_9dvVOfBNgGNtDPn9_NfcMVwHdFQ79n-2rx3rS7d6IHEklP4O61hkLWwaAE3-kVf2vsZ31-OU4sILJWsE7AufG76OEOKTfbVhYKdggwgP2-McSBhDSECqKHJM2AGDo5q2WUoqs3hFLJFhG7frZe8RS8CAQUHh1X6ODF-302uWmHwbGj67MHMyuiBDFAbo2tIePhuG7jMbUnOP2r1s7D-gCQDb0zOv9FFR_4vefb0D5dOCUayXbS2deiW1cEOUf7ylTvn5LAvc"
-                        />
+                        <img alt="Aya Nakamura" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVyH_9dvVOfBNgGNtDPn9_NfcMVwHdFQ79n-2rx3rS7d6IHEklP4O61hkLWwaAE3-kVf2vsZ31-OU4sILJWsE7AufG76OEOKTfbVhYKdggwgP2-McSBhDSECqKHJM2AGDo5q2WUoqs3hFLJFhG7frZe8RS8CAQUHh1X6ODF-302uWmHwbGj67MHMyuiBDFAbo2tIePhuG7jMbUnOP2r1s7D-gCQDb0zOv9FFR_4vefb0D5dOCUayXbS2deiW1cEOUf7ylTvn5LAvc" />
                       </div>
                       <div>
                         <p class="font-bold text-lg tracking-tight">Aya Nakamura</p>
@@ -428,21 +345,13 @@
                     </div>
                   </div>
                 </div>
-
-                <!-- Slide 2 -->
                 <div class="swiper-slide">
-                  <div class="bg-earth-cream p-6 md:p-12 rounded-lg h-full flex flex-col justify-center">
+                  <div class="bg-earth-cream p-6 md:p-12 rounded-lg h-full flex flex-col justify-center card-hover">
                     <span class="text-8xl text-earth-terracotta/20 leading-none mb-4 italic">"</span>
-                    <p class="text-2xl md:text-3xl text-earth-clay font-medium italic leading-relaxed mb-12">
-                      "The tutor explained concepts clearly and built our confidence."
-                    </p>
+                    <p class="text-2xl md:text-3xl text-earth-clay font-medium italic leading-relaxed mb-12">"The tutor explained concepts clearly and built our confidence."</p>
                     <div class="flex items-center">
                       <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-earth-terracotta/20 mr-6">
-                        <img
-                          alt="Mateo Garcia"
-                          class="w-full h-full object-cover"
-                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgqXKJ9mhR_HO-H3Nz_9QzEn5wcfJEHfvOeUYzT7zuehkFU6yexDsaLpcjnU88lAEzvlhvjRbmt3atU5pQ45AVRvU1NSSpfpYilKZ-ahudRpwpEmKDPG2zTWFZR8g7ye1z7VC53Q3TJehDcJ8QEQgIgz2e1uCG_cGi-pKm2PLBLM9c7TY9r6ccHIrlPsgvNDmrTadVhoIYonGfGE8Q-2yOwgsi0fRh3-Msw222oeBz5ur3vJHUtU1-qipgKezphZT39jfrUi2_SF4"
-                        />
+                        <img alt="Mateo Garcia" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgqXKJ9mhR_HO-H3Nz_9QzEn5wcfJEHfvOeUYzT7zuehkFU6yexDsaLpcjnU88lAEzvlhvjRbmt3atU5pQ45AVRvU1NSSpfpYilKZ-ahudRpwpEmKDPG2zTWFZR8g7ye1z7VC53Q3TJehDcJ8QEQgIgz2e1uCG_cGi-pKm2PLBLM9c7TY9r6ccHIrlPsgvNDmrTadVhoIYonGfGE8Q-2yOwgsi0fRh3-Msw222oeBz5ur3vJHUtU1-qipgKezphZT39jfrUi2_SF4" />
                       </div>
                       <div>
                         <p class="font-bold text-lg tracking-tight">Mateo Garcia</p>
@@ -451,21 +360,13 @@
                     </div>
                   </div>
                 </div>
-
-                <!-- Slide 3 -->
                 <div class="swiper-slide">
-                  <div class="bg-earth-cream p-6 md:p-12 rounded-lg h-full flex flex-col justify-center">
+                  <div class="bg-earth-cream p-6 md:p-12 rounded-lg h-full flex flex-col justify-center card-hover">
                     <span class="text-8xl text-earth-terracotta/20 leading-none mb-4 italic">"</span>
-                    <p class="text-2xl md:text-3xl text-earth-clay font-medium italic leading-relaxed mb-12">
-                      "My child now enjoys maths and consistently improves each week."
-                    </p>
+                    <p class="text-2xl md:text-3xl text-earth-clay font-medium italic leading-relaxed mb-12">"My child now enjoys maths and consistently improves each week."</p>
                     <div class="flex items-center">
                       <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-earth-terracotta/20 mr-6">
-                        <img
-                          alt="Aya Nakamura"
-                          class="w-full h-full object-cover"
-                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVyH_9dvVOfBNgGNtDPn9_NfcMVwHdFQ79n-2rx3rS7d6IHEklP4O61hkLWwaAE3-kVf2vsZ31-OU4sILJWsE7AufG76OEOKTfbVhYKdggwgP2-McSBhDSECqKHJM2AGDo5q2WUoqs3hFLJFhG7frZe8RS8CAQUHh1X6ODF-302uWmHwbGj67MHMyuiBDFAbo2tIePhuG7jMbUnOP2r1s7D-gCQDb0zOv9FFR_4vefb0D5dOCUayXbS2deiW1cEOUf7ylTvn5LAvc"
-                        />
+                        <img alt="Aya Nakamura" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVyH_9dvVOfBNgGNtDPn9_NfcMVwHdFQ79n-2rx3rS7d6IHEklP4O61hkLWwaAE3-kVf2vsZ31-OU4sILJWsE7AufG76OEOKTfbVhYKdggwgP2-McSBhDSECqKHJM2AGDo5q2WUoqs3hFLJFhG7frZe8RS8CAQUHh1X6ODF-302uWmHwbGj67MHMyuiBDFAbo2tIePhuG7jMbUnOP2r1s7D-gCQDb0zOv9FFR_4vefb0D5dOCUayXbS2deiW1cEOUf7ylTvn5LAvc" />
                       </div>
                       <div>
                         <p class="font-bold text-lg tracking-tight">Aya Nakamura</p>
@@ -474,21 +375,13 @@
                     </div>
                   </div>
                 </div>
-
-                <!-- Slide 4 -->
                 <div class="swiper-slide">
-                  <div class="bg-earth-cream p-6 md:p-12 rounded-lg h-full flex flex-col justify-center">
+                  <div class="bg-earth-cream p-6 md:p-12 rounded-lg h-full flex flex-col justify-center card-hover">
                     <span class="text-8xl text-earth-terracotta/20 leading-none mb-4 italic">"</span>
-                    <p class="text-2xl md:text-3xl text-earth-clay font-medium italic leading-relaxed mb-12">
-                      "The tutor explained concepts clearly and built our confidence."
-                    </p>
+                    <p class="text-2xl md:text-3xl text-earth-clay font-medium italic leading-relaxed mb-12">"The tutor explained concepts clearly and built our confidence."</p>
                     <div class="flex items-center">
                       <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-earth-terracotta/20 mr-6">
-                        <img
-                          alt="Mateo Garcia"
-                          class="w-full h-full object-cover"
-                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgqXKJ9mhR_HO-H3Nz_9QzEn5wcfJEHfvOeUYzT7zuehkFU6yexDsaLpcjnU88lAEzvlhvjRbmt3atU5pQ45AVRvU1NSSpfpYilKZ-ahudRpwpEmKDPG2zTWFZR8g7ye1z7VC53Q3TJehDcJ8QEQgIgz2e1uCG_cGi-pKm2PLBLM9c7TY9r6ccHIrlPsgvNDmrTadVhoIYonGfGE8Q-2yOwgsi0fRh3-Msw222oeBz5ur3vJHUtU1-qipgKezphZT39jfrUi2_SF4"
-                        />
+                        <img alt="Mateo Garcia" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgqXKJ9mhR_HO-H3Nz_9QzEn5wcfJEHfvOeUYzT7zuehkFU6yexDsaLpcjnU88lAEzvlhvjRbmt3atU5pQ45AVRvU1NSSpfpYilKZ-ahudRpwpEmKDPG2zTWFZR8g7ye1z7VC53Q3TJehDcJ8QEQgIgz2e1uCG_cGi-pKm2PLBLM9c7TY9r6ccHIrlPsgvNDmrTadVhoIYonGfGE8Q-2yOwgsi0fRh3-Msw222oeBz5ur3vJHUtU1-qipgKezphZT39jfrUi2_SF4" />
                       </div>
                       <div>
                         <p class="font-bold text-lg tracking-tight">Mateo Garcia</p>
@@ -503,177 +396,98 @@
           </div>
         </div>
       </section>
+
+      <!-- PRICING -->
       <section class="py-32 px-6 sm:px-12 bg-earth-beige" id="pricing">
         <div class="max-w-5xl mx-auto">
-          <div class="text-center mb-24">
-            <span
-              class="text-earth-terracotta font-black text-xs uppercase tracking-widest mb-6 block"
-              >Pricing</span
-            >
-            <h2 class="text-3xl md:text-5xl font-extrabold text-earth-clay">
-              Invest in their future
-            </h2>
+          <div class="text-center mb-24" data-aos="fade-up">
+            <span class="text-earth-terracotta font-black text-xs uppercase tracking-widest mb-6 block">Pricing</span>
+            <h2 class="text-3xl md:text-5xl font-extrabold text-earth-clay">Invest in their future</h2>
           </div>
           <div class="grid md:grid-cols-2 gap-16">
-            <div class="relative group">
-              <div class="border-t-2 border-earth-clay/20 pt-10">
+            <div class="relative group" data-aos="fade-up" data-aos-delay="0">
+              <div class="border-t-2 border-earth-clay/20 pt-10 card-hover p-6 rounded-2xl">
                 <h3 class="text-3xl font-bold mb-2">Maths Tutoring Plan</h3>
                 <div class="flex items-baseline mb-8">
                   <span class="text-4xl font-extrabold">$99</span>
                 </div>
-                <p class="text-earth-clay/60 mb-10 leading-relaxed italic">
-                  Includes 2 weekly group of three sessions with progress tracking
-                </p>
+                <p class="text-earth-clay/60 mb-10 leading-relaxed italic">Includes 2 weekly group of three sessions with progress tracking</p>
                 <ul class="space-y-4 mb-12">
                   <li class="flex items-center text-sm font-medium">
-                    <span
-                      class="material-symbols-outlined text-earth-terracotta mr-3 text-lg"
-                      >check_circle</span
-                    >
+                    <span class="material-symbols-outlined text-earth-terracotta mr-3 text-lg">check_circle</span>
                     Flexible scheduling to fit school days
                   </li>
                   <li class="flex items-center text-sm font-medium">
-                    <span
-                      class="material-symbols-outlined text-earth-terracotta mr-3 text-lg"
-                      >check_circle</span
-                    >
+                    <span class="material-symbols-outlined text-earth-terracotta mr-3 text-lg">check_circle</span>
                     Personalised worksheets and practice
                   </li>
                   <li class="flex items-center text-sm font-medium">
-                    <span
-                      class="material-symbols-outlined text-earth-terracotta mr-3 text-lg"
-                      >check_circle</span
-                    >
+                    <span class="material-symbols-outlined text-earth-terracotta mr-3 text-lg">check_circle</span>
                     Email support &amp; progress reports
                   </li>
                 </ul>
-                <a
-                  href="#contact"
-                  class="block w-full py-5 rounded-full border-2 border-earth-clay text-earth-clay font-bold uppercase tracking-widest text-xs hover:bg-earth-clay hover:text-white transition-all text-center"
-                >
-                  Select Plan
-                </a>
+                <a href="#contact" class="block w-full py-5 rounded-full border-2 border-earth-clay text-earth-clay font-bold uppercase tracking-widest text-xs hover:bg-earth-clay hover:text-white transition-all text-center">Select Plan</a>
               </div>
             </div>
-            <div class="relative group">
-              <div class="border-t-2 border-earth-terracotta pt-10">
-                <div
-                  class="absolute -top-3 right-0 bg-earth-terracotta text-white px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest"
-                >
-                  Most Popular
-                </div>
+            <div class="relative group" data-aos="fade-up" data-aos-delay="150">
+              <div class="border-t-2 border-earth-terracotta pt-10 card-hover p-6 rounded-2xl">
+                <div class="absolute -top-3 right-6 bg-earth-terracotta text-white px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">Most Popular</div>
                 <h3 class="text-3xl font-bold mb-2">Pro Maths Plan</h3>
                 <div class="flex items-baseline mb-8">
                   <span class="text-4xl font-extrabold">$149</span>
                 </div>
-                <p class="text-earth-clay/60 mb-10 leading-relaxed italic">
-                  Two weekly one-on-one sessions for maximum attention and
-                  growth
-                </p>
+                <p class="text-earth-clay/60 mb-10 leading-relaxed italic">Two weekly one-on-one sessions for maximum attention and growth</p>
                 <ul class="space-y-4 mb-12">
                   <li class="flex items-center text-sm font-medium">
-                    <span
-                      class="material-symbols-outlined text-earth-sage mr-3 text-lg"
-                      >check_circle</span
-                    >
+                    <span class="material-symbols-outlined text-earth-sage mr-3 text-lg">check_circle</span>
                     Direct feedback from tutors
                   </li>
                   <li class="flex items-center text-sm font-medium">
-                    <span
-                      class="material-symbols-outlined text-earth-sage mr-3 text-lg"
-                      >check_circle</span
-                    >
+                    <span class="material-symbols-outlined text-earth-sage mr-3 text-lg">check_circle</span>
                     Phone support during weekdays
                   </li>
                   <li class="flex items-center text-sm font-medium">
-                    <span
-                      class="material-symbols-outlined text-earth-sage mr-3 text-lg"
-                      >check_circle</span
-                    >
+                    <span class="material-symbols-outlined text-earth-sage mr-3 text-lg">check_circle</span>
                     Dedicated mentor allocation
                   </li>
                 </ul>
-                <a
-                  href="#contact"
-                  class="block w-full py-5 rounded-full bg-earth-terracotta text-white font-bold uppercase tracking-widest text-xs hover:brightness-110 shadow-xl shadow-earth-terracotta/20 transition-all text-center"
-                >
-                  Get Started Now
-                </a>
+                <a href="#contact" class="block w-full py-5 rounded-full bg-earth-terracotta text-white font-bold uppercase tracking-widest text-xs hover:brightness-110 shadow-xl shadow-earth-terracotta/20 transition-all text-center btn-pulse">Get Started Now</a>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      <!-- ETHOS -->
       <section class="py-32 bg-earth-cream overflow-hidden">
         <div class="max-w-6xl mx-auto px-6 sm:px-12">
           <div class="flex flex-col lg:flex-row gap-24">
-            <div class="lg:w-1/3">
-              <span
-                class="text-earth-sage font-black text-xs uppercase tracking-widest mb-6 block"
-                >Our Ethos</span
-              >
-              <h2
-                class="text-5xl font-extrabold text-earth-clay leading-tight mb-10"
-              >
-                How are we different?
-              </h2>
+            <div class="lg:w-1/3" data-aos="fade-right">
+              <span class="text-earth-sage font-black text-xs uppercase tracking-widest mb-6 block">Our Ethos</span>
+              <h2 class="text-5xl font-extrabold text-earth-clay leading-tight mb-10">How are we different?</h2>
               <div class="h-1 w-24 bg-earth-terracotta/20 mb-10"></div>
-              <p class="text-lg text-earth-clay/50 leading-relaxed italic">
-                "Education is not the learning of facts, but the training of the
-                mind to think."
-              </p>
+              <p class="text-lg text-earth-clay/50 leading-relaxed italic">"Education is not the learning of facts, but the training of the mind to think."</p>
             </div>
             <div class="lg:w-2/3 grid sm:grid-cols-2 gap-x-12 gap-y-20">
-              <div class="relative">
-                <span
-                  class="absolute -left-8 -top-4 text-7xl font-black text-earth-terracotta/15"
-                  >01</span
-                >
-                <h4 class="font-bold text-xl mb-4 relative">
-                  Concept-first teaching
-                </h4>
-                <p class="text-earth-clay/60 leading-relaxed">
-                  We explain the "why" before the "how" to ensure deep
-                  understanding. Building a foundation that lasts a lifetime.
-                </p>
+              <div class="relative" data-aos="fade-up" data-aos-delay="0">
+                <span class="absolute -left-8 -top-4 text-7xl font-black text-earth-terracotta/15">01</span>
+                <h4 class="font-bold text-xl mb-4 relative">Concept-first teaching</h4>
+                <p class="text-earth-clay/60 leading-relaxed">We explain the "why" before the "how" to ensure deep understanding. Building a foundation that lasts a lifetime.</p>
               </div>
-              <div class="relative">
-                <span
-                  class="absolute -left-8 -top-4 text-7xl font-black text-earth-terracotta/15"
-                  >02</span
-                >
-                <h4 class="font-bold text-xl mb-4 relative">
-                  Curriculum-aligned
-                </h4>
-                <p class="text-earth-clay/60 leading-relaxed">
-                  Aligned exactly to what your child learns in school. No confusion, just perfect synergy with schoolwork.
-                </p>
+              <div class="relative" data-aos="fade-up" data-aos-delay="100">
+                <span class="absolute -left-8 -top-4 text-7xl font-black text-earth-terracotta/15">02</span>
+                <h4 class="font-bold text-xl mb-4 relative">Curriculum-aligned</h4>
+                <p class="text-earth-clay/60 leading-relaxed">Aligned exactly to what your child learns in school. No confusion, just perfect synergy with schoolwork.</p>
               </div>
-              <div class="relative">
-                <span
-                  class="absolute -left-8 -top-4 text-7xl font-black text-earth-terracotta/15"
-                  >03</span
-                >
-                <h4 class="font-bold text-xl mb-4 relative">
-                  Small, focused batches
-                </h4>
-                <p class="text-earth-clay/60 leading-relaxed">
-                  Max 3 students in a class. Every student gets the attention
-                  they deserve in a safe, collaborative environment.
-                </p>
+              <div class="relative" data-aos="fade-up" data-aos-delay="200">
+                <span class="absolute -left-8 -top-4 text-7xl font-black text-earth-terracotta/15">03</span>
+                <h4 class="font-bold text-xl mb-4 relative">Small, focused batches</h4>
+                <p class="text-earth-clay/60 leading-relaxed">Max 3 students in a class. Every student gets the attention they deserve in a safe, collaborative environment.</p>
               </div>
-              <div class="relative">
-                <span
-                  class="absolute -left-8 -top-4 text-7xl font-black text-earth-terracotta/15"
-                  >04</span
-                >
-                <h4 class="font-bold text-xl mb-4 relative">
-                  Confidence-building
-                </h4>
-                <p class="text-earth-clay/60 leading-relaxed">
-                  No rushing, no fear of asking questions. A safe space for
-                  growth where mistakes are celebrated as learning steps.
-                </p>
+              <div class="relative" data-aos="fade-up" data-aos-delay="300">
+                <span class="absolute -left-8 -top-4 text-7xl font-black text-earth-terracotta/15">04</span>
+                <h4 class="font-bold text-xl mb-4 relative">Confidence-building</h4>
+                <p class="text-earth-clay/60 leading-relaxed">No rushing, no fear of asking questions. A safe space for growth where mistakes are celebrated as learning steps.</p>
               </div>
             </div>
           </div>
@@ -682,28 +496,14 @@
 
       <!-- CALENDLY BOOKING SECTION -->
       <section class="py-24 sm:py-32 px-4 sm:px-6 lg:px-12 editorial-gradient-2" id="contact">
-        <div class="max-w-6xl mx-auto">
-          <div
-            class="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-earth-clay/5"
-          >
+        <div class="max-w-6xl mx-auto" data-aos="fade-up">
+          <div class="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-earth-clay/5">
             <div class="grid lg:grid-cols-12">
-              <!-- Left Column - Information -->
-              <div
-                class="lg:col-span-5 bg-earth-clay p-8 md:p-12 lg:p-16 text-white flex flex-col justify-between"
-              >
+              <div class="lg:col-span-5 bg-earth-clay p-8 md:p-12 lg:p-16 text-white flex flex-col justify-between">
                 <div>
-                  <span
-                    class="text-earth-terracotta font-black text-xs uppercase tracking-widest mb-6 block"
-                    >Book Your Demo</span
-                  >
-                  <h2 class="text-3xl md:text-4xl font-extrabold mb-6 leading-tight">
-                    Let's start your learning journey
-                  </h2>
-
-                  <p class="text-white/70 text-base md:text-lg leading-relaxed mb-8">
-                    Schedule a free demo session to experience our teaching approach firsthand. No commitment required.
-                  </p>
-
+                  <span class="text-earth-terracotta font-black text-xs uppercase tracking-widest mb-6 block">Book Your Demo</span>
+                  <h2 class="text-3xl md:text-4xl font-extrabold mb-6 leading-tight">Let's start your learning journey</h2>
+                  <p class="text-white/70 text-base md:text-lg leading-relaxed mb-8">Schedule a free demo session to experience our teaching approach firsthand. No commitment required.</p>
                   <div class="space-y-6 mb-8">
                     <div class="flex items-start gap-4">
                       <div class="w-10 h-10 bg-earth-terracotta/20 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
@@ -714,7 +514,6 @@
                         <p class="text-white/60 text-sm">Experience our personalised approach</p>
                       </div>
                     </div>
-
                     <div class="flex items-start gap-4">
                       <div class="w-10 h-10 bg-earth-terracotta/20 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
                         <span class="material-symbols-outlined text-earth-terracotta text-xl">video_call</span>
@@ -724,7 +523,6 @@
                         <p class="text-white/60 text-sm">Join from anywhere via Zoom</p>
                       </div>
                     </div>
-
                     <div class="flex items-start gap-4">
                       <div class="w-10 h-10 bg-earth-terracotta/20 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
                         <span class="material-symbols-outlined text-earth-terracotta text-xl">verified</span>
@@ -736,118 +534,50 @@
                     </div>
                   </div>
                 </div>
-
-                <!-- Contact Information -->
                 <div class="space-y-6 pt-8 border-t border-white/10">
                   <p class="text-white/50 text-sm font-medium uppercase tracking-wider">Or reach out directly</p>
                   <div class="flex items-center gap-4 group cursor-pointer">
-                    <div
-                      class="w-11 h-11 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-earth-terracotta transition-colors"
-                    >
+                    <div class="w-11 h-11 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-earth-terracotta transition-colors">
                       <span class="material-symbols-outlined text-white text-xl">mail</span>
                     </div>
                     <div>
                       <p class="text-[10px] uppercase font-bold tracking-widest text-white/40">Email</p>
-                      <a
-                        class="text-white text-sm font-medium hover:text-earth-terracotta transition-colors"
-                        href="mailto:hello@tuitionly.org"
-                        >contact@tuitionly.org</a
-                      >
+                      <a class="text-white text-sm font-medium hover:text-earth-terracotta transition-colors" href="mailto:hello@tuitionly.org">contact@tuitionly.org</a>
                     </div>
                   </div>
                   <div class="flex items-center gap-4 group cursor-pointer">
-                    <div
-                      class="w-11 h-11 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-earth-terracotta transition-colors"
-                    >
+                    <div class="w-11 h-11 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-earth-terracotta transition-colors">
                       <span class="material-symbols-outlined text-white text-xl">call</span>
                     </div>
                     <div>
                       <p class="text-[10px] uppercase font-bold tracking-widest text-white/40">Phone</p>
-                      <a
-                        class="text-white text-sm font-medium hover:text-earth-terracotta transition-colors"
-                        href="tel:+61000000000"
-                        >+61 00 000 0000</a
-                      >
+                      <a class="text-white text-sm font-medium hover:text-earth-terracotta transition-colors" href="tel:+61000000000">+61 00 000 0000</a>
                     </div>
                   </div>
                 </div>
               </div>
-
-              <!-- Right Column - Calendly Widget -->
               <div class="lg:col-span-7 p-6 md:p-8 lg:p-12 bg-earth-beige/30">
-                <!-- Calendly wrapper with fixed height and skeleton loader -->
                 <div class="calendly-wrapper shadow-inner">
-
-                  <!-- Skeleton Loader -->
                   <div id="calendly-skeleton">
-                    <!-- Header bar -->
                     <div class="skeleton h-6 w-2/5 mb-8 rounded-lg"></div>
-
-                    <!-- Month navigation row -->
                     <div class="flex items-center justify-between mb-6">
                       <div class="skeleton h-5 w-5 rounded-full"></div>
                       <div class="skeleton h-5 w-32 rounded-lg"></div>
                       <div class="skeleton h-5 w-5 rounded-full"></div>
                     </div>
-
-                    <!-- Calendar grid -->
                     <div class="grid grid-cols-7 gap-2 mb-8">
-                      <!-- Day labels -->
-                      <div class="skeleton h-4 rounded"></div>
-                      <div class="skeleton h-4 rounded"></div>
-                      <div class="skeleton h-4 rounded"></div>
-                      <div class="skeleton h-4 rounded"></div>
-                      <div class="skeleton h-4 rounded"></div>
-                      <div class="skeleton h-4 rounded"></div>
-                      <div class="skeleton h-4 rounded"></div>
-                      <!-- Weeks -->
-                      <div class="skeleton h-9 rounded-full"></div>
-                      <div class="skeleton h-9 rounded-full opacity-30"></div>
-                      <div class="skeleton h-9 rounded-full"></div>
-                      <div class="skeleton h-9 rounded-full"></div>
-                      <div class="skeleton h-9 rounded-full opacity-30"></div>
-                      <div class="skeleton h-9 rounded-full"></div>
-                      <div class="skeleton h-9 rounded-full opacity-30"></div>
-
-                      <div class="skeleton h-9 rounded-full opacity-30"></div>
-                      <div class="skeleton h-9 rounded-full"></div>
-                      <div class="skeleton h-9 rounded-full"></div>
-                      <div class="skeleton h-9 rounded-full opacity-30"></div>
-                      <div class="skeleton h-9 rounded-full"></div>
-                      <div class="skeleton h-9 rounded-full"></div>
-                      <div class="skeleton h-9 rounded-full opacity-30"></div>
-
-                      <div class="skeleton h-9 rounded-full"></div>
-                      <div class="skeleton h-9 rounded-full"></div>
-                      <div class="skeleton h-9 rounded-full opacity-30"></div>
-                      <div class="skeleton h-9 rounded-full"></div>
-                      <div class="skeleton h-9 rounded-full opacity-30"></div>
-                      <div class="skeleton h-9 rounded-full"></div>
-                      <div class="skeleton h-9 rounded-full"></div>
-
-                      <div class="skeleton h-9 rounded-full opacity-30"></div>
-                      <div class="skeleton h-9 rounded-full"></div>
-                      <div class="skeleton h-9 rounded-full"></div>
-                      <div class="skeleton h-9 rounded-full opacity-30"></div>
-                      <div class="skeleton h-9 rounded-full"></div>
-                      <div class="skeleton h-9 rounded-full opacity-30"></div>
-                      <div class="skeleton h-9 rounded-full"></div>
+                      <div class="skeleton h-4 rounded"></div><div class="skeleton h-4 rounded"></div><div class="skeleton h-4 rounded"></div><div class="skeleton h-4 rounded"></div><div class="skeleton h-4 rounded"></div><div class="skeleton h-4 rounded"></div><div class="skeleton h-4 rounded"></div>
+                      <div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full opacity-30"></div><div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full opacity-30"></div><div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full opacity-30"></div>
+                      <div class="skeleton h-9 rounded-full opacity-30"></div><div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full opacity-30"></div><div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full opacity-30"></div>
+                      <div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full opacity-30"></div><div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full opacity-30"></div><div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full"></div>
+                      <div class="skeleton h-9 rounded-full opacity-30"></div><div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full opacity-30"></div><div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full opacity-30"></div><div class="skeleton h-9 rounded-full"></div>
                     </div>
-
-                    <!-- Timezone row -->
                     <div class="flex items-center gap-3 mt-4">
                       <div class="skeleton h-4 w-4 rounded-full"></div>
                       <div class="skeleton h-4 w-40 rounded-lg"></div>
                     </div>
                   </div>
-
-                  <!-- Calendly inline widget begin -->
-                  <div
-                    class="calendly-inline-widget"
-                    data-url="https://calendly.com/contact-tuitionly/30min?hide_gdpr_banner=1&background_color=f9f6f1&text_color=4a3e3e&primary_color=d67d61"
-                  ></div>
-                  <!-- Calendly inline widget end -->
-
+                  <div class="calendly-inline-widget" data-url="https://calendly.com/contact-tuitionly/30min?hide_gdpr_banner=1&background_color=f9f6f1&text_color=4a3e3e&primary_color=d67d61"></div>
                 </div>
               </div>
             </div>
@@ -855,51 +585,68 @@
         </div>
       </section>
     </main>
-    <footer class="bg-earth-clay py-20 px-6 sm:px-12 text-white/50">
-      <div
-        class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12"
-      >
-        <div class="text-white font-extrabold text-2xl tracking-tighter">
-          Tuitionly<span class="text-earth-terracotta">.</span>
-        </div>
-        <p
-          id="footer-year"
-          class="text-xs font-bold uppercase tracking-widest text-center md:text-left"
-        >
-          © Tuitionly. Learning made simple.
-        </p>
+
+    <!-- FOOTER -->
+    <footer class="bg-earth-clay py-20 px-6 sm:px-12 text-white/50" data-aos="fade-up">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+        <div class="text-white font-extrabold text-2xl tracking-tighter">Tuitionly<span class="text-earth-terracotta">.</span></div>
+        <p id="footer-year" class="text-xs font-bold uppercase tracking-widest text-center md:text-left">&copy; Tuitionly. Learning made simple.</p>
         <div class="flex space-x-8">
-          <a class="hover:text-earth-terracotta transition-colors" href="#"
-            ><span class="material-symbols-outlined text-xl"
-              >brand_family</span
-            ></a
-          >
-          <a class="hover:text-earth-terracotta transition-colors" href="#"
-            ><span class="material-symbols-outlined text-xl">camera</span></a
-          >
+          <a class="hover:text-earth-terracotta transition-colors" href="#"><span class="material-symbols-outlined text-xl">brand_family</span></a>
+          <a class="hover:text-earth-terracotta transition-colors" href="#"><span class="material-symbols-outlined text-xl">camera</span></a>
         </div>
       </div>
     </footer>
 
     <!-- Calendly JS -->
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <!-- Lenis JS -->
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
 
-    <!-- Custom Scripts -->
     <script>
-      const yearEl = document.getElementById("footer-year");
+      // ── AOS Init ──
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 80,
+        easing: 'ease-out-cubic',
+      });
 
+      // ── Lenis Smooth Scroll ──
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true,
+      });
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // ── Nav Scroll Effect ──
+      const nav = document.getElementById('main-nav');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      });
+
+      // ── Footer Year ──
+      const yearEl = document.getElementById("footer-year");
       if (yearEl) {
-        const year = new Date().getFullYear();
-        yearEl.innerHTML = `© ${year} Tuitionly. Learning made simple.`;
+        yearEl.innerHTML = `&copy; ${new Date().getFullYear()} Tuitionly. Learning made simple.`;
       }
 
-      // Mobile Menu Toggle
+      // ── Mobile Menu Toggle ──
       const mobileToggle = document.getElementById("mobile-menu-toggle");
       const mobileMenu = document.getElementById("mobile-menu");
-
       if (mobileToggle && mobileMenu) {
         mobileToggle.addEventListener("click", () => {
           const isOpen = mobileToggle.getAttribute("aria-expanded") === "true";
@@ -908,7 +655,6 @@
           mobileMenu.classList.toggle("opacity-0");
           mobileMenu.classList.toggle("pointer-events-none");
         });
-
         mobileMenu.querySelectorAll("a").forEach((link) => {
           link.addEventListener("click", () => {
             mobileToggle.setAttribute("aria-expanded", "false");
@@ -917,7 +663,7 @@
         });
       }
 
-      // Testimonials Swiper
+      // ── Testimonials Swiper ──
       const testimonialsEl = document.querySelector(".testimonials-swiper");
       if (window.Swiper && testimonialsEl) {
         new Swiper(testimonialsEl, {
@@ -925,55 +671,35 @@
           spaceBetween: 12,
           grabCursor: true,
           watchOverflow: true,
-          pagination: {
-            el: ".testimonials-pagination",
-            clickable: true,
-          },
-          breakpoints: {
-            1024: {
-              slidesPerView: 2,
-              spaceBetween: 24,
-            },
-          },
+          pagination: { el: ".testimonials-pagination", clickable: true },
+          breakpoints: { 1024: { slidesPerView: 2, spaceBetween: 24 } },
         });
       }
 
-      // ── Skeleton loader: hide once Calendly iframe fires load ──
+      // ── Calendly Skeleton ──
       function hideSkeleton() {
         const skeleton = document.getElementById("calendly-skeleton");
         if (skeleton) {
           skeleton.classList.add("hidden");
-          // Remove from DOM after fade-out so it doesn't block clicks
           setTimeout(() => skeleton.remove(), 450);
         }
       }
-
-      // Listen for Calendly's own ready event
       window.addEventListener("message", function (e) {
-        if (e.data && e.data.event && e.data.event === "calendly.event_type_viewed") {
-          hideSkeleton();
-        }
+        if (e.data && e.data.event && e.data.event === "calendly.event_type_viewed") hideSkeleton();
       });
-
-      // Fallback: watch the iframe inside the widget and hide on load
       function watchCalendlyIframe() {
         const widget = document.querySelector(".calendly-inline-widget");
         if (!widget) return;
-
         const observer = new MutationObserver(() => {
           const iframe = widget.querySelector("iframe");
           if (iframe) {
             observer.disconnect();
             iframe.addEventListener("load", hideSkeleton, { once: true });
-            // Safety net: hide after 6s regardless
             setTimeout(hideSkeleton, 6000);
           }
         });
-
         observer.observe(widget, { childList: true, subtree: true });
       }
-
-      // Run after Calendly script has had a chance to inject
       if (document.readyState === "loading") {
         document.addEventListener("DOMContentLoaded", watchCalendlyIframe);
       } else {

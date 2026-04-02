@@ -1,368 +1,479 @@
 <!doctype html>
 <html lang="en" class="scroll-smooth">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <title>IB Tuition | Tuitionly</title>
-        <link href="https://fonts.googleapis.com" rel="preconnect" />
-        <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap"
-            rel="stylesheet"
-        />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-            rel="stylesheet"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
-        />
-        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-        <!-- Calendly CSS -->
-        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-        <script>
-            tailwind.config = {
-                theme: {
-                extend: {
-                    colors: {
-                    "earth-beige": "#F9F6F1",
-                    "earth-cream": "#FFFDF7",
-                    "earth-sage": "#7B8E7E",
-                    "earth-terracotta": "#D67D61",
-                    "earth-clay": "#4A3E3E",
-                    "soft-green": "#E8F1E9",
-                    "soft-clay": "#F2E8E4",
-                    },
-                    fontFamily: {
-                    sans: ["Inter", "sans-serif"],
-                    },
-                },
-                },
-            };
-        </script>
-        <style type="text/tailwindcss">
-            :root {
-                --terracotta: #d67d61;
-                --sage: #7b8e7e;
-                --beige: #f9f6f1;
-            }
-            .editorial-gradient-1 {
-                background: radial-gradient(
-                circle at 10% 20%,
-                rgba(214, 125, 97, 0.08) 0%,
-                rgba(249, 246, 241, 1) 90%
-                );
-            }
-            .editorial-gradient-2 {
-                background: linear-gradient(180deg, #f9f6f1 0%, #e8f1e9 100%);
-            }
-            .full-bleed-spread {
-                grid-column: 1 / -1;
-            }
-            .magazine-dropcap::first-letter {
-                font-size: 4rem;
-                float: left;
-                margin-right: 0.5rem;
-                line-height: 1;
-                font-weight: 800;
-                color: var(--terracotta);
-            }
-            .testimonials-pagination .swiper-pagination-bullet {
-                background: rgba(74, 62, 62, 0.25);
-                opacity: 1;
-            }
-            .testimonials-pagination .swiper-pagination-bullet-active {
-                background: var(--terracotta);
-            }
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>IB Tuition | Tuitionly</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "earth-beige": "#F9F6F1",
+              "earth-cream": "#FFFDF7",
+              "earth-sage": "#7B8E7E",
+              "earth-terracotta": "#D67D61",
+              "earth-clay": "#4A3E3E",
+              "soft-green": "#E8F1E9",
+              "soft-clay": "#F2E8E4",
+            },
+            fontFamily: { sans: ["Inter", "sans-serif"] },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      html.lenis, html.lenis body { height: auto; }
+      .lenis.lenis-smooth { scroll-behavior: auto !important; }
 
-            /* ─── Calendly: fixed height, no internal scroll ─── */
-            .calendly-wrapper {
-                position: relative;
-                height: 772px;
-                overflow: hidden;
-                border-radius: 1rem;
-                background: white;
-            }
+      nav { transition: background-color 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease; }
+      nav.scrolled {
+        background-color: rgba(249, 246, 241, 0.95) !important;
+        box-shadow: 0 4px 30px rgba(74, 62, 62, 0.08);
+        border-color: rgba(74, 62, 62, 0.1) !important;
+      }
 
-            .calendly-inline-widget {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                min-height: unset !important;
-                overflow: hidden !important;
-            }
+      /* Hero gradient */
+      .sub-hero {
+        background: linear-gradient(135deg, #4A3E3E 0%, #5a4a4a 40%, #7B8E7E 100%);
+        background-size: 200% 200%;
+        animation: heroShift 10s ease-in-out infinite;
+      }
+      @keyframes heroShift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
 
-            .calendly-inline-widget iframe {
-                width: 100% !important;
-                height: 100% !important;
-                border: none;
-                overflow: hidden !important;
-            }
+      /* Floating */
+      @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-15px) rotate(2deg); }
+      }
+      @keyframes floatReverse {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(10px) rotate(-2deg); }
+      }
+      .float-1 { animation: float 6s ease-in-out infinite; }
+      .float-2 { animation: floatReverse 7s ease-in-out infinite 1s; }
+      .float-3 { animation: float 5s ease-in-out infinite 2s; }
 
-            @media (max-width: 768px) {
-                .calendly-wrapper {
-                height: 620px;
-                }
-            }
+      /* Pulse ring on CTA */
+      @keyframes pulseRing {
+        0% { transform: scale(1); opacity: 0.4; }
+        100% { transform: scale(1.5); opacity: 0; }
+      }
+      .pulse-ring::before {
+        content: '';
+        position: absolute;
+        inset: -4px;
+        border-radius: 9999px;
+        border: 2px solid rgba(214,125,97,0.4);
+        animation: pulseRing 2s ease-out infinite;
+      }
 
-            /* ─── Skeleton loader ─── */
-            @keyframes shimmer {
-                0%   { background-position: -700px 0; }
-                100% { background-position:  700px 0; }
-            }
+      /* Card hover */
+      .card-lift {
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
+      }
+      .card-lift:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 25px 50px rgba(74,62,62,0.12);
+      }
 
-            .skeleton {
-                background: linear-gradient(
-                90deg,
-                rgba(74,62,62,0.07) 25%,
-                rgba(74,62,62,0.13) 50%,
-                rgba(74,62,62,0.07) 75%
-                );
-                background-size: 700px 100%;
-                animation: shimmer 1.6s infinite linear;
-                border-radius: 0.5rem;
-            }
+      /* Button shine */
+      .btn-shine {
+        position: relative;
+        overflow: hidden;
+      }
+      .btn-shine::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transform: translateX(-100%);
+        transition: transform 0.6s ease;
+      }
+      .btn-shine:hover::after { transform: translateX(100%); }
 
-            #calendly-skeleton {
-                position: absolute;
-                inset: 0;
-                padding: 2rem;
-                background: white;
-                border-radius: 1rem;
-                z-index: 10;
-                transition: opacity 0.4s ease;
-                pointer-events: none;
-            }
+      /* Timeline connector */
+      .timeline-line {
+        position: relative;
+      }
+      .timeline-line::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, #D67D61, rgba(214,125,97,0.2));
+      }
 
-            #calendly-skeleton.hidden {
-                opacity: 0;
-            }
-        </style>
-    </head>
+      /* Gradient text */
+      .gradient-text {
+        background: linear-gradient(135deg, #D67D61, #7B8E7E);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
 
-    <body class="bg-earth-beige text-earth-clay font-sans pt-20 sm:pt-24">
-        <nav
-            class="fixed top-0 w-full z-50 bg-earth-beige/80 backdrop-blur-xl border-b border-earth-clay/5"
-        >
-            <div class="max-w-6xl mx-auto h-20 sm:h-24 px-4 sm:px-6 lg:px-12">
-                <div class="flex justify-between h-20 sm:h-24 items-center">
-                    <div class="flex-shrink-0">
-                        <a href="index.html#top" class="inline-flex items-center gap-1">
-                            <span
-                                class="text-earth-clay text-xl sm:text-2xl font-extrabold tracking-tighter"
-                            >Tuitionly<span class="text-earth-terracotta">.</span>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="hidden md:flex space-x-8 lg:space-x-12 items-center">
-                        <a
-                            class="text-earth-clay/70 hover:text-earth-terracotta transition-colors text-xs lg:text-sm font-medium uppercase tracking-[0.2em]"
-                            href="index.html#approach"
-                        >
-                            Process
-                        </a>
-                        <a
-                            class="text-earth-clay/70 hover:text-earth-terracotta transition-colors text-xs lg:text-sm font-medium uppercase tracking-[0.2em]"
-                            href="index.html#pricing"
-                        >
-                            Tuition
-                        </a>
-                        <a
-                            class="text-earth-clay/70 hover:text-earth-terracotta transition-colors text-xs lg:text-sm font-medium uppercase tracking-[0.2em]"
-                            href="index.html#testimonials"
-                        >
-                            Stories
-                        </a>
-                        <a
-                            class="bg-earth-terracotta text-white px-5 py-2.5 lg:px-8 lg:py-3 rounded-full text-[11px] lg:text-xs font-bold uppercase tracking-[0.25em] hover:brightness-110 transition-all"
-                            href="index.html#contact"
-                        >
-                            Book Free Demo
-                        </a>
-                    </div>
-                    <button
-                        id="mobile-menu-toggle"
-                        class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-earth-clay/10 bg-white/60 text-earth-clay hover:bg-earth-beige transition"
-                        aria-label="Toggle navigation"
-                        aria-expanded="false"
-                    >
-                        <span class="material-symbols-outlined text-earth-clay">menu</span>
-                    </button>
-                </div>
-                <div
-                    id="mobile-menu"
-                    class="md:hidden origin-top scale-y-0 opacity-0 bg-earth-beige pointer-events-none transition-all duration-200 ease-out w-full"
-                >
-                    <div class="pt-2 pb-6 space-y-1 border-t border-earth-clay/5">
-                    <a
-                        class="block px-2 py-2 rounded-lg text-earth-clay/80 hover:text-earth-terracotta hover:bg-earth-beige text-sm font-medium tracking-[0.18em] uppercase"
-                        href="index.html#approach"
-                    >
-                        Process
-                    </a>
-                    <a
-                        class="text-earth-clay/70 hover:text-earth-terracotta transition-colors text-xs lg:text-sm font-medium uppercase tracking-[0.2em]"
-                        href="index.html#pricing"
-                    >
-                        Tuition
-                    </a>
-                    <a
-                        class="text-earth-clay/70 hover:text-earth-terracotta transition-colors text-xs lg:text-sm font-medium uppercase tracking-[0.2em]"
-                        href="index.html#testimonials"
-                    >
-                        Stories
-                    </a>
-                    <a
-                        class="mt-2 inline-flex w-full justify-center items-center px-4 py-3 rounded-full bg-earth-terracotta text-white text-xs font-bold uppercase tracking-[0.25em] hover:brightness-110"
-                        href="index.html#contact"
-                    >
-                        Book Free Demo
-                    </a>
-                    </div>
-                </div>
+      .blob {
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.3;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+
+  <body class="bg-earth-beige text-earth-clay font-sans antialiased selection:bg-earth-terracotta/30">
+    <!-- NAV -->
+    <nav id="main-nav" class="fixed top-0 w-full z-50 bg-transparent backdrop-blur-xl border-b border-transparent">
+      <div class="max-w-6xl mx-auto h-20 sm:h-24 px-4 sm:px-6 lg:px-12">
+        <div class="flex justify-between h-20 sm:h-24 items-center">
+          <div class="flex-shrink-0">
+            <a href="index.html#top" class="inline-flex items-center gap-1">
+              <span class="text-white text-xl sm:text-2xl font-extrabold tracking-tighter nav-logo transition-colors duration-400">Tuitionly<span class="text-earth-terracotta">.</span></span>
+            </a>
+          </div>
+          <div class="hidden md:flex space-x-8 lg:space-x-12 items-center">
+            <a class="text-white/70 hover:text-earth-terracotta transition-colors text-xs lg:text-sm font-medium uppercase tracking-[0.2em] nav-link" href="index.html#approach">Process</a>
+            <a class="text-white/70 hover:text-earth-terracotta transition-colors text-xs lg:text-sm font-medium uppercase tracking-[0.2em] nav-link" href="index.html#pricing">Tuition</a>
+            <a class="text-white/70 hover:text-earth-terracotta transition-colors text-xs lg:text-sm font-medium uppercase tracking-[0.2em] nav-link" href="index.html#testimonials">Stories</a>
+            <a class="bg-earth-terracotta text-white px-5 py-2.5 lg:px-8 lg:py-3 rounded-full text-[11px] lg:text-xs font-bold uppercase tracking-[0.25em] hover:brightness-110 transition-all btn-shine" href="index.html#contact">Book Free Demo</a>
+          </div>
+          <button id="mobile-menu-toggle" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-white/20 bg-white/10 text-white hover:bg-white/20 transition" aria-label="Toggle navigation" aria-expanded="false">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
+        <div id="mobile-menu" class="md:hidden origin-top scale-y-0 opacity-0 bg-earth-beige pointer-events-none transition-all duration-200 ease-out w-full rounded-2xl mt-2 shadow-xl">
+          <div class="pt-2 pb-6 space-y-1 px-4">
+            <a class="block px-2 py-3 rounded-lg text-earth-clay/80 hover:text-earth-terracotta text-sm font-medium tracking-[0.18em] uppercase" href="index.html#approach">Process</a>
+            <a class="block px-2 py-3 rounded-lg text-earth-clay/80 hover:text-earth-terracotta text-sm font-medium tracking-[0.18em] uppercase" href="index.html#pricing">Tuition</a>
+            <a class="block px-2 py-3 rounded-lg text-earth-clay/80 hover:text-earth-terracotta text-sm font-medium tracking-[0.18em] uppercase" href="index.html#testimonials">Stories</a>
+            <a class="mt-2 inline-flex w-full justify-center items-center px-4 py-3 rounded-full bg-earth-terracotta text-white text-xs font-bold uppercase tracking-[0.25em]" href="index.html#contact">Book Free Demo</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="sub-hero relative min-h-[85vh] flex items-center justify-center text-center overflow-hidden pt-24">
+      <!-- Floating decorative elements -->
+      <div class="absolute top-32 left-10 w-20 h-20 border-2 border-white/10 rounded-full float-1 hidden md:block"></div>
+      <div class="absolute top-48 right-16 w-12 h-12 bg-earth-terracotta/20 rounded-lg float-2 hidden md:block"></div>
+      <div class="absolute bottom-32 left-1/4 w-16 h-16 border-2 border-earth-terracotta/20 rounded-full float-3 hidden md:block"></div>
+      <div class="absolute bottom-20 right-10 w-24 h-24 bg-white/5 rounded-2xl float-1 hidden md:block"></div>
+      <div class="absolute top-1/3 left-1/2 w-8 h-8 bg-earth-sage/20 rounded-full float-2 hidden lg:block"></div>
+
+      <!-- Gradient overlay blobs -->
+      <div class="absolute top-0 right-0 w-96 h-96 bg-earth-terracotta/10 blob"></div>
+      <div class="absolute bottom-0 left-0 w-80 h-80 bg-earth-sage/10 blob"></div>
+
+      <div class="relative z-10 text-white px-4 max-w-4xl mx-auto">
+        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-5 py-2 mb-8" data-aos="fade-down" data-aos-delay="0">
+          <span class="w-2 h-2 bg-earth-terracotta rounded-full animate-pulse"></span>
+          <span class="text-xs font-bold uppercase tracking-widest text-white/80">International Baccalaureate</span>
+        </div>
+
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 leading-[1.05]" data-aos="fade-up" data-aos-delay="100">
+          Tuition for <span class="gradient-text">IB</span>
+        </h1>
+
+        <p class="text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+          Master the IB curriculum with personalised tutoring. From MYP to DP, we help students build deep understanding and exam confidence.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="300">
+          <a href="index.html#contact" class="relative inline-flex items-center gap-2 px-8 py-4 bg-earth-terracotta text-white rounded-full font-bold text-base shadow-lg shadow-earth-terracotta/30 hover:shadow-xl hover:shadow-earth-terracotta/40 transition-all hover:scale-105 btn-shine pulse-ring">
+            <span>Book Free Demo</span>
+            <span class="material-symbols-outlined text-lg">arrow_forward</span>
+          </a>
+          <a href="#curriculum" class="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-full font-bold text-base hover:bg-white/20 transition-all">
+            <span>View Curriculum</span>
+            <span class="material-symbols-outlined text-lg">expand_more</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40" data-aos="fade-up" data-aos-delay="500">
+        <span class="text-[10px] uppercase tracking-widest font-bold">Scroll</span>
+        <div class="w-5 h-8 border-2 border-white/20 rounded-full flex justify-center pt-1.5">
+          <div class="w-1 h-2 bg-white/40 rounded-full animate-bounce"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <section class="relative z-10 -mt-16 px-4 sm:px-6">
+      <div class="max-w-5xl mx-auto">
+        <div class="bg-white rounded-2xl shadow-2xl shadow-earth-clay/10 p-6 md:p-8 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-center">
+            <div class="w-12 h-12 bg-soft-green rounded-xl flex items-center justify-center mx-auto mb-3">
+              <span class="material-symbols-outlined text-earth-sage text-2xl">school</span>
             </div>
-        </nav>
-
-        <!-- HERO -->
-        <section class="relative z-0 h-[70vh] flex items-center justify-center text-center overflow-hidden">
-            <img src="/images/sub-page.jpg" class="absolute inset-0 w-full h-full object-cover z-0"/>
-            <!-- PREMIUM GRADIENT OVERLAY -->
-            <div class="absolute inset-0
-                bg-gradient-to-r
-                from-black/80 via-black/60 to-black/30"
-            >
+            <p class="text-2xl md:text-3xl font-extrabold text-earth-clay">4</p>
+            <p class="text-xs text-earth-clay/50 font-medium uppercase tracking-wider mt-1">Grade Levels</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-soft-clay rounded-xl flex items-center justify-center mx-auto mb-3">
+              <span class="material-symbols-outlined text-earth-terracotta text-2xl">menu_book</span>
             </div>
-
-            <div class="relative z-10 text-white px-4 max-w-3xl mx-auto">
-
-                <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
-                    Tuition for <span class="text-earth-terracotta">IB</span>
-                </h1>
-
-                <p class="text-lg text-white/80 mb-6">
-                    (International Baccalaureate)
-                </p>
-
-                <a
-                    href="index.html#contact"
-                    class="px-6 py-3 bg-earth-terracotta text-white rounded-full font-bold shadow-lg"
-                >
-                    Book Free Demo
-                </a>
-
+            <p class="text-2xl md:text-3xl font-extrabold text-earth-clay">5+</p>
+            <p class="text-xs text-earth-clay/50 font-medium uppercase tracking-wider mt-1">Subjects</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-soft-green rounded-xl flex items-center justify-center mx-auto mb-3">
+              <span class="material-symbols-outlined text-earth-sage text-2xl">groups</span>
             </div>
-        </section>
-
-        <!-- CURRICULUM TABLE -->
-        <section class="relative z-10 max-w-5xl mx-auto -mt-20 px-6">
-            <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
-
-                <div class="flex border-b">
-                    <button class="px-6 py-4 text-sm font-bold border-b-2 border-earth-terracotta">
-                        Grades
-                    </button>
-                    <button class="px-6 py-4 text-sm text-earth-clay/50">
-                        Subjects Offered
-                    </button>
-                </div>
-
-                <div class="divide-y text-sm">
-                    <div class="grid grid-cols-4 p-5">
-                        <div class="font-bold">DP 2</div>
-                        <div class="col-span-3 text-earth-clay/70">
-                            Maths AA/AI (HL & SL), Physics, Chemistry, English
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-4 p-5">
-                        <div class="font-bold">DP 1</div>
-                        <div class="col-span-3 text-earth-clay/70">
-                            Maths, Sciences, English
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-4 p-5">
-                        <div class="font-bold">MYP</div>
-                        <div class="col-span-3 text-earth-clay/70">
-                            Integrated Sciences, Maths, English
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-4 p-5">
-                        <div class="font-bold">PYP</div>
-                        <div class="col-span-3 text-earth-clay/70">
-                            Maths, Science Foundations
-                        </div>
-                    </div>
-                </div>
+            <p class="text-2xl md:text-3xl font-extrabold text-earth-clay">3</p>
+            <p class="text-xs text-earth-clay/50 font-medium uppercase tracking-wider mt-1">Max Batch Size</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-soft-clay rounded-xl flex items-center justify-center mx-auto mb-3">
+              <span class="material-symbols-outlined text-earth-terracotta text-2xl">verified</span>
             </div>
-        </section>
+            <p class="text-2xl md:text-3xl font-extrabold text-earth-clay">1-on-1</p>
+            <p class="text-xs text-earth-clay/50 font-medium uppercase tracking-wider mt-1">Focus Available</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!-- FEATURES -->
-        <section class="py-24 px-6">
-            <div class="max-w-6xl mx-auto">
+    <!-- CURRICULUM TABLE -->
+    <section id="curriculum" class="py-24 sm:py-32 px-4 sm:px-6">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <span class="text-earth-terracotta font-black text-xs uppercase tracking-widest mb-4 block">Curriculum</span>
+          <h2 class="text-3xl md:text-5xl font-extrabold text-earth-clay">What we cover</h2>
+        </div>
 
-                <h2 class="text-3xl font-bold mb-16">Why Tuitionly?</h2>
-
-                <div class="grid md:grid-cols-3 gap-10">
-
-                <div>
-                    <h4 class="font-bold mb-2">1-on-1 Classes</h4>
-                    <p class="text-earth-clay/60 text-sm">
-                        Personalised attention for better results
-                    </p>
-                </div>
-
-                <div>
-                    <h4 class="font-bold mb-2">Exam Prep</h4>
-                    <p class="text-earth-clay/60 text-sm">
-                        IB-style questions & timed practice
-                    </p>
-                </div>
-
-                <div>
-                    <h4 class="font-bold mb-2">Doubt Support</h4>
-                    <p class="text-earth-clay/60 text-sm">
-                        Continuous support outside sessions
-                    </p>
-                </div>
-
-                </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="bg-white rounded-2xl p-6 card-lift border border-earth-clay/5">
+            <div class="w-12 h-12 bg-earth-terracotta/10 rounded-xl flex items-center justify-center mb-4">
+              <span class="text-earth-terracotta font-extrabold text-lg">DP2</span>
             </div>
-        </section>
-
-        <!-- CTA -->
-        <section class="px-6">
-            <div class="max-w-5xl mx-auto bg-earth-sage text-white rounded-2xl p-12 text-center">
-                <h3 class="text-2xl font-bold mb-4">Ready to start IB?</h3>
-                <a
-                    href="index.html#contact"
-                    class="bg-earth-terracotta px-6 py-3 rounded-full font-bold"
-                >
-                    Book Free Demo
-                </a>
+            <h3 class="font-bold text-lg mb-2">Diploma Year 2</h3>
+            <p class="text-earth-clay/60 text-sm leading-relaxed">Maths AA/AI (HL & SL), Physics, Chemistry, English</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 card-lift border border-earth-clay/5">
+            <div class="w-12 h-12 bg-earth-sage/10 rounded-xl flex items-center justify-center mb-4">
+              <span class="text-earth-sage font-extrabold text-lg">DP1</span>
             </div>
-        </section>
-
-        <!-- INFO SECTION -->
-        <section class="py-24 px-6">
-            <div class="max-w-4xl mx-auto">
-
-                <h2 class="text-2xl font-bold mb-6">
-                    About the IB Program
-                </h2>
-
-                <p class="text-earth-clay/60 leading-relaxed">
-                    The IB program develops critical thinking, global perspective,
-                    and academic excellence. Our structured approach ensures students
-                    master both concepts and exam techniques.
-                </p>
-
+            <h3 class="font-bold text-lg mb-2">Diploma Year 1</h3>
+            <p class="text-earth-clay/60 text-sm leading-relaxed">Maths, Sciences, English</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 card-lift border border-earth-clay/5">
+            <div class="w-12 h-12 bg-earth-terracotta/10 rounded-xl flex items-center justify-center mb-4">
+              <span class="text-earth-terracotta font-extrabold text-lg">MYP</span>
             </div>
-        </section>
+            <h3 class="font-bold text-lg mb-2">Middle Years</h3>
+            <p class="text-earth-clay/60 text-sm leading-relaxed">Integrated Sciences, Maths, English</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 card-lift border border-earth-clay/5">
+            <div class="w-12 h-12 bg-earth-sage/10 rounded-xl flex items-center justify-center mb-4">
+              <span class="text-earth-sage font-extrabold text-lg">PYP</span>
+            </div>
+            <h3 class="font-bold text-lg mb-2">Primary Years</h3>
+            <p class="text-earth-clay/60 text-sm leading-relaxed">Maths, Science Foundations</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    </body>
+    <!-- WHY TUITIONLY -->
+    <section class="py-24 px-4 sm:px-6 bg-earth-cream">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <span class="text-earth-sage font-black text-xs uppercase tracking-widest mb-4 block">Why Choose Us</span>
+          <h2 class="text-3xl md:text-5xl font-extrabold text-earth-clay">Why Tuitionly for IB?</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-2xl p-8 card-lift border border-earth-clay/5 text-center" data-aos="fade-up" data-aos-delay="0">
+            <div class="w-16 h-16 bg-soft-green rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <span class="material-symbols-outlined text-earth-sage text-3xl">person</span>
+            </div>
+            <h4 class="font-bold text-xl mb-3">1-on-1 Classes</h4>
+            <p class="text-earth-clay/60 text-sm leading-relaxed">Personalised attention tailored to your IB curriculum needs for better results and deeper understanding.</p>
+          </div>
+          <div class="bg-white rounded-2xl p-8 card-lift border border-earth-clay/5 text-center" data-aos="fade-up" data-aos-delay="100">
+            <div class="w-16 h-16 bg-soft-clay rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <span class="material-symbols-outlined text-earth-terracotta text-3xl">quiz</span>
+            </div>
+            <h4 class="font-bold text-xl mb-3">Exam Prep</h4>
+            <p class="text-earth-clay/60 text-sm leading-relaxed">IB-style questions, past papers, and timed practice sessions to build exam confidence.</p>
+          </div>
+          <div class="bg-white rounded-2xl p-8 card-lift border border-earth-clay/5 text-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="w-16 h-16 bg-soft-green rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <span class="material-symbols-outlined text-earth-sage text-3xl">support_agent</span>
+            </div>
+            <h4 class="font-bold text-xl mb-3">Doubt Support</h4>
+            <p class="text-earth-clay/60 text-sm leading-relaxed">Continuous support outside sessions via phone and email. We're here when you need us most.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="py-24 sm:py-32 px-4 sm:px-6 bg-earth-beige overflow-hidden">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <span class="text-earth-terracotta font-black text-xs uppercase tracking-widest mb-4 block">Simple Process</span>
+          <h2 class="text-3xl md:text-5xl font-extrabold text-earth-clay">How it works</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 md:gap-4 relative">
+          <!-- Connector line (desktop) -->
+          <div class="hidden md:block absolute top-16 left-[20%] right-[20%] h-0.5 bg-gradient-to-r from-earth-terracotta/30 via-earth-terracotta/20 to-earth-terracotta/30"></div>
+
+          <div class="relative text-center" data-aos="fade-up" data-aos-delay="0">
+            <div class="w-14 h-14 bg-earth-terracotta text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-extrabold relative z-10 shadow-lg shadow-earth-terracotta/20">1</div>
+            <h4 class="font-bold text-lg mb-2">Book a Demo</h4>
+            <p class="text-earth-clay/60 text-sm leading-relaxed max-w-xs mx-auto">Schedule a free 30-minute session to experience our teaching style.</p>
+          </div>
+          <div class="relative text-center" data-aos="fade-up" data-aos-delay="150">
+            <div class="w-14 h-14 bg-earth-sage text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-extrabold relative z-10 shadow-lg shadow-earth-sage/20">2</div>
+            <h4 class="font-bold text-lg mb-2">Get Matched</h4>
+            <p class="text-earth-clay/60 text-sm leading-relaxed max-w-xs mx-auto">We pair your child with an expert IB tutor who fits their learning style.</p>
+          </div>
+          <div class="relative text-center" data-aos="fade-up" data-aos-delay="300">
+            <div class="w-14 h-14 bg-earth-clay text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-extrabold relative z-10 shadow-lg shadow-earth-clay/20">3</div>
+            <h4 class="font-bold text-lg mb-2">Start Learning</h4>
+            <p class="text-earth-clay/60 text-sm leading-relaxed max-w-xs mx-auto">Begin regular sessions with progress tracking and continuous support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24 px-4 sm:px-6 relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-earth-sage to-earth-sage/80"></div>
+      <!-- Decorative -->
+      <div class="absolute top-10 right-10 w-40 h-40 border-2 border-white/10 rounded-full float-1 hidden md:block"></div>
+      <div class="absolute bottom-10 left-10 w-24 h-24 bg-white/5 rounded-2xl float-2 hidden md:block"></div>
+
+      <div class="max-w-4xl mx-auto text-center relative z-10" data-aos="zoom-in">
+        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight">Ready to excel in IB?</h2>
+        <p class="text-white/70 text-lg mb-10 max-w-xl mx-auto">Join hundreds of IB students who have improved their grades and confidence with Tuitionly.</p>
+        <a href="index.html#contact" class="inline-flex items-center gap-2 px-10 py-5 bg-earth-terracotta text-white rounded-full font-bold text-lg shadow-xl shadow-earth-terracotta/30 hover:shadow-2xl hover:scale-105 transition-all btn-shine">
+          <span>Book Free Demo</span>
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ABOUT PROGRAM -->
+    <section class="py-24 sm:py-32 px-4 sm:px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div data-aos="fade-right">
+            <span class="text-earth-terracotta font-black text-xs uppercase tracking-widest mb-6 block">About the Program</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-earth-clay leading-tight mb-6">The IB Programme</h2>
+            <p class="text-earth-clay/60 leading-relaxed mb-6">
+              The International Baccalaureate programme develops critical thinking, global perspective, and academic excellence. From the Primary Years Programme through to the rigorous Diploma Programme, IB students are challenged to think independently and drive their own learning.
+            </p>
+            <p class="text-earth-clay/60 leading-relaxed mb-8">
+              Our structured approach ensures students master both concepts and exam techniques. We align with the IB's inquiry-based methodology while providing the structured practice needed for top grades.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <span class="px-4 py-2 bg-soft-green rounded-full text-xs font-bold text-earth-sage">Critical Thinking</span>
+              <span class="px-4 py-2 bg-soft-clay rounded-full text-xs font-bold text-earth-terracotta">Global Perspective</span>
+              <span class="px-4 py-2 bg-earth-beige rounded-full text-xs font-bold text-earth-clay/70">Inquiry-Based</span>
+            </div>
+          </div>
+          <div class="relative" data-aos="fade-left">
+            <!-- Decorative pattern grid -->
+            <div class="grid grid-cols-3 gap-4">
+              <div class="bg-earth-sage/10 rounded-2xl aspect-square flex items-center justify-center float-1">
+                <span class="material-symbols-outlined text-earth-sage text-4xl">psychology</span>
+              </div>
+              <div class="bg-earth-terracotta/10 rounded-2xl aspect-square flex items-center justify-center float-2 mt-8">
+                <span class="material-symbols-outlined text-earth-terracotta text-4xl">public</span>
+              </div>
+              <div class="bg-earth-sage/10 rounded-2xl aspect-square flex items-center justify-center float-3">
+                <span class="material-symbols-outlined text-earth-sage text-4xl">auto_awesome</span>
+              </div>
+              <div class="bg-earth-terracotta/10 rounded-2xl aspect-square flex items-center justify-center float-2 col-span-2">
+                <span class="material-symbols-outlined text-earth-terracotta text-5xl mr-3">emoji_objects</span>
+                <span class="text-earth-clay font-bold text-lg">Learn. Grow. Succeed.</span>
+              </div>
+              <div class="bg-soft-green rounded-2xl aspect-square flex items-center justify-center float-1">
+                <span class="material-symbols-outlined text-earth-sage text-4xl">trending_up</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-earth-clay py-20 px-6 sm:px-12 text-white/50" data-aos="fade-up">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+        <div class="text-white font-extrabold text-2xl tracking-tighter">Tuitionly<span class="text-earth-terracotta">.</span></div>
+        <p id="footer-year" class="text-xs font-bold uppercase tracking-widest text-center md:text-left">&copy; Tuitionly. Learning made simple.</p>
+        <div class="flex space-x-8">
+          <a class="hover:text-earth-terracotta transition-colors" href="#"><span class="material-symbols-outlined text-xl">brand_family</span></a>
+          <a class="hover:text-earth-terracotta transition-colors" href="#"><span class="material-symbols-outlined text-xl">camera</span></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script>
+      AOS.init({ duration: 800, once: true, offset: 80, easing: 'ease-out-cubic' });
+
+      const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smooth: true });
+      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+      requestAnimationFrame(raf);
+
+      // Nav scroll effect
+      const nav = document.getElementById('main-nav');
+      const navLogo = document.querySelector('.nav-logo');
+      const navLinks = document.querySelectorAll('.nav-link');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+          nav.classList.add('scrolled');
+          navLogo.style.color = '#4A3E3E';
+          navLinks.forEach(l => { l.style.color = 'rgba(74,62,62,0.7)'; });
+        } else {
+          nav.classList.remove('scrolled');
+          navLogo.style.color = '#fff';
+          navLinks.forEach(l => { l.style.color = 'rgba(255,255,255,0.7)'; });
+        }
+      });
+
+      // Footer year
+      const yearEl = document.getElementById("footer-year");
+      if (yearEl) yearEl.innerHTML = `&copy; ${new Date().getFullYear()} Tuitionly. Learning made simple.`;
+
+      // Mobile menu
+      const mobileToggle = document.getElementById("mobile-menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+      if (mobileToggle && mobileMenu) {
+        mobileToggle.addEventListener("click", () => {
+          const isOpen = mobileToggle.getAttribute("aria-expanded") === "true";
+          mobileToggle.setAttribute("aria-expanded", String(!isOpen));
+          mobileMenu.classList.toggle("scale-y-0");
+          mobileMenu.classList.toggle("opacity-0");
+          mobileMenu.classList.toggle("pointer-events-none");
+        });
+        mobileMenu.querySelectorAll("a").forEach(link => {
+          link.addEventListener("click", () => {
+            mobileToggle.setAttribute("aria-expanded", "false");
+            mobileMenu.classList.add("scale-y-0", "opacity-0", "pointer-events-none");
+          });
+        });
+      }
+    </script>
+  </body>
 </html>
