@@ -1,15 +1,15 @@
 /* ══════════════════════════════════════════════════════════
-   TUITIONLY — Shared Theme
+   TUITIONLY — Shared Theme (Teal / Cream / Forest)
    ══════════════════════════════════════════════════════════ */
 
 :root {
-  --terracotta: #D67D61;
-  --sage: #7B8E7E;
-  --beige: #F9F6F1;
-  --cream: #FFFDF7;
-  --clay: #4A3E3E;
-  --soft-green: #E8F1E9;
-  --soft-clay: #F2E8E4;
+  --teal: #2A9D8F;
+  --mint: #8ECAC4;
+  --cream: #F0EDE8;
+  --ivory: #FAF8F5;
+  --forest: #264653;
+  --soft-teal: #E0F0ED;
+  --soft-mint: #E8F2F0;
 }
 
 /* ─── Lenis smooth scroll ─── */
@@ -21,14 +21,14 @@ nav#main-nav {
   transition: background-color 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
 nav#main-nav.scrolled {
-  background-color: rgba(249, 246, 241, 0.95) !important;
-  box-shadow: 0 4px 30px rgba(74, 62, 62, 0.08);
-  border-color: rgba(74, 62, 62, 0.1) !important;
+  background-color: rgba(240, 237, 232, 0.95) !important;
+  box-shadow: 0 4px 30px rgba(38, 70, 83, 0.08);
+  border-color: rgba(38, 70, 83, 0.1) !important;
 }
 
 /* ─── Animated gradient hero (shared) ─── */
 .hero-gradient-dark {
-  background: linear-gradient(135deg, #4A3E3E 0%, #3d3535 30%, #5a4a4a 60%, #7B8E7E 100%);
+  background: linear-gradient(135deg, #264653 0%, #1d3640 30%, #2A4A54 60%, #2A9D8F 100%);
   background-size: 300% 300%;
   animation: heroGradientDark 12s ease-in-out infinite;
 }
@@ -40,10 +40,10 @@ nav#main-nav.scrolled {
 
 .hero-gradient-light {
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(214,125,97,0.1) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(123,142,126,0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(214,125,97,0.05) 0%, transparent 50%),
-    #F9F6F1;
+    radial-gradient(ellipse at 20% 50%, rgba(42,157,143,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(142,202,196,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(42,157,143,0.04) 0%, transparent 50%),
+    #F0EDE8;
   background-size: 200% 200%;
   animation: heroGradientLight 10s ease-in-out infinite;
 }
@@ -80,7 +80,7 @@ nav#main-nav.scrolled {
   position: absolute;
   inset: -4px;
   border-radius: 9999px;
-  border: 2px solid rgba(214,125,97,0.35);
+  border: 2px solid rgba(42,157,143,0.35);
   animation: pulseRing 2s ease-out infinite;
 }
 
@@ -90,7 +90,7 @@ nav#main-nav.scrolled {
 }
 .card-lift:hover {
   transform: translateY(-6px);
-  box-shadow: 0 25px 50px rgba(74,62,62,0.12);
+  box-shadow: 0 25px 50px rgba(38,70,83,0.12);
 }
 
 /* ─── Button shine sweep ─── */
@@ -110,13 +110,13 @@ nav#main-nav.scrolled {
 
 /* ─── Gradient text ─── */
 .gradient-text {
-  background: linear-gradient(135deg, var(--terracotta), var(--sage));
+  background: linear-gradient(135deg, var(--teal), var(--mint));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 .gradient-text-warm {
-  background: linear-gradient(135deg, var(--terracotta), #c4573f);
+  background: linear-gradient(135deg, var(--teal), #1a7a6f);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -132,19 +132,19 @@ nav#main-nav.scrolled {
 
 /* ─── Section divider gradient ─── */
 .section-gradient-1 {
-  background: linear-gradient(180deg, var(--beige) 0%, var(--soft-green) 100%);
+  background: linear-gradient(180deg, var(--cream) 0%, var(--soft-teal) 100%);
 }
 .section-gradient-2 {
-  background: linear-gradient(180deg, var(--cream) 0%, var(--beige) 100%);
+  background: linear-gradient(180deg, var(--ivory) 0%, var(--cream) 100%);
 }
 
 /* ─── Testimonials (Swiper) ─── */
 .testimonials-pagination .swiper-pagination-bullet {
-  background: rgba(74, 62, 62, 0.25);
+  background: rgba(38, 70, 83, 0.25);
   opacity: 1;
 }
 .testimonials-pagination .swiper-pagination-bullet-active {
-  background: var(--terracotta);
+  background: var(--teal);
 }
 
 /* ─── Calendly ─── */
@@ -178,7 +178,7 @@ nav#main-nav.scrolled {
   100% { background-position:  700px 0; }
 }
 .skeleton {
-  background: linear-gradient(90deg, rgba(74,62,62,0.07) 25%, rgba(74,62,62,0.13) 50%, rgba(74,62,62,0.07) 75%);
+  background: linear-gradient(90deg, rgba(38,70,83,0.07) 25%, rgba(38,70,83,0.13) 50%, rgba(38,70,83,0.07) 75%);
   background-size: 700px 100%;
   animation: shimmer 1.6s infinite linear;
   border-radius: 0.5rem;
@@ -202,7 +202,7 @@ nav#main-nav.scrolled {
   margin-right: 0.5rem;
   line-height: 1;
   font-weight: 800;
-  color: var(--terracotta);
+  color: var(--teal);
 }
 
 /* ─── Scroll indicator bounce ─── */

@@ -16,13 +16,7 @@
         theme: {
           extend: {
             colors: {
-              "earth-beige": "#F9F6F1",
-              "earth-cream": "#FFFDF7",
-              "earth-sage": "#7B8E7E",
-              "earth-terracotta": "#D67D61",
-              "earth-clay": "#4A3E3E",
-              "soft-green": "#E8F1E9",
-              "soft-clay": "#F2E8E4",
+              "earth-beige":"#F0EDE8","earth-cream":"#FAF8F5","earth-sage":"#8ECAC4","earth-terracotta":"#2A9D8F","earth-clay":"#264653","soft-green":"#E0F0ED","soft-clay":"#E8F2F0",
             },
             fontFamily: { sans: ["Inter", "sans-serif"] },
           },
@@ -31,12 +25,12 @@
     </script>
     <style>
       .sub-hero {
-        background: linear-gradient(135deg, #4A3E3E 0%, #7B8E7E 50%, #4A3E3E 100%);
+        background: linear-gradient(135deg, #264653 0%, #2A9D8F 50%, #264653 100%);
         background-size: 300% 300%;
         animation: heroGradientDark 12s ease-in-out infinite;
       }
       .gradient-text-sage {
-        background: linear-gradient(135deg, #4f6753 0%, #4A3E3E 50%, #4f6753 100%);
+        background: linear-gradient(135deg, #8ECAC4, #5ba8a0);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -285,7 +279,7 @@
       const navLogo = document.querySelector('.nav-logo');
       const navLinks = document.querySelectorAll('.nav-link');
       window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) { nav.classList.add('scrolled'); navLogo.style.color = '#4A3E3E'; navLinks.forEach(l => { l.style.color = 'rgba(74,62,62,0.7)'; }); }
+        if (window.scrollY > 100) { nav.classList.add('scrolled'); navLogo.style.color = '#264653'; navLinks.forEach(l => { l.style.color = 'rgba(38,70,83,0.7)'; }); }
         else { nav.classList.remove('scrolled'); navLogo.style.color = '#fff'; navLinks.forEach(l => { l.style.color = 'rgba(255,255,255,0.7)'; }); }
       });
       const yearEl = document.getElementById("footer-year");
