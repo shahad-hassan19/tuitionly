@@ -16,7 +16,7 @@
         theme: {
           extend: {
             colors: {
-              "earth-beige":"#F0EDE8","earth-cream":"#FAF8F5","earth-sage":"#8ECAC4","earth-terracotta":"#2A9D8F","earth-clay":"#264653","soft-green":"#E0F0ED","soft-clay":"#E8F2F0",
+              "earth-beige":"#F5F7FA","earth-cream":"#FFFFFF","earth-sage":"#2DD4BF","earth-terracotta":"#14B8A6","earth-clay":"#0F2B36","soft-green":"#CCFBF1","soft-clay":"#D5F5F0",
             },
             fontFamily: { sans: ["Inter", "sans-serif"] },
           },
@@ -25,7 +25,7 @@
     </script>
     <style>
       .sub-hero {
-        background: linear-gradient(135deg, #264653 0%, #1d3640 40%, #264653 70%, #2A9D8F 100%);
+        background: linear-gradient(135deg, #0F2B36 0%, #163a4a 40%, #0F2B36 70%, #14B8A6 100%);
         background-size: 300% 300%;
         animation: heroGradientDark 12s ease-in-out infinite;
       }
@@ -62,7 +62,7 @@
     </nav>
 
     <!-- HERO -->
-    <section class="sub-hero relative min-h-[85vh] flex items-center justify-center text-center overflow-hidden pt-24">
+    <section class="sub-hero relative min-h-[85vh] flex items-center justify-center text-center overflow-clip pt-24">
       <div class="absolute top-32 left-10 w-20 h-20 border-2 border-white/10 rounded-full float-1 hidden md:block"></div>
       <div class="absolute top-48 right-16 w-12 h-12 bg-earth-terracotta/20 rounded-lg float-2 hidden md:block"></div>
       <div class="absolute bottom-32 left-1/4 w-16 h-16 border-2 border-earth-sage/20 rounded-full float-3 hidden md:block"></div>
@@ -181,7 +181,7 @@
     </section>
 
     <!-- HOW IT WORKS -->
-    <section class="py-24 sm:py-32 px-4 sm:px-6 bg-earth-beige overflow-hidden">
+    <section class="py-24 sm:py-32 px-4 sm:px-6 bg-earth-beige">
       <div class="max-w-5xl mx-auto">
         <div class="text-center mb-16" data-aos="fade-up">
           <span class="text-earth-terracotta font-black text-xs uppercase tracking-widest mb-4 block">Simple Process</span>
@@ -209,8 +209,8 @@
     </section>
 
     <!-- CTA -->
-    <section class="py-24 px-4 sm:px-6 relative overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-br from-earth-sage to-earth-sage/80"></div>
+    <section class="py-24 px-4 sm:px-6 relative overflow-clip">
+      <div class="absolute inset-0 bg-gradient-to-br from-earth-clay to-earth-clay/90"></div>
       <div class="absolute top-10 right-10 w-40 h-40 border-2 border-white/10 rounded-full float-1 hidden md:block"></div>
       <div class="absolute bottom-10 left-10 w-24 h-24 bg-white/5 rounded-2xl float-2 hidden md:block"></div>
       <div class="max-w-4xl mx-auto text-center relative z-10" data-aos="zoom-in">
@@ -252,12 +252,39 @@
 
     <!-- FOOTER -->
     <footer class="bg-earth-clay py-20 px-6 sm:px-12 text-white/50" data-aos="fade-up">
-      <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
-        <div class="text-white font-extrabold text-2xl tracking-tighter">Tuitionly<span class="text-earth-terracotta">.</span></div>
-        <p id="footer-year" class="text-xs font-bold uppercase tracking-widest text-center md:text-left">&copy; Tuitionly. Learning made simple.</p>
-        <div class="flex space-x-8">
-          <a class="hover:text-earth-terracotta transition-colors" href="#"><span class="material-symbols-outlined text-xl">brand_family</span></a>
-          <a class="hover:text-earth-terracotta transition-colors" href="#"><span class="material-symbols-outlined text-xl">camera</span></a>
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between gap-12 mb-12">
+          <div>
+            <div class="text-white font-extrabold text-2xl tracking-tighter mb-4">Tuitionly<span class="text-earth-terracotta">.</span></div>
+            <p class="text-white/40 text-sm max-w-xs leading-relaxed">Online tuition for students in all age groups. Building confidence and results with personalised learning.</p>
+          </div>
+          <div class="flex flex-wrap gap-16">
+            <div>
+              <p class="text-white/30 text-[10px] font-black uppercase tracking-widest mb-4">Curricula</p>
+              <ul class="space-y-3">
+                <li><a class="text-white/60 hover:text-earth-terracotta transition-colors text-sm" href="/ib.html">IB</a></li>
+                <li><a class="text-white/60 hover:text-earth-terracotta transition-colors text-sm" href="/igcse.html">IGCSE</a></li>
+                <li><a class="text-white/60 hover:text-earth-terracotta transition-colors text-sm" href="/cbse.html">CBSE</a></li>
+                <li><a class="text-white/60 hover:text-earth-terracotta transition-colors text-sm" href="/ap.html">AP</a></li>
+              </ul>
+            </div>
+            <div>
+              <p class="text-white/30 text-[10px] font-black uppercase tracking-widest mb-4">Quick Links</p>
+              <ul class="space-y-3">
+                <li><a class="text-white/60 hover:text-earth-terracotta transition-colors text-sm" href="#approach">Our Process</a></li>
+                <li><a class="text-white/60 hover:text-earth-terracotta transition-colors text-sm" href="#pricing">Pricing</a></li>
+                <li><a class="text-white/60 hover:text-earth-terracotta transition-colors text-sm" href="#testimonials">Stories</a></li>
+                <li><a class="text-white/60 hover:text-earth-terracotta transition-colors text-sm" href="#contact">Book Free Demo</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p id="footer-year" class="text-xs font-bold uppercase tracking-widest">&copy; Tuitionly. Learning made simple.</p>
+          <div class="flex space-x-8">
+            <a class="hover:text-earth-terracotta transition-colors" href="#"><span class="material-symbols-outlined text-xl">brand_family</span></a>
+            <a class="hover:text-earth-terracotta transition-colors" href="#"><span class="material-symbols-outlined text-xl">camera</span></a>
+          </div>
         </div>
       </div>
     </footer>
@@ -272,9 +299,13 @@
       const nav = document.getElementById('main-nav');
       const navLogo = document.querySelector('.nav-logo');
       const navLinks = document.querySelectorAll('.nav-link');
+      let lastScrollY = window.scrollY;
       window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) { nav.classList.add('scrolled'); navLogo.style.color = '#264653'; navLinks.forEach(l => { l.style.color = 'rgba(38,70,83,0.7)'; }); }
+        const sy = window.scrollY;
+        if (sy > 100) { nav.classList.add('scrolled'); navLogo.style.color = '#0F2B36'; navLinks.forEach(l => { l.style.color = 'rgba(15,43,54,0.7)'; }); }
         else { nav.classList.remove('scrolled'); navLogo.style.color = '#fff'; navLinks.forEach(l => { l.style.color = 'rgba(255,255,255,0.7)'; }); }
+        if (sy > 200 && sy > lastScrollY) { nav.classList.add('nav-hidden'); } else { nav.classList.remove('nav-hidden'); }
+        lastScrollY = sy;
       });
       const yearEl = document.getElementById("footer-year");
       if (yearEl) yearEl.innerHTML = `&copy; ${new Date().getFullYear()} Tuitionly. Learning made simple.`;

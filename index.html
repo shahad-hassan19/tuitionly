@@ -18,7 +18,7 @@
     <script>
       tailwind.config = {
         theme: { extend: {
-          colors: { "earth-beige":"#F0EDE8","earth-cream":"#FAF8F5","earth-sage":"#8ECAC4","earth-terracotta":"#2A9D8F","earth-clay":"#264653","soft-green":"#E0F0ED","soft-clay":"#E8F2F0" },
+          colors: { "earth-beige":"#F5F7FA","earth-cream":"#FFFFFF","earth-sage":"#2DD4BF","earth-terracotta":"#14B8A6","earth-clay":"#0F2B36","soft-green":"#CCFBF1","soft-clay":"#D5F5F0" },
           fontFamily: { sans: ["Inter","sans-serif"] },
         }},
       };
@@ -52,7 +52,7 @@
 
     <main>
       <!-- HERO -->
-      <section id="top" class="hero-gradient-dark relative min-h-screen flex items-center overflow-hidden pt-24 pb-16">
+      <section id="top" class="hero-gradient-dark relative min-h-screen flex items-center overflow-clip pt-24 pb-16">
         <div class="absolute top-32 left-8 w-20 h-20 border-2 border-white/10 rounded-full float-1 hidden md:block"></div>
         <div class="absolute top-48 right-14 w-14 h-14 bg-earth-terracotta/15 rounded-lg float-2 hidden md:block"></div>
         <div class="absolute bottom-40 left-1/4 w-16 h-16 border-2 border-earth-terracotta/15 rounded-full float-3 hidden md:block"></div>
@@ -124,22 +124,22 @@
       </section>
 
       <!-- TESTIMONIALS -->
-      <section class="py-0 overflow-hidden" id="testimonials"><div class="bg-earth-sage/10 py-24 sm:py-32"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12">
-        <div class="text-center mb-16 sm:mb-24" data-aos="fade-up"><span class="text-earth-terracotta font-black text-xs uppercase tracking-[0.3em] mb-4 block">Voices of Experience</span><h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-earth-clay">Trusted by families across the nations</h2></div>
+      <section class="overflow-clip" id="testimonials"><div class="bg-earth-sage/10 py-24 sm:py-32"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12">
+        <div class="text-center mb-10 sm:mb-14" data-aos="fade-up"><span class="text-earth-terracotta font-black text-xs uppercase tracking-[0.3em] mb-4 block">Voices of Experience</span><h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-earth-clay">Trusted by families across the nations</h2></div>
         <div class="swiper testimonials-swiper" data-aos="fade-up" data-aos-delay="100"><div class="swiper-wrapper">
 
           <!-- Slide 1 — Gaurav Sharma -->
           <div class="swiper-slide">
-            <div class="bg-earth-cream p-6 md:p-12 rounded-2xl h-full flex flex-col justify-center card-lift border border-earth-clay/5">
-              <span class="text-8xl text-earth-terracotta/20 leading-none mb-4 italic">&#8220;</span>
-              <p class="text-2xl md:text-3xl text-earth-clay font-medium italic leading-relaxed mb-12">&#8220;My son used to dread maths homework. After just two months with Tuitionly, he now solves problems on his own and actually enjoys it.&#8221;</p>
+            <div class="bg-earth-cream p-5 md:p-8 rounded-2xl h-full flex flex-col justify-between border border-earth-clay/5">
+              <span class="text-5xl text-earth-terracotta/20 leading-none mb-2 italic">&#8220;</span>
+              <p class="text-lg md:text-xl text-earth-clay font-medium italic leading-relaxed mb-6">&#8220;My son used to dread maths homework. After just two months with Tuitionly, he now solves problems on his own and actually enjoys it.&#8221;</p>
               <div class="flex items-center">
-                <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-earth-terracotta/20 mr-6 bg-earth-terracotta/10 flex items-center justify-center flex-shrink-0">
+                <div class="w-11 h-11 rounded-full overflow-hidden border-2 border-earth-terracotta/20 mr-3 bg-earth-terracotta/10 flex items-center justify-center flex-shrink-0">
                   <img alt="Gaurav Sharma" class="w-full h-full object-cover" src="/images/Gaurav-Sharma.jpg" />
                 </div>
                 <div>
-                  <p class="font-bold text-lg tracking-tight">Gaurav Sharma</p>
-                  <p class="text-sm text-earth-clay/40 uppercase tracking-widest font-bold">Parent &middot; Year 9</p>
+                  <p class="font-bold text-sm tracking-tight">Gaurav Sharma</p>
+                  <p class="text-xs text-earth-clay/40 uppercase tracking-widest font-bold">Parent &middot; Year 9</p>
                 </div>
               </div>
             </div>
@@ -147,16 +147,16 @@
 
           <!-- Slide 2 — Kiran Joshi -->
           <div class="swiper-slide">
-            <div class="bg-earth-cream p-6 md:p-12 rounded-2xl h-full flex flex-col justify-center card-lift border border-earth-clay/5">
-              <span class="text-8xl text-earth-terracotta/20 leading-none mb-4 italic">&#8220;</span>
-              <p class="text-2xl md:text-3xl text-earth-clay font-medium italic leading-relaxed mb-12">&#8220;The tutor explained concepts so clearly that my daughter&#8217;s confidence shot up. Her grades went from C to A in one term.&#8221;</p>
+            <div class="bg-earth-cream p-5 md:p-8 rounded-2xl h-full flex flex-col justify-between border border-earth-clay/5">
+              <span class="text-5xl text-earth-terracotta/20 leading-none mb-2 italic">&#8220;</span>
+              <p class="text-lg md:text-xl text-earth-clay font-medium italic leading-relaxed mb-6">&#8220;The tutor explained concepts so clearly that my daughter&#8217;s confidence shot up. Her grades went from C to A in one term.&#8221;</p>
               <div class="flex items-center">
-                <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-earth-sage/20 mr-6 bg-earth-sage/10 flex items-center justify-center flex-shrink-0">
+                <div class="w-11 h-11 rounded-full overflow-hidden border-2 border-earth-sage/20 mr-3 bg-earth-sage/10 flex items-center justify-center flex-shrink-0">
                   <img alt="Kiran Joshi" class="w-full h-full object-cover" src="/images/Kiran-Joshi.jpg" />
                 </div>
                 <div>
-                  <p class="font-bold text-lg tracking-tight">Kiran Joshi</p>
-                  <p class="text-sm text-earth-clay/40 uppercase tracking-widest font-bold">Parent &middot; Year 11</p>
+                  <p class="font-bold text-sm tracking-tight">Kiran Joshi</p>
+                  <p class="text-xs text-earth-clay/40 uppercase tracking-widest font-bold">Parent &middot; Year 11</p>
                 </div>
               </div>
             </div>
@@ -164,16 +164,16 @@
 
           <!-- Slide 3 — Priya Menon -->
           <div class="swiper-slide">
-            <div class="bg-earth-cream p-6 md:p-12 rounded-2xl h-full flex flex-col justify-center card-lift border border-earth-clay/5">
-              <span class="text-8xl text-earth-terracotta/20 leading-none mb-4 italic">&#8220;</span>
-              <p class="text-2xl md:text-3xl text-earth-clay font-medium italic leading-relaxed mb-12">&#8220;Flexible scheduling was a game-changer for us. The small batch size means my child gets real attention, not just screen time.&#8221;</p>
+            <div class="bg-earth-cream p-5 md:p-8 rounded-2xl h-full flex flex-col justify-between border border-earth-clay/5">
+              <span class="text-5xl text-earth-terracotta/20 leading-none mb-2 italic">&#8220;</span>
+              <p class="text-lg md:text-xl text-earth-clay font-medium italic leading-relaxed mb-6">&#8220;Flexible scheduling was a game-changer for us. The small batch size means my child gets real attention, not just screen time.&#8221;</p>
               <div class="flex items-center">
-                <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-earth-terracotta/20 mr-6 bg-earth-terracotta/10 flex items-center justify-center flex-shrink-0">
+                <div class="w-11 h-11 rounded-full overflow-hidden border-2 border-earth-terracotta/20 mr-3 bg-earth-terracotta/10 flex items-center justify-center flex-shrink-0">
                   <img alt="Priya Menon" class="w-full h-full object-cover" src="/images/Priya-Menon.jpg" />
                 </div>
                 <div>
-                  <p class="font-bold text-lg tracking-tight">Priya Menon</p>
-                  <p class="text-sm text-earth-clay/40 uppercase tracking-widest font-bold">Parent &middot; Year 6</p>
+                  <p class="font-bold text-sm tracking-tight">Priya Menon</p>
+                  <p class="text-xs text-earth-clay/40 uppercase tracking-widest font-bold">Parent &middot; Year 6</p>
                 </div>
               </div>
             </div>
@@ -181,16 +181,16 @@
 
           <!-- Slide 4 — Arjun Patel -->
           <div class="swiper-slide">
-            <div class="bg-earth-cream p-6 md:p-12 rounded-2xl h-full flex flex-col justify-center card-lift border border-earth-clay/5">
-              <span class="text-8xl text-earth-terracotta/20 leading-none mb-4 italic">&#8220;</span>
-              <p class="text-2xl md:text-3xl text-earth-clay font-medium italic leading-relaxed mb-12">&#8220;We tried several tutoring services before. Tuitionly is the first where my child actually looks forward to the sessions.&#8221;</p>
+            <div class="bg-earth-cream p-5 md:p-8 rounded-2xl h-full flex flex-col justify-between border border-earth-clay/5">
+              <span class="text-5xl text-earth-terracotta/20 leading-none mb-2 italic">&#8220;</span>
+              <p class="text-lg md:text-xl text-earth-clay font-medium italic leading-relaxed mb-6">&#8220;We tried several tutoring services before. Tuitionly is the first where my child actually looks forward to the sessions.&#8221;</p>
               <div class="flex items-center">
-                <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-earth-sage/20 mr-6 bg-earth-sage/10 flex items-center justify-center flex-shrink-0">
+                <div class="w-11 h-11 rounded-full overflow-hidden border-2 border-earth-sage/20 mr-3 bg-earth-sage/10 flex items-center justify-center flex-shrink-0">
                   <img alt="Arjun Patel" class="w-full h-full object-cover" src="/images/Arjun-Patel.jpg" />
                 </div>
                 <div>
-                  <p class="font-bold text-lg tracking-tight">Arjun Patel</p>
-                  <p class="text-sm text-earth-clay/40 uppercase tracking-widest font-bold">Parent &middot; Year 4</p>
+                  <p class="font-bold text-sm tracking-tight">Arjun Patel</p>
+                  <p class="text-xs text-earth-clay/40 uppercase tracking-widest font-bold">Parent &middot; Year 4</p>
                 </div>
               </div>
             </div>
@@ -298,7 +298,7 @@
       </section>
 
       <!-- ETHOS -->
-      <section class="py-32 bg-earth-cream overflow-hidden"><div class="max-w-6xl mx-auto px-6 sm:px-12"><div class="flex flex-col lg:flex-row gap-24">
+      <section class="py-32 bg-earth-cream"><div class="max-w-6xl mx-auto px-6 sm:px-12"><div class="flex flex-col lg:flex-row gap-24">
         <div class="lg:w-1/3" data-aos="fade-right"><span class="text-earth-sage font-black text-xs uppercase tracking-widest mb-6 block">Our Ethos</span><h2 class="text-4xl md:text-5xl font-extrabold text-earth-clay leading-tight mb-10">How are we different?</h2><div class="h-1 w-24 bg-earth-terracotta/20 mb-10"></div><p class="text-lg text-earth-clay/50 leading-relaxed italic">"Education is not the learning of facts, but the training of the mind to think."</p></div>
         <div class="lg:w-2/3 grid sm:grid-cols-2 gap-x-12 gap-y-16">
           <div class="bg-white rounded-2xl p-8 card-lift border border-earth-clay/5 relative" data-aos="fade-up"><span class="absolute -left-3 -top-3 w-10 h-10 bg-earth-terracotta/10 rounded-xl flex items-center justify-center text-earth-terracotta font-extrabold text-sm">01</span><h4 class="font-bold text-xl mb-3 mt-2">Concept-first teaching</h4><p class="text-earth-clay/60 leading-relaxed text-sm">We explain the "why" before the "how" to ensure deep understanding. Building a foundation that lasts a lifetime.</p></div>
@@ -326,18 +326,50 @@
         <div class="lg:col-span-7 p-6 md:p-8 lg:p-12 bg-earth-beige/30">
           <div class="calendly-wrapper shadow-inner">
             <div id="calendly-skeleton"><div class="skeleton h-6 w-2/5 mb-8 rounded-lg"></div><div class="flex items-center justify-between mb-6"><div class="skeleton h-5 w-5 rounded-full"></div><div class="skeleton h-5 w-32 rounded-lg"></div><div class="skeleton h-5 w-5 rounded-full"></div></div><div class="grid grid-cols-7 gap-2 mb-8"><div class="skeleton h-4 rounded"></div><div class="skeleton h-4 rounded"></div><div class="skeleton h-4 rounded"></div><div class="skeleton h-4 rounded"></div><div class="skeleton h-4 rounded"></div><div class="skeleton h-4 rounded"></div><div class="skeleton h-4 rounded"></div><div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full opacity-30"></div><div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full opacity-30"></div><div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full opacity-30"></div><div class="skeleton h-9 rounded-full opacity-30"></div><div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full opacity-30"></div><div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full opacity-30"></div><div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full opacity-30"></div><div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full opacity-30"></div><div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full opacity-30"></div><div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full opacity-30"></div><div class="skeleton h-9 rounded-full"></div><div class="skeleton h-9 rounded-full opacity-30"></div><div class="skeleton h-9 rounded-full"></div></div><div class="flex items-center gap-3 mt-4"><div class="skeleton h-4 w-4 rounded-full"></div><div class="skeleton h-4 w-40 rounded-lg"></div></div></div>
-            <div class="calendly-inline-widget" data-url="https://calendly.com/contact-tuitionly/30min?hide_gdpr_banner=1&background_color=F0EDE8&text_color=264653&primary_color=2A9D8F"></div>
+            <div class="calendly-inline-widget" data-url="https://calendly.com/contact-tuitionly/30min?hide_gdpr_banner=1&background_color=F5F7FA&text_color=0F2B36&primary_color=14B8A6"></div>
           </div>
         </div>
       </div></div></div></section>
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-earth-clay py-20 px-6 sm:px-12 text-white/50" data-aos="fade-up"><div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
-      <div class="text-white font-extrabold text-2xl tracking-tighter">Tuitionly<span class="text-earth-terracotta">.</span></div>
-      <p id="footer-year" class="text-xs font-bold uppercase tracking-widest text-center md:text-left">&copy; Tuitionly. Learning made simple.</p>
-      <div class="flex space-x-8"><a class="hover:text-earth-terracotta transition-colors" href="#"><span class="material-symbols-outlined text-xl">brand_family</span></a><a class="hover:text-earth-terracotta transition-colors" href="#"><span class="material-symbols-outlined text-xl">camera</span></a></div>
-    </div></footer>
+    <footer class="bg-earth-clay py-20 px-6 sm:px-12 text-white/50" data-aos="fade-up">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between gap-12 mb-12">
+          <div>
+            <div class="text-white font-extrabold text-2xl tracking-tighter mb-4">Tuitionly<span class="text-earth-terracotta">.</span></div>
+            <p class="text-white/40 text-sm max-w-xs leading-relaxed">Online tuition for students in all age groups. Building confidence and results with personalised learning.</p>
+          </div>
+          <div class="flex flex-wrap gap-16">
+            <div>
+              <p class="text-white/30 text-[10px] font-black uppercase tracking-widest mb-4">Curricula</p>
+              <ul class="space-y-3">
+                <li><a class="text-white/60 hover:text-earth-terracotta transition-colors text-sm" href="/ib.html">IB</a></li>
+                <li><a class="text-white/60 hover:text-earth-terracotta transition-colors text-sm" href="/igcse.html">IGCSE</a></li>
+                <li><a class="text-white/60 hover:text-earth-terracotta transition-colors text-sm" href="/cbse.html">CBSE</a></li>
+                <li><a class="text-white/60 hover:text-earth-terracotta transition-colors text-sm" href="/ap.html">AP</a></li>
+              </ul>
+            </div>
+            <div>
+              <p class="text-white/30 text-[10px] font-black uppercase tracking-widest mb-4">Quick Links</p>
+              <ul class="space-y-3">
+                <li><a class="text-white/60 hover:text-earth-terracotta transition-colors text-sm" href="#approach">Our Process</a></li>
+                <li><a class="text-white/60 hover:text-earth-terracotta transition-colors text-sm" href="#pricing">Pricing</a></li>
+                <li><a class="text-white/60 hover:text-earth-terracotta transition-colors text-sm" href="#testimonials">Stories</a></li>
+                <li><a class="text-white/60 hover:text-earth-terracotta transition-colors text-sm" href="#contact">Book Free Demo</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p id="footer-year" class="text-xs font-bold uppercase tracking-widest">&copy; Tuitionly. Learning made simple.</p>
+          <div class="flex space-x-8">
+            <a class="hover:text-earth-terracotta transition-colors" href="#"><span class="material-symbols-outlined text-xl">brand_family</span></a>
+            <a class="hover:text-earth-terracotta transition-colors" href="#"><span class="material-symbols-outlined text-xl">camera</span></a>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
@@ -348,7 +380,14 @@
       const lenis=new Lenis({duration:1.2,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t)),smooth:true});
       function raf(t){lenis.raf(t);requestAnimationFrame(raf)}requestAnimationFrame(raf);
       const nav=document.getElementById('main-nav'),navLogo=document.querySelector('.nav-logo'),navLinks=document.querySelectorAll('.nav-link');
-      window.addEventListener('scroll',()=>{if(window.scrollY>100){nav.classList.add('scrolled');navLogo.style.color='#264653';navLinks.forEach(l=>l.style.color='rgba(38,70,83,0.7)')}else{nav.classList.remove('scrolled');navLogo.style.color='#fff';navLinks.forEach(l=>l.style.color='rgba(255,255,255,0.7)')}});
+      let lastScrollY=window.scrollY;
+      window.addEventListener('scroll',()=>{
+        const sy=window.scrollY;
+        if(sy>100){nav.classList.add('scrolled');navLogo.style.color='#0F2B36';navLinks.forEach(l=>l.style.color='rgba(15,43,54,0.7)');}
+        else{nav.classList.remove('scrolled');navLogo.style.color='#fff';navLinks.forEach(l=>l.style.color='rgba(255,255,255,0.7)');}
+        if(sy>200&&sy>lastScrollY){nav.classList.add('nav-hidden');}else{nav.classList.remove('nav-hidden');}
+        lastScrollY=sy;
+      });
       const yearEl=document.getElementById('footer-year');if(yearEl)yearEl.innerHTML=`&copy; ${new Date().getFullYear()} Tuitionly. Learning made simple.`;
       const mobileToggle=document.getElementById('mobile-menu-toggle'),mobileMenu=document.getElementById('mobile-menu');
       if(mobileToggle&&mobileMenu){mobileToggle.addEventListener('click',()=>{const o=mobileToggle.getAttribute('aria-expanded')==='true';mobileToggle.setAttribute('aria-expanded',String(!o));mobileMenu.classList.toggle('scale-y-0');mobileMenu.classList.toggle('opacity-0');mobileMenu.classList.toggle('pointer-events-none')});mobileMenu.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{mobileToggle.setAttribute('aria-expanded','false');mobileMenu.classList.add('scale-y-0','opacity-0','pointer-events-none')}))}

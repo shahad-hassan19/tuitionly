@@ -1,15 +1,15 @@
 /* ══════════════════════════════════════════════════════════
-   TUITIONLY — Shared Theme (Teal / Cream / Forest)
+   TUITIONLY — Shared Theme (Vivid Teal / Clean / Deep Forest)
    ══════════════════════════════════════════════════════════ */
 
 :root {
-  --teal: #2A9D8F;
-  --mint: #8ECAC4;
-  --cream: #F0EDE8;
-  --ivory: #FAF8F5;
-  --forest: #264653;
-  --soft-teal: #E0F0ED;
-  --soft-mint: #E8F2F0;
+  --teal: #14B8A6;
+  --mint: #2DD4BF;
+  --cream: #F5F7FA;
+  --ivory: #FFFFFF;
+  --forest: #0F2B36;
+  --soft-teal: #CCFBF1;
+  --soft-mint: #D5F5F0;
 }
 
 /* ─── Lenis smooth scroll ─── */
@@ -18,17 +18,21 @@ html.lenis, html.lenis body { height: auto; }
 
 /* ─── Nav scroll effect ─── */
 nav#main-nav {
-  transition: background-color 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease, transform 0.35s cubic-bezier(.4,0,.2,1);
+  will-change: transform;
 }
 nav#main-nav.scrolled {
-  background-color: rgba(240, 237, 232, 0.95) !important;
-  box-shadow: 0 4px 30px rgba(38, 70, 83, 0.08);
-  border-color: rgba(38, 70, 83, 0.1) !important;
+  background-color: rgba(255, 255, 255, 0.97) !important;
+  box-shadow: 0 4px 30px rgba(15, 43, 54, 0.1);
+  border-color: rgba(15, 43, 54, 0.08) !important;
+}
+nav#main-nav.nav-hidden {
+  transform: translateY(-100%);
 }
 
 /* ─── Animated gradient hero (shared) ─── */
 .hero-gradient-dark {
-  background: linear-gradient(135deg, #264653 0%, #1d3640 30%, #2A4A54 60%, #2A9D8F 100%);
+  background: linear-gradient(135deg, #0F2B36 0%, #163a4a 30%, #1a4a5a 60%, #14B8A6 100%);
   background-size: 300% 300%;
   animation: heroGradientDark 12s ease-in-out infinite;
 }
@@ -40,10 +44,10 @@ nav#main-nav.scrolled {
 
 .hero-gradient-light {
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(42,157,143,0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(142,202,196,0.06) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(42,157,143,0.04) 0%, transparent 50%),
-    #F0EDE8;
+    radial-gradient(ellipse at 20% 50%, rgba(20,184,166,0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(45,212,191,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(20,184,166,0.05) 0%, transparent 50%),
+    #F5F7FA;
   background-size: 200% 200%;
   animation: heroGradientLight 10s ease-in-out infinite;
 }
@@ -71,7 +75,7 @@ nav#main-nav.scrolled {
 
 /* ─── Pulse ring on CTA ─── */
 @keyframes pulseRing {
-  0% { transform: scale(1); opacity: 0.4; }
+  0% { transform: scale(1); opacity: 0.5; }
   100% { transform: scale(1.5); opacity: 0; }
 }
 .pulse-ring { position: relative; }
@@ -80,7 +84,7 @@ nav#main-nav.scrolled {
   position: absolute;
   inset: -4px;
   border-radius: 9999px;
-  border: 2px solid rgba(42,157,143,0.35);
+  border: 2px solid rgba(20,184,166,0.45);
   animation: pulseRing 2s ease-out infinite;
 }
 
@@ -90,7 +94,7 @@ nav#main-nav.scrolled {
 }
 .card-lift:hover {
   transform: translateY(-6px);
-  box-shadow: 0 25px 50px rgba(38,70,83,0.12);
+  box-shadow: 0 25px 50px rgba(15,43,54,0.15);
 }
 
 /* ─── Button shine sweep ─── */
@@ -102,7 +106,7 @@ nav#main-nav.scrolled {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
   transform: translateX(-100%);
   transition: transform 0.6s ease;
 }
@@ -116,7 +120,7 @@ nav#main-nav.scrolled {
   background-clip: text;
 }
 .gradient-text-warm {
-  background: linear-gradient(135deg, var(--teal), #1a7a6f);
+  background: linear-gradient(135deg, var(--teal), #0d9488);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -126,7 +130,7 @@ nav#main-nav.scrolled {
 .blob {
   border-radius: 50%;
   filter: blur(80px);
-  opacity: 0.3;
+  opacity: 0.35;
   pointer-events: none;
 }
 
@@ -140,7 +144,7 @@ nav#main-nav.scrolled {
 
 /* ─── Testimonials (Swiper) ─── */
 .testimonials-pagination .swiper-pagination-bullet {
-  background: rgba(38, 70, 83, 0.25);
+  background: rgba(15, 43, 54, 0.2);
   opacity: 1;
 }
 .testimonials-pagination .swiper-pagination-bullet-active {
@@ -178,7 +182,7 @@ nav#main-nav.scrolled {
   100% { background-position:  700px 0; }
 }
 .skeleton {
-  background: linear-gradient(90deg, rgba(38,70,83,0.07) 25%, rgba(38,70,83,0.13) 50%, rgba(38,70,83,0.07) 75%);
+  background: linear-gradient(90deg, rgba(15,43,54,0.06) 25%, rgba(15,43,54,0.12) 50%, rgba(15,43,54,0.06) 75%);
   background-size: 700px 100%;
   animation: shimmer 1.6s infinite linear;
   border-radius: 0.5rem;
