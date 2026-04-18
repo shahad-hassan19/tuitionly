@@ -9,33 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-    <link href="/styles.css" rel="stylesheet" />
+    <link href="/css/styles.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              "earth-beige":"#F5F7FA","earth-cream":"#FFFFFF","earth-sage":"#2DD4BF","earth-terracotta":"#14B8A6","earth-clay":"#0F2B36","soft-green":"#CCFBF1","soft-clay":"#D5F5F0",
-            },
-            fontFamily: { sans: ["Inter", "sans-serif"] },
-          },
-        },
-      };
-    </script>
-    <style>
-      .sub-hero {
-        background: linear-gradient(135deg, #0F2B36 0%, #14B8A6 50%, #0F2B36 100%);
-        background-size: 300% 300%;
-        animation: heroGradientDark 12s ease-in-out infinite;
-      }
-      .gradient-text-sage {
-        background: linear-gradient(135deg, #2DD4BF, #14B8A6);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-    </style>
+    <script src="/js/tailwind-config.js"></script>
   </head>
 
   <body class="bg-earth-beige text-earth-clay font-sans antialiased selection:bg-earth-terracotta/30">
@@ -68,7 +44,7 @@
     </nav>
 
     <!-- HERO -->
-    <section class="sub-hero relative min-h-[85vh] flex items-center justify-center text-center overflow-clip pt-24">
+    <section class="sub-hero sub-hero-igcse relative min-h-[85vh] flex items-center justify-center text-center overflow-clip pt-24">
       <div class="absolute top-32 left-10 w-20 h-20 border-2 border-white/10 rounded-full float-1 hidden md:block"></div>
       <div class="absolute top-48 right-16 w-12 h-12 bg-earth-terracotta/20 rounded-lg float-2 hidden md:block"></div>
       <div class="absolute bottom-32 left-1/4 w-16 h-16 border-2 border-earth-sage/20 rounded-full float-3 hidden md:block"></div>
@@ -88,7 +64,7 @@
           Excel in the Cambridge International curriculum with expert tutoring. From Lower Secondary to AS/A Levels, we build understanding that lasts.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="300">
-          <a href="index.html#contact" class="relative inline-flex items-center gap-2 px-8 py-4 bg-earth-terracotta text-white rounded-full font-bold text-base shadow-lg shadow-earth-terracotta/30 hover:shadow-xl hover:shadow-earth-terracotta/40 transition-all hover:scale-105 btn-shine pulse-ring">
+          <a href="index.html#contact" class="btn-primary btn-shine pulse-ring">
             <span>Book Free Demo</span>
             <span class="material-symbols-outlined text-lg">arrow_forward</span>
           </a>
@@ -105,7 +81,7 @@
     </section>
 
     <!-- STATS BAR -->
-    <section class="relative z-10 -mt-16 px-4 sm:px-6">
+    <section class="relative z-10 stats-overlap px-4 sm:px-6 lg:px-12">
       <div class="max-w-5xl mx-auto">
         <div class="bg-white rounded-2xl shadow-2xl shadow-earth-clay/10 p-6 md:p-8 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8" data-aos="fade-up" data-aos-delay="100">
           <div class="text-center">
@@ -133,7 +109,7 @@
     </section>
 
     <!-- CURRICULUM -->
-    <section id="curriculum" class="py-24 sm:py-32 px-4 sm:px-6">
+    <section id="curriculum" class="py-24 sm:py-32 px-4 sm:px-6 lg:px-12">
       <div class="max-w-5xl mx-auto">
         <div class="text-center mb-16" data-aos="fade-up">
           <span class="text-earth-terracotta font-black text-xs uppercase tracking-widest mb-4 block">Curriculum</span>
@@ -160,7 +136,7 @@
     </section>
 
     <!-- WHY TUITIONLY -->
-    <section id="why" class="py-24 px-4 sm:px-6 bg-earth-cream">
+    <section id="why" class="py-24 px-4 sm:px-6 lg:px-12 bg-earth-cream">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16" data-aos="fade-up">
           <span class="text-earth-sage font-black text-xs uppercase tracking-widest mb-4 block">Why Choose Us</span>
@@ -187,7 +163,7 @@
     </section>
 
     <!-- HOW IT WORKS -->
-    <section id="how" class="py-24 sm:py-32 px-4 sm:px-6 bg-earth-beige">
+    <section id="how" class="py-24 sm:py-32 px-4 sm:px-6 lg:px-12 bg-earth-beige">
       <div class="max-w-5xl mx-auto">
         <div class="text-center mb-16" data-aos="fade-up">
           <span class="text-earth-terracotta font-black text-xs uppercase tracking-widest mb-4 block">Simple Process</span>
@@ -215,7 +191,7 @@
     </section>
 
     <!-- CTA -->
-    <section class="py-24 px-4 sm:px-6 relative overflow-clip">
+    <section class="py-24 px-4 sm:px-6 lg:px-12 relative overflow-clip">
       <div class="absolute inset-0 bg-gradient-to-br from-earth-clay to-earth-clay/90"></div>
       <div class="absolute top-10 right-10 w-40 h-40 border-2 border-white/10 rounded-full float-1 hidden md:block"></div>
       <div class="absolute bottom-10 left-10 w-24 h-24 bg-white/5 rounded-2xl float-2 hidden md:block"></div>
@@ -229,7 +205,7 @@
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="py-24 sm:py-32 px-4 sm:px-6">
+    <section id="about" class="py-24 sm:py-32 px-4 sm:px-6 lg:px-12">
       <div class="max-w-6xl mx-auto">
         <div class="grid lg:grid-cols-2 gap-16 items-center">
           <div data-aos="fade-right">
@@ -257,7 +233,7 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-earth-clay py-20 px-6 sm:px-12 text-white/50" data-aos="fade-up">
+    <footer class="bg-earth-clay py-20 px-4 sm:px-6 lg:px-12 text-white/50" data-aos="fade-up">
       <div class="max-w-6xl mx-auto">
         <div class="flex flex-col md:flex-row justify-between gap-12 mb-12">
           <div>
@@ -277,10 +253,9 @@
             <div>
               <p class="text-white/30 text-[10px] font-black uppercase tracking-widest mb-4">Quick Links</p>
               <ul class="space-y-3">
-                <li><a class="text-white/60 hover:text-earth-terracotta transition-colors text-sm" href="#approach">Our Process</a></li>
-                <li><a class="text-white/60 hover:text-earth-terracotta transition-colors text-sm" href="#pricing">Pricing</a></li>
-                <li><a class="text-white/60 hover:text-earth-terracotta transition-colors text-sm" href="#testimonials">Stories</a></li>
-                <li><a class="text-white/60 hover:text-earth-terracotta transition-colors text-sm" href="#contact">Book Free Demo</a></li>
+                <li><a class="text-white/60 hover:text-earth-terracotta transition-colors text-sm" href="#curriculum">Curriculum</a></li>
+                <li><a class="text-white/60 hover:text-earth-terracotta transition-colors text-sm" href="#why">Why Us</a></li>
+                <li><a class="text-white/60 hover:text-earth-terracotta transition-colors text-sm" href="#about">About</a></li>
               </ul>
             </div>
           </div>
@@ -297,30 +272,6 @@
 
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
-    <script>
-      AOS.init({ duration: 800, once: true, offset: 80, easing: 'ease-out-cubic' });
-      const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smooth: true });
-      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-      requestAnimationFrame(raf);
-      const nav = document.getElementById('main-nav');
-      const navLogo = document.querySelector('.nav-logo');
-      const navLinks = document.querySelectorAll('.nav-link');
-      let lastScrollY = window.scrollY;
-      window.addEventListener('scroll', () => {
-        const sy = window.scrollY;
-        if (sy > 100) { nav.classList.add('scrolled'); navLogo.style.color = '#0F2B36'; navLinks.forEach(l => { l.style.color = 'rgba(15,43,54,0.7)'; }); }
-        else { nav.classList.remove('scrolled'); navLogo.style.color = '#fff'; navLinks.forEach(l => { l.style.color = 'rgba(255,255,255,0.7)'; }); }
-        if (sy > 200 && sy > lastScrollY) { nav.classList.add('nav-hidden'); } else { nav.classList.remove('nav-hidden'); }
-        lastScrollY = sy;
-      });
-      const yearEl = document.getElementById("footer-year");
-      if (yearEl) yearEl.innerHTML = `&copy; ${new Date().getFullYear()} Tuitionly. Learning made simple.`;
-      const mobileToggle = document.getElementById("mobile-menu-toggle");
-      const mobileMenu = document.getElementById("mobile-menu");
-      if (mobileToggle && mobileMenu) {
-        mobileToggle.addEventListener("click", () => { const isOpen = mobileToggle.getAttribute("aria-expanded") === "true"; mobileToggle.setAttribute("aria-expanded", String(!isOpen)); mobileMenu.classList.toggle("scale-y-0"); mobileMenu.classList.toggle("opacity-0"); mobileMenu.classList.toggle("pointer-events-none"); });
-        mobileMenu.querySelectorAll("a").forEach(link => { link.addEventListener("click", () => { mobileToggle.setAttribute("aria-expanded", "false"); mobileMenu.classList.add("scale-y-0", "opacity-0", "pointer-events-none"); }); });
-      }
-    </script>
+    <script src="/js/shared.js"></script>
   </body>
 </html>
