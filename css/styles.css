@@ -12,6 +12,10 @@
   --soft-mint: #D5F5F0;
 }
 
+/* ─── Prevent horizontal overflow from AOS X-axis animations ─── */
+html { overflow-x: clip; }
+body { overflow-x: hidden; }
+
 /* ─── Lenis smooth scroll ─── */
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
@@ -37,6 +41,7 @@ nav#main-nav.nav-hidden {
   background: linear-gradient(135deg, #0F2B36 0%, #163a4a 30%, #1a4a5a 60%, #14B8A6 100%);
   position: relative;
   isolation: isolate;
+  clip-path: inset(0);
 }
 .hero-gradient-dark::before {
   content: '';
@@ -164,6 +169,7 @@ nav#main-nav.nav-hidden {
 .sub-hero {
   position: relative;
   isolation: isolate;
+  clip-path: inset(0);
 }
 .sub-hero::before {
   content: '';
