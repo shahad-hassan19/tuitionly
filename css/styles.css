@@ -13,7 +13,7 @@
 }
 
 /* ─── Prevent horizontal overflow from AOS X-axis animations ─── */
-html { overflow-x: clip; }
+html { overflow-x: clip; scroll-behavior: smooth; overflow-x: hidden; }
 body { overflow-x: clip; }
 
 /* ─── Lenis smooth scroll ─── */
