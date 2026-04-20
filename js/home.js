@@ -1,5 +1,5 @@
 const testimonialEl = document.querySelector('.testimonials-swiper');
-if (window.Swiper && testimonialEl) {
+if (window.Swiper && testimonialEl && !testimonialEl.swiper) {
   new Swiper(testimonialEl, {
     slidesPerView: 1,
     spaceBetween: 12,
