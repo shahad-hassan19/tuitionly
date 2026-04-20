@@ -55,6 +55,16 @@ function watchCalendlyIframe() {
   obs.observe(widget, { childList: true, subtree: true });
 }
 
-document.readyState === 'loading'
-  ? document.addEventListener('DOMContentLoaded', watchCalendlyIframe)
-  : watchCalendlyIframe();
+const contactSection = document.getElementById('contact');
+if (contactSection) {
+  const calObs = new IntersectionObserver((entries) => {
+    if (!entries[0].isIntersecting) return;
+    calObs.disconnect();
+    const s = document.createElement('script');
+    s.src = 'https://assets.calendly.com/assets/external/widget.js';
+    s.async = true;
+    s.onload = watchCalendlyIframe;
+    document.head.appendChild(s);
+  }, { rootMargin: '300px' });
+  calObs.observe(contactSection);
+}

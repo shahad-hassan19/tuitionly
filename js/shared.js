@@ -1,13 +1,5 @@
 AOS.init({ duration: 800, once: true, offset: 80, easing: 'ease-out-cubic' });
 
-const lenis = new Lenis({
-  duration: 1.2,
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  smooth: true,
-});
-function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-requestAnimationFrame(raf);
-
 const nav = document.getElementById('main-nav');
 const navLogo = document.querySelector('.nav-logo');
 const navLinks = document.querySelectorAll('.nav-link');

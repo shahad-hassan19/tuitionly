@@ -200,7 +200,16 @@
               <div
                 class="relative w-full aspect-[5/4] rounded-2xl overflow-hidden shadow-2xl shadow-black/20"
               >
-                <img
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcset="
+                      /images/Hero-Image-800.webp   800w,
+                      /images/Hero-Image-1600.webp 1600w
+                    "
+                    sizes="(max-width: 1024px) 100vw, 45vw"
+                  />
+                  <img
                   src="/images/Hero-Image-800.jpg"
                   srcset="
                     /images/Hero-Image-800.jpg   800w,
@@ -213,6 +222,7 @@
                   fetchpriority="high"
                   class="w-full h-full object-cover"
                 />
+                </picture>
                 <div
                   class="absolute inset-0 bg-gradient-to-t from-earth-clay/30 to-transparent"
                 ></div>
@@ -475,12 +485,10 @@
                       <div
                         class="w-11 h-11 rounded-full overflow-hidden border-2 border-earth-terracotta/20 mr-3 bg-earth-terracotta/10 flex items-center justify-center flex-shrink-0"
                       >
-                        <img
-                          alt="Gaurav Sharma"
-                          class="w-full h-full object-cover"
-                          loading="lazy"
-                          src="/images/Gaurav-Sharma.jpg"
-                        />
+                        <picture>
+                          <source type="image/webp" srcset="/images/Gaurav-Sharma.webp" />
+                          <img alt="Gaurav Sharma" class="w-full h-full object-cover" loading="lazy" src="/images/Gaurav-Sharma.jpg" />
+                        </picture>
                       </div>
                       <div>
                         <p class="font-bold text-sm tracking-tight">
@@ -516,12 +524,10 @@
                       <div
                         class="w-11 h-11 rounded-full overflow-hidden border-2 border-earth-sage/20 mr-3 bg-earth-sage/10 flex items-center justify-center flex-shrink-0"
                       >
-                        <img
-                          alt="Kiran Joshi"
-                          class="w-full h-full object-cover"
-                          loading="lazy"
-                          src="/images/Kiran-Joshi.jpg"
-                        />
+                        <picture>
+                          <source type="image/webp" srcset="/images/Kiran-Joshi.webp" />
+                          <img alt="Kiran Joshi" class="w-full h-full object-cover" loading="lazy" src="/images/Kiran-Joshi.jpg" />
+                        </picture>
                       </div>
                       <div>
                         <p class="font-bold text-sm tracking-tight">
@@ -557,12 +563,10 @@
                       <div
                         class="w-11 h-11 rounded-full overflow-hidden border-2 border-earth-terracotta/20 mr-3 bg-earth-terracotta/10 flex items-center justify-center flex-shrink-0"
                       >
-                        <img
-                          alt="Priya Menon"
-                          class="w-full h-full object-cover"
-                          loading="lazy"
-                          src="/images/Priya-Menon.jpg"
-                        />
+                        <picture>
+                          <source type="image/webp" srcset="/images/Priya-Menon.webp" />
+                          <img alt="Priya Menon" class="w-full h-full object-cover" loading="lazy" src="/images/Priya-Menon.jpg" />
+                        </picture>
                       </div>
                       <div>
                         <p class="font-bold text-sm tracking-tight">
@@ -598,12 +602,10 @@
                       <div
                         class="w-11 h-11 rounded-full overflow-hidden border-2 border-earth-sage/20 mr-3 bg-earth-sage/10 flex items-center justify-center flex-shrink-0"
                       >
-                        <img
-                          alt="Arjun Patel"
-                          class="w-full h-full object-cover"
-                          loading="lazy"
-                          src="/images/Arjun-Patel.jpg"
-                        />
+                        <picture>
+                          <source type="image/webp" srcset="/images/Arjun-Patel.webp" />
+                          <img alt="Arjun Patel" class="w-full h-full object-cover" loading="lazy" src="/images/Arjun-Patel.jpg" />
+                        </picture>
                       </div>
                       <div>
                         <p class="font-bold text-sm tracking-tight">
@@ -1244,14 +1246,8 @@
       </div>
     </footer>
 
-    <script
-      src="https://assets.calendly.com/assets/external/widget.js"
-      type="text/javascript"
-      async
-    ></script>
     <script src="/vendor/swiper-bundle.min.js"></script>
     <script src="/vendor/aos.js"></script>
-    <script src="/vendor/lenis.min.js"></script>
     <script src="/js/shared.js"></script>
     <script src="/js/home.js"></script>
   </body>
